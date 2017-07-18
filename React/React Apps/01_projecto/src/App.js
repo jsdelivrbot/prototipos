@@ -1,17 +1,22 @@
-/*jshint esversion: 6 */ 
-/*jshint ignore:start */
-
 import React from 'react';
 import ReactDom from 'react-dom';
+import Navbar from './components/Navbar';
+import Header from './components/Header'; 
+import Home from './components/Home'; 
+import Footer from './components/Footer'; 
 
 class App extends React.Component {
     render(){
         return (
             <div>
-                <h1>React App</h1>
+                <Navbar />
+                <Header />
+                <Home />
+                <hr />
+                <Footer />
             </div>
         )
     }
 }
-
-ReactDom.render(<App />, document.querySelector('#app'));
+export default App;
+//ReactDom.render(<App />, document.querySelector('#app'));
