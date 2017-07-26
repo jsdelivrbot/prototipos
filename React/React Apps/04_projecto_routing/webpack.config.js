@@ -2,8 +2,9 @@ var webpack = require("webpack");
 var path = require('path');
 
 module.exports = {
+	watch: true,
 	entry: {
-		app: "./src/App.js"
+		app: "./src/index.js"
 	},
 	output: {
 		filename:"build/bundle.js",

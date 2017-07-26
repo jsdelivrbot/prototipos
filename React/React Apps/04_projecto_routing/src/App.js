@@ -1,17 +1,25 @@
-/*jshint esversion: 6 */ 
-/*jshint ignore:start */
-
 import React from 'react';
-import ReactDom from 'react-dom';
+import { Switch, Route } from 'react-router-dom'
+
+import Home from './Home';
+import One from './One';
+import Two from './Two';
+import Header from './Header';
 
 class App extends React.Component {
     render(){
         return (
             <div>
-                <h1>React App 621</h1>
+                <Header />
+                <Switch>
+                    <Route exact path="/" component={ Home }/>
+                    <Route path="/One" component={ One }/>
+                    <Route path="/Two" component={ Two }/>
+                </Switch>
             </div>
         )
     }
 }
 
-ReactDom.render(<App />, document.querySelector('#app'));
+export default App;
+
