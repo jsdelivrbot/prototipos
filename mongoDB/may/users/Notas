@@ -1,0 +1,8 @@
+C:\MAMP\htdocs\project621\prototipos\mongoDB\may\users> npm run test
+
+Mocha Starts
+Tells Mongoose to Connect to Mongo
+--wait
+Mongoose connects to Mongo 
+Connection Successful? Run Tests
+
