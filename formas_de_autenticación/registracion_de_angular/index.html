@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+        <title> Angular Registration</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/library/angular/angular.min.js"></script>
+        <script src="js/library/angular/angular-route.min.js"></script>
+        <script src="js/library/angular/angular-animate.min.js"></script>
+
+        
+        <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+        <script>
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCUXAWcRWT9AR3XgOob6yj2xJPv1af-ziY",
+            authDomain: "registration-61aa0.firebaseapp.com",
+            databaseURL: "https://registration-61aa0.firebaseio.com",
+            storageBucket: "registration-61aa0.appspot.com",
+            messagingSenderId: "255506733391"
+        };
+        firebase.initializeApp(config);
+        </script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+
+        <script src="js/script.js"></script>
+        <script src="js/services/authentication.js"></script>
+        <script src="js/controllers/registration.js"></script>
+        <script src="js/controllers/success.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav ng-include="'views/nav.html'"></nav>
+        </header>
+        <div>
+            <div ng-show="currentUser" ng-controller="RegistrationController">
+                <p>Hi {{currentUser.firstname}}</p>
+                <a ng-href="#/login" ng-click="logout()">logout</a>
+            </div>
+
+            <main ng-view></main>
+        </div>
+    </body>
+</html>
