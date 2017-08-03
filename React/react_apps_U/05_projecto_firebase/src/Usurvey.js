@@ -41,12 +41,25 @@ class Usurvey extends React.Component {
         })
     }
 
-    answerSelected() {
-        console.log(621)
+    answerSelected(event) { 
+        var answers = this.state.answers;
+        if(event.target.name === 'answer1') {
+            answers.answer1 = event.target.value;
+        }
+        else if(event.target.name === 'answer2' ) {
+            answers.answer2 = event.target.value;
+        }
+        else if(event.target.name === 'answer3' ) {
+            answers.answer3 = event.target.value;
+        }
+
+        this.setState({ answers: answers }, function () {
+            console.log(this.state.answers)
+        })
     }
 
     questionsSubmit() {
-        
+        //this.setState({ isSubmitted: true})
     }
 
     render() {
@@ -89,7 +102,10 @@ class Usurvey extends React.Component {
                                 </div>
                             </form>
                         </div>;
-}
+        }
+        else if(this.state.isSubmitted === true) {
+            studentName = <h1>Thanks, { this.state.studentName }</h1>
+        }
         return (
             <div>
                 { studentName }

@@ -36988,12 +36988,25 @@ var Usurvey = function (_React$Component) {
         }
     }, {
         key: 'answerSelected',
-        value: function answerSelected() {
-            console.log(621);
+        value: function answerSelected(event) {
+            var answers = this.state.answers;
+            if (event.target.name === 'answer1') {
+                answers.answer1 = event.target.value;
+            } else if (event.target.name === 'answer2') {
+                answers.answer2 = event.target.value;
+            } else if (event.target.name === 'answer3') {
+                answers.answer3 = event.target.value;
+            }
+
+            this.setState({ answers: answers }, function () {
+                console.log(this.state.answers);
+            });
         }
     }, {
         key: 'questionsSubmit',
-        value: function questionsSubmit() {}
+        value: function questionsSubmit() {
+            //this.setState({ isSubmitted: true})
+        }
     }, {
         key: 'render',
         value: function render() {
@@ -37087,6 +37100,13 @@ var Usurvey = function (_React$Component) {
                             _react2.default.createElement('input', { className: 'feedback-button', type: 'submit', value: 'submit' })
                         )
                     )
+                );
+            } else if (this.state.isSubmitted === true) {
+                studentName = _react2.default.createElement(
+                    'h1',
+                    null,
+                    'Thanks, ',
+                    this.state.studentName
                 );
             }
             return _react2.default.createElement(
