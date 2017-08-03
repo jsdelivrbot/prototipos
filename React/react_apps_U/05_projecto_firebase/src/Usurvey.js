@@ -20,7 +20,7 @@ class Usurvey extends React.Component {
 
         this.state = {
             uid: uuid.v1(),
-            studentName: '',
+            studentName: 'uriel621',
             answers: {
                 answer1: '',
                 answer2: '',
@@ -29,7 +29,9 @@ class Usurvey extends React.Component {
             isSubmitted: false
         };
 
-        this.nameSubmit = this.nameSubmit.bind(this)
+        this.nameSubmit = this.nameSubmit.bind(this);
+        this.answerSelected = this.answerSelected.bind(this);
+        this.questionsSubmit = this.questionsSubmit.bind(this);        
     }
 
     nameSubmit(event) {
@@ -37,6 +39,14 @@ class Usurvey extends React.Component {
         this.setState({ studentName: studentName}, function(){
             console.log(this.state)
         })
+    }
+
+    answerSelected() {
+        console.log(621)
+    }
+
+    questionsSubmit() {
+        
     }
 
     render() {
@@ -51,9 +61,34 @@ class Usurvey extends React.Component {
                                 </form>
                             </div>
         }
-else  if (this.state.studentName !== '' && this.state.isSubmitted === false){
-    studentName = <h1>Welcome to U-Survey, { this.state.studentName }</h1>;
-    questions = <p>Hey</p>;
+        else  if (this.state.studentName !== '' && this.state.isSubmitted === false){
+            studentName = <h1>Welcome to U-Survey, { this.state.studentName }</h1>;
+            questions = <div>
+                            <h2>Here are some questions</h2>
+                            <form onSubmit={ this.questionsSubmit }>
+                                <div className='card'>
+                                    <label>What kind of courses you like the most: </label><br />
+                                    <input type='radio' name='answer1' value='Technology' onChange={ this.answerSelected } /> Technology
+                                    <input type='radio' name='answer1' value='Design' onChange={ this.answerSelected } /> Design
+                                    <input type='radio' name='answer1' value='Marketing' onChange={ this.answerSelected } /> Marketing                            
+                                </div>
+                                <div className='card'>
+                                    <label>You are a: </label><br />
+                                    <input type='radio' name='answer2' value='student' onChange={ this.answerSelected } /> student
+                                    <input type='radio' name='answer2' value='in-job' onChange={ this.answerSelected } /> in-job
+                                    <input type='radio' name='answer2' value='looking-job' onChange={ this.answerSelected } /> looking-job                            
+                                </div>
+                                <div className='card'>
+                                    <label>Is online learning helpful: </label><br />
+                                    <input type='radio' name='answer3' value='yes' onChange={ this.answerSelected } /> yes
+                                    <input type='radio' name='answer3' value='no' onChange={ this.answerSelected } /> no 
+                                    <input type='radio' name='answer3' value='maybe' onChange={ this.answerSelected } /> maybe                            
+                                </div>
+                                <div className='div-button'>
+                                    <input className='feedback-button' type='submit' value='submit' />
+                                </div>
+                            </form>
+                        </div>;
 }
         return (
             <div>
