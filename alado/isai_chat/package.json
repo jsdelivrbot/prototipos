@@ -1,0 +1,21 @@
+{
+  "name": "isai_chat",
+  "version": "1.0.0",
+  "description": "Chat",
+  "main": "server.js",
+  "scripts": {
+    "": "",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3",
+    "webpack": "^2.4.1"
+  }
+}
