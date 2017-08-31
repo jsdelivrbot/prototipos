@@ -1,0 +1,73 @@
+
+<script type="text/javascript">
+    // Lets do this
+/*
+  
+  Lecture 2
+  ES6 is the new version of JavaScript. ES6 is ECMAscript 2015. 
+  
+  ES6 Code --> Babel --> ES5 Code
+  
+*/
+
+/*
+  Lecture 2
+  
+  Master this things
+  forEach, map, filter, find, every, some, reduce
+    
+  used to avoid for loops; use array helper methods better
+*/
+
+/*forEach*/
+
+let trucks = ["Ford", "Sierra", "Silverado", "Tundra"];
+
+trucks.forEach(function(truck){
+  console.log(truck)
+})
+
+let sum = 0;
+let numbers = [5, 2, 8, 9, 621];
+numbers.forEach(function(number){
+  
+  sum += number
+  console.log(sum)
+})
+
+// or 
+
+const adder = (number) => {
+  sum += number;
+  console.log(sum)
+}
+numbers.forEach(adder)
+
+//TESTS
+/*
+function handlePosts() {
+    var posts = [
+      { id: 23, title: 'Daily JS News' },
+      { id: 52, title: 'Code Refactor City' },
+      { id: 105, title: 'The Brightest Ruby' }
+    ];
+    
+    posts.forEach(function(post){
+        savePost(post);
+    });
+}
+
+var images = [
+  { height: 10, width: 30 },
+  { height: 20, width: 90 },
+  { height: 54, width: 32 }
+];
+var areas = [];
+var result = null;
+images.forEach(function(image){
+    result = image.height * image.width;
+    areas.push(result);
+})
+
+*/
+</script>

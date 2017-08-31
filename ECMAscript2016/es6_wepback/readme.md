@@ -1,0 +1,1 @@
+before running it type webpack in the terminal

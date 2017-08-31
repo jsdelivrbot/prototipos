@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+    
+    <script>
+        /*
+            Template strings are made to make concatination easier. String interpolation
+
+        */
+
+        const name = "Ever";
+        let title = "Programmar";
+        let hourly_wage = "40";
+
+        console.log("Template Strings: ", `My name is ${name} and i am a ${title} and earn ${hourly_wage}`)
+
+
+        const getMessage = () => {
+            let year = new Date().getFullYear()
+            return `Today is ${year + 1}`
+        }
+
+        console.log("getMessage: ", getMessage())
+        
+    </script>
+    </body>
+</html>

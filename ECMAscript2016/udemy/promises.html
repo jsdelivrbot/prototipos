@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+        /*
+            promises 
+            promises control the async
+            used a lot with ajaz but can be independent
+            
+            states of promises - 
+                 unresolved - waiting for something
+                . resolved - something finished and went ok
+                    .then - 
+                    or
+                . rejected - something finished and went bad
+                    .catch - 
+        */
+
+        let uriel_promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve()
+            }, 3000)
+        })
+
+        uriel_promise
+            .then(() => {
+                console.log("SUCCESS NIGGAZ")
+            })
+            .then(() => {
+                console.log("I was also ran lol")
+            })
+            .catch(() => {
+                console.log('I Need Help')
+            })
+
+
+        console.log(uriel_promise)
+
+        let ever_promise = new Promise((resolve, reject) => {
+            var request = new XHTMLRequest();
+            request.onload = () => {
+                resolve()
+            }
+        })
+
+
+        /*
+            Something useful at work
+        */
+        ever_promise
+            .then(() => {
+                console.log("SUCCESS NIGGAZ 2")
+            })
+            .then(() => {
+                console.log("I was also ran lol 2")
+            })
+            .catch(() => {
+                console.log('I Need Help 2')
+            })
+
+
+        console.log(ever_promise)
+
+        /*
+            fetch
+        */
+
+        const url = 'https://jsonplaceholder.typicode.com/posts/'
+
+        fetch(url) // call fetch and pass it url
+            .then(response => response.json()) // call response .json
+            .then(data => {
+               //  console.log(data)
+                document.body.appendChild(document.createElement('div'))
+                var div = document.querySelector('div').setAttribute('id','uriel621')
+                var stuff = document.querySelector('div')
+                var number = 0
+                //  var result = null
+                data.forEach(function(element){
+                    // console.log('help')
+                    console.log(element.title)
+                    stuff.innerHTML += stuff.innerHTML = number += 1 + element.title
+                    // console.log(number++); 
+                
+                })
+                // document.querySelector('div').innerHTML = data
+                // div.innerHTML = data
+
+
+            }) // get aCCESs TO MY DATA
+
+        //The bad
+       // const url621 = 'https://jsonplaceholder.typicode.com/posts/621'
+       // fetch(url621)
+           // .then(data => console.log(data)),
+           // .catch(error => console.log('BAD', error))
+            // I get 404 but not my catch 
+            // Above 300 will not enter catch method
+
+       //  const url621_621 = 'https://jsonplaceholder621.typicode.com/posts/621'
+       // fetch(url621_621)
+            // Only runs catch if flat ass fail... not path but href 
+        
+
+
+
+
+        
+    </script>
+    </body>
+</html>

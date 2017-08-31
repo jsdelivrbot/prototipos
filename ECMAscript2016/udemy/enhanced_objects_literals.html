@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    
+    <script>
+        /*
+            OLD
+        */
+        function createBookShop () {
+            return {
+                inventory: inventory,
+                inventoryValue: function(){
+                    return this.inventory.reduce((total, book) => total + book.price, 0)
+                },
+                priceForTitle: function(title){
+                    return this.inventory.find(book => book.title === title).price
+                }
+            }
+        }
+
+        const inventory = [
+            {title: '621', price: 621},
+            {title: 'Javascript/jQuery', price: 29.99},
+            {title: 'Bible', price: 0}
+        ] 
+
+        const bookShop = createBookShop(inventory);
+        //bookShop.inventoryValue();
+        console.log("bookShop.inventoryValue()", bookShop.inventoryValue());
+        console.log("bookShop.inventoryTitle('621')", bookShop.priceForTitle('621'));
+  
+          /*
+            ECMAscript 2016
+
+            enhanced object literals are all about writing object in a more copact fashion.
+            makes objects with less code 
+            1. When ever we have a propetry name and property value name the same just put them together as one
+            2. with functions you can delete the function word and the colon
+        */
+        function _createBookShop () {
+            return {
+                inventory, //1
+                inventoryValue(){ // 2
+                    return this.inventory.reduce((total, book) => total + book.price, 0)
+                },
+                priceForTitle(title){ // 2
+                    return this.inventory.find(book => book.title === title).price
+                }
+            }
+        }
+
+        const _inventory = [
+            {title: '621', price: 621},
+            {title: 'Javascript/jQuery', price: 29.99},
+            {title: 'Bible', price: 0}
+        ] 
+
+        const _bookShop = createBookShop(inventory);
+        //bookShop.inventoryValue();
+        console.log("EOL bookShop.inventoryValue()", _bookShop.inventoryValue());
+        console.log("EOL bookShop.inventoryTitle('621')", _bookShop.priceForTitle('621'));
+
+        //-----------------------Another Example--------------------------------------------
+        function save_file () {
+            $.ajax({
+                method: "post",
+                url: url,
+                data: data
+            })
+        }
+
+        const url = "uriel621.com";
+        const data = {color: 'red'}
+
+        save_file(url, data);
+
+        /*
+            ES6
+        */
+
+        function save_file () {
+            $.ajax({
+                url,
+                data,
+                method: "post"
+            })
+        }
+
+        const url = "uriel621.com";
+        const data = {color: 'red'}
+
+        save_file(url, data);
+
+        /*
+            Refactor to use enhanced literal notation
+        */
+            const red = '#ff0000';
+            const blue = '#0000ff';
+
+            const COLORS = { red, blue };
+
+  
+    </script>
+    </body>
+</html>

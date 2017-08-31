@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="app"></div>
+
+    <script>
+        // for loop
+        let _products = [
+            {name: "banana", type: "fruit"},
+            {name: "doritos", type: "junk"},
+            {name: "apple", type: "fruit"},
+            {name: "cheetos", type: "junk"}
+        ];
+        let _filteredProducts = []
+        for(var i = 0; i < _products.length; i++){
+            if (_products[i].type === "fruit") {
+                _filteredProducts.push(_products[i])
+            }
+        }
+        console.log("Products: ", _filteredProducts)
+        
+        //Filter - always has to have a "return"
+        let products = [
+            {name: "banana", type: "fruit", quantity: 0, price: 15},
+            {name: "doritos", type: "junk", quantity: 12, price: 19},
+            {name: "apple", type: "fruit", quantity: 5, price: 1},
+            {name: "cheetos", type: "junk", quantity: 8, price: 621}
+        ];
+        
+        let filteredProducts = products.filter(function(product){
+            return product.type === "junk" //Dont do an an if statement
+        })
+        console.log("Filter Products: ", filteredProducts)
+
+        // filter is used to filter through stuff. if true then makes an array
+
+        let consoles = [
+            {name: "Switch", type: "Nintendo", quantity: 0, price: 299},
+            {name: "PS4", type: "Playstation", quantity: 12, price: 499},
+            {name: "Xbox One", type: "Microsoft", quantity: 5, price: 399},
+            {name: "PC", type: "Computer", quantity: 8, price: 1000}
+        ];
+
+        var cheap_consoles = consoles.filter(function(console){
+            return console.price < 350
+        })
+
+        console.log("cheap consoles", cheap_consoles)
+
+        //-------------------------------------------------------------
+        let post= {id: 4, title: "New Post"}
+        let comments = [
+            {postId: 4, content: "Nintendo"},
+            {postId: 3, content: "Playstation"},
+            {postId: 4, content: "Microsoft"}
+        ];
+
+        let comments_for_posts = (post, comments) => {
+             return comments.filter(function(comment){
+                 return comment.postId === post.id // comments.postId [i] === 4
+             })
+        }
+
+        console.log("comments_for_posts()", comments_for_posts(post, comments))
+
+        /*
+        Filter the array of numbers using the filter helper, creating a new array that only contains numbers greater than 50. 
+        Assign this new array to a variable called 'filteredNumbers'.  
+        Don't forget to use the 'return' keyword in the function!
+        */
+        var numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+
+        var filteredNumbers;
+
+        filteredNumbers = numbers.filter(function(number){
+            return number >  50
+        })
+
+        /*
+        Filter the array of users, only returning users who have admin level access.  
+        Assign the result to the variable 'filteredUsers'. 
+        Don't forget to use the 'return' keyword in the function!
+        */
+
+        var users = [
+            { id: 1, admin: true },  
+            { id: 2, admin: false },
+            { id: 3, admin: false },
+            { id: 4, admin: false },
+            { id: 5, admin: true },
+        ];
+
+        var filteredUsers;
+
+        filteredUsers = users.filter(function(user){
+            return user.admin === true;
+        })
+
+        /*
+        This is a hard one!  Create a function called 'reject'.  
+        Reject should work in the opposite way of 'filter' - if a function returns 'true', the item should *not* be included in the new array. 
+        Hint: you can reuse filter.
+        */
+
+        // var admins = [
+        //     { id: 1, admin: true },  
+        //     { id: 2, admin: false },
+        //     { id: 3, admin: false },
+        //     { id: 4, admin: false },
+        //     { id: 5, admin: true },
+        // ];
+
+
+        // function reject(array, iteratorFunction) {
+        //     var elements = array;
+        //     var result = elements.filter(function(element){
+        //         return !element[iteratorFunction]
+        //     })
+            
+        //     return result
+        // }
+    </script>
+    </body>
+</html>

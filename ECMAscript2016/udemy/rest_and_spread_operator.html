@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    
+    <script>
+        /*
+            purpose is to write lesscode.
+            Its to capture ars and put them in an array.
+            Its the rest operator. you put in single variables instead of an array
+            
+            Rest operator is used to get together variables
+            Spread operator is used to spread them out
+        */
+
+        //Rest
+        function add_numbers (...numbers) {
+            return numbers.reduce((sum, number) => {
+                return sum + number;
+            }, 0)
+        }
+
+        const answer_1 = add_numbers(1, 2, 3, 4, 5)
+        console.log("Answer 1: ", answer_1)
+
+        //Spread
+        const default_colors = ["red", "green"];
+        const user_favorite_colors = ["orange", "yellow"];
+        const fall_colors = ["fire red", "fall orange"]
+
+        const old_concat_way = default_colors.concat(user_favorite_colors)
+        
+        //---- or
+
+        const spread_way = ["green", "blue", ...fall_colors, ...default_colors, ...user_favorite_colors];
+        
+        //The spread operator created a new array Purpose of this is nearly indentical to concat helper
+        // but easier to read
+
+        //always add milk to the array
+        function validate_shopping_list (...items) {
+            if(items.indexOf("milk") < 0) { // if milk is not in shopping ist 
+                return ["milk", ... items]  //then it will return milk in the new array
+            }
+
+            return items
+        }   
+
+        validate_shopping_list("orange", "bread", "egg")
+
+        //--- Change method name
+
+        const MathLibrary = {
+            calculateProduct(a, b) {
+                return a * b;
+            }
+        }
+
+        // ---- to
+        const _MathLibrary = {
+            calculateProduct(...rest) {
+                return this.multiply(...rest) 
+            },
+            multiply(a, b) {
+                return a * b;
+            }
+        }
+
+        /*
+            Refactor the following function to use the rest operator.  Remember, an argument using the rest operator does *not* need to be called 'rest'.
+        */
+
+        function product(...stuff) {
+        var numbers = [...stuff];
+        
+        return numbers.reduce(function(acc, number) {
+            return acc * number;
+            }, 1)
+        }
+
+        /*
+            Refactor the following to use the spread operator.
+        */
+
+        function join(array1, array2) {
+            return [...array1, ...array2];
+        }
+
+        /*
+            Refactor the following to use the only the rest operator
+        */
+
+        function unshift(array, ...elements) {
+            return [...elements, ...array]
+        }
+
+
+    </script>
+    </body>
+</html>
