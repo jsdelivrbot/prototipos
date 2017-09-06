@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+
+        <script>
+            //For Loop
+            let users = [
+                {name: "Ever"},
+                {name: "Uriel"},
+                {name: "Garcia"}
+            ];
+            let _user
+            for(var i= 0; i < users.length; i++){
+                if(users[i].name === "Uriel"){
+                    _user = users[i]
+                }
+            }
+            console.log("_user ", _user)
+
+            //Find Method
+            /*
+                The find helper iterates through the array. it return either a truthy or falsey value.
+                if it return true then it exits the iteratration returning the result
+                the first element only!!!
+            */
+
+            let last_name = users.find(function(user){
+                return user.name === "Garcia"
+            })
+
+            console.log("last_name: ", last_name)
+            //--------------------------------------------------
+            var Car = function(model){
+                this.model = model;
+            }
+
+            var cars = [
+                new Car("Sierra"),
+                new Car("F150"),
+                new Car("Silverado")
+            ]
+
+            var silverado = cars.find(function(car){
+                return car.model === "Silverado"
+            })
+            console.log(silverado)
+            
+            //--
+
+            let posts = [
+                {id: 1, title: "New Post"},
+                {id: 2, title: "old Post"},
+            ]
+
+            let comment = {postId: 1, content: "Great Post"}
+
+            function postForComment(posts, comment){
+                return posts.find(function(post){
+                    return post.id === comment.postId;
+                })
+            }
+
+            console.log("postForComment(): ", postForComment(posts, comment))
+
+            //--Where to use find() 
+
+            /*
+                https://www.udemy.com/javascript-es6-tutorial/learn/v4/t/lecture/5417796?start=0
+            */
+
+            /*
+                Find the user in the users's array who is an admin. 
+                 Assign this user to the variable 'admin'.
+            */
+
+            var userss = [
+                { id: 1, admin: false },
+                { id: 2, admin: false },
+                { id: 3, admin: true }
+            ];
+
+            var admin;
+
+            admin = userss.find(function(user){
+                return user.admin === true
+            })
+
+            //Find the account with a balance of 12 and assign it to the variable 'account'.
+
+            var accounts = [
+                { balance: -10 },
+                { balance: 12 },
+                { balance: 0 }
+            ];
+
+            var account;
+
+            account = accounts.find(function(element){
+                return element.balance === 12
+            })
+
+            console.log("account: ", account)
+
+        </script>
+    </body>
+</html>

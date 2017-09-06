@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    
+    <script>
+        let numbers = [10, 20, 30];
+        let sum = 0;
+        //for loop
+        for (let i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        console.log("for loop: ", sum);
+        //reduce()
+        let added = numbers.reduce(function(sum, number) {
+            return sum + number;
+        }, 0) 
+        //The 0 is the arguement passes as the sum to the sum parameter
+        //condecing down an array to a single value.
+        //The initial value is based on what you are trying to do with the function
+
+        console.log("reduce(): ", added);
+
+        //-----Collect all values of each ["red", "blue", "green"]
+
+        let primary_colors = [
+            {color: "red"},
+            {color: "blue"},
+            {color: "green"},
+        ]
+
+        let key_values = primary_colors.reduce(function(previous, primary_color) {
+            previous.push(primary_color.color)
+            return previous;
+        }, []) // previous or accumilator 
+
+        console.log(".2 reduce(): ", key_values);
+
+        //----Takes a string and returns a bolean of some kind
+        // 
+
+        let balanced_parens = (string) => {
+                    //turn array into single characters 
+            return !string.split("").reduce(function(previous, char) {
+                if (previous < 0) { // has to be first??
+                    return previous
+                }
+                if (char === "(") {
+                    return ++previous
+                }
+                if (char === ")") {
+                    return --previous
+                }
+                
+                return previous
+            }, 0) // a counter / +1 or -2
+        }
+
+        console.log("1.", balanced_parens("(((("));
+        console.log("2.", balanced_parens("(((()"));
+        console.log("3.", balanced_parens("()"));
+        console.log("4.", balanced_parens(")("));
+        console.log("5.", balanced_parens("((()))"));
+
+        /*
+            Use the 'reduce' helper to find the sum of all the distances traveled.  
+            Assign the result to the variable 'totalDistance'
+        */
+
+        var trips = [
+            { distance: 34 }, 
+            { distance: 12 }, 
+            { distance: 1 }
+        ];
+
+        var totalDistance;
+
+        totalDistance = trips.reduce(function(sum, trip) {
+            return sum + trip.distance;
+        }, 0);
+
+        /*
+            Use the 'reduce' helper to create an object that tallies the number of sitting and standing desks.  
+            The object returned should have the form '{ sitting: 3, standing: 2 }'.  
+            The initial value has been provided to you.
+            Hint: Don't forget to return the accumulator object (the first argument to the iterator function)
+        */
+
+        let desks = [
+            { type: 'sitting' },
+            { type: 'standing' },
+            { type: 'sitting' },
+            { type: 'sitting' },
+            { type: 'standing' }
+        ];
+
+        let deskTypes = desks.reduce(function(counter, desk) {
+             var sitting = 0;
+             var standing = 0;
+             var result = desk.sitting + desk.standing
+             return result;
+        }, { sitting: 0, standing: 0 });
+
+        console.log("deskTypes: ", deskTypes)
+
+
+
+
+    </script>
+    </body>
+</html>

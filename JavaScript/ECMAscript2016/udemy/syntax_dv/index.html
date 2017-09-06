@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="myApp"></div>
+    </body>
+    <script>
+        //"let" will at one point change a variable later
+        //"const" will stay permanent. used for protection
+        let user = "ever";
+        const user4ever = "uriel621";
+
+
+        //block scoping. stand alone block of code to create private info
+        {
+           let user = "uriel";
+            console.log(user); 
+        }
+
+        // Template Literals. strings with code inside
+        let hello = `hello ${user}`;
+
+        //Spread Opertaor. manupilate arrays and objects
+        let a = [7, 8, 9];
+        let b = [6, ...a, 10]
+        // [6, 7, 8, 9, 10]
+        function print1(a, b, c){
+            console.log(a, b, c)
+        }
+        print1(...b) //6, 7, 8
+        function print2(...nums){
+            console.log(nums)
+        }
+        print2(6, 2, 1) //[6, 2, 1]
+
+        //Distrcturing Assignments
+        let d = ["Ever","Uriel", "Garcia"];
+        let [e , u, g] = d
+
+        let pets = {choco: true, size: "small"}
+        let {choco, size} = pets;
+
+        //Arrow function. anoymous functions. strictmode, ignores this and uses global this
+        const arrow = (...arrays) => {
+            return arrays
+        }
+        (()=>{
+            console.log("arrow anonymouse iffy")
+        })()
+
+                //map function
+                let points = [5, 1, 0]
+                let addOne = (element) => {
+                    return element + 1
+                }
+                let points_added = points.map(addOne)
+
+                //Filter returns array based on given array
+                let pass = (number) => {
+                    return number >= 21
+                }
+                let mofos = [5, 16, 25, 18, 21, 25, 30];
+                let made_it = mofos.filter(pass)
+                //find() returns a value in an array  that passes a given array
+                //forEach(), similar to map, calls a function for each array element
+                // reduce(), some(), keys(), values()
+
+        //modules . reusable pieces of code ex send im recieve
+        // export const dog = "Choco"; let job
+        // import { dog, job } from "./pathname"
+
+        //CLASSES
+        //Inheritance - an obkect or class can extend upon another oneto recieve the original ones data
+        //only one constructor
+        //In most cases classes exist in different files or modules
+
+        // info.js
+            class Info {
+                constructor(name, description){ 
+                    this.name = name;
+                    this.description = description;
+                }
+
+                greet(){
+                    return "class: ", `Hello Im ${this.name} and implased to meet you` 
+                }
+            }
+
+            //export default Info
+
+            // let uriel = new Info("Mexican", "Short")
+            // uriel.greet()
+
+        // index.js
+            //import Info from "./pathname"
+                class Specific extends Info {
+                    constructor(name, description) {
+                        super(name, description) // use super to get from the parent (Info)
+                    }
+                    greet(){
+                        return `hey im ${this.name} and im glad to be alive`
+                    }
+                }
+
+                let Choco1 = new Specific("Choco", "cute")
+                
+
+
+
+
+
+
+
+        console.log(
+            "\n",
+            "let: " + user, "\n",
+            "const: " + user4ever, "\n",
+            "str_templating: " + hello, "\n",
+            "Distrcturing Assignments: " + `${e} ${u} ${g} and for objects ${choco} ${size}`, "\n",
+            "Arrow function: ", arrow("cool"), points_added,  made_it, "\n",
+            "class: ", Choco1, Choco1.greet(), "\n"
+        )
+
+
+            
+        
+    </script>
+</html>
