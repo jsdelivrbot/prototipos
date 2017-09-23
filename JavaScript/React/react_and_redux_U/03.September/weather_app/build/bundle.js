@@ -1836,6 +1836,16 @@ module.exports = ReactUpdates;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(18);
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2102,16 +2112,6 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
   }
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(18);
-
 
 /***/ }),
 /* 15 */
@@ -3707,7 +3707,7 @@ module.exports = EventPluginHub;
 
 
 
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 var getEventTarget = __webpack_require__(39);
 
@@ -11276,7 +11276,7 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_Subscription__ = __webpack_require__(227);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_PropTypes__ = __webpack_require__(95);
@@ -12210,7 +12210,7 @@ module.exports = isArguments;
 "use strict";
 
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -14978,7 +14978,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 /**
  * @interface Event
@@ -15019,7 +15019,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 /**
  * @interface Event
@@ -15066,7 +15066,7 @@ var EventPropagators = __webpack_require__(22);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(12);
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 var inputValueTracking = __webpack_require__(70);
 var getEventTarget = __webpack_require__(39);
@@ -22868,7 +22868,7 @@ var EventPropagators = __webpack_require__(22);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInputSelection = __webpack_require__(85);
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 var getActiveElement = __webpack_require__(86);
 var isTextInputElement = __webpack_require__(71);
@@ -23065,7 +23065,7 @@ var EventPropagators = __webpack_require__(22);
 var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticAnimationEvent = __webpack_require__(188);
 var SyntheticClipboardEvent = __webpack_require__(189);
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 var SyntheticFocusEvent = __webpack_require__(190);
 var SyntheticKeyboardEvent = __webpack_require__(191);
 var SyntheticMouseEvent = __webpack_require__(30);
@@ -23289,7 +23289,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 /**
  * @interface Event
@@ -23333,7 +23333,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 /**
  * @interface Event
@@ -23714,7 +23714,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(13);
+var SyntheticEvent = __webpack_require__(14);
 
 /**
  * @interface Event
@@ -24349,7 +24349,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -24992,7 +24992,7 @@ function applyMiddleware() {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = createProvider;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -27266,7 +27266,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27359,7 +27359,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27368,6 +27368,10 @@ var _reactRedux = __webpack_require__(54);
 var _chart = __webpack_require__(264);
 
 var _chart2 = _interopRequireDefault(_chart);
+
+var _Google_map = __webpack_require__(266);
+
+var _Google_map2 = _interopRequireDefault(_Google_map);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27408,6 +27412,8 @@ var Weather_List = function (_React$Component) {
             var humidities = city_data.list.map(function (weather) {
                 return weather.main.humidity;
             });
+            var lon = city_data.city.coord.lon;
+            var lat = city_data.city.coord.lat;
             // console.log(temps)
             return _react2.default.createElement(
                 'tr',
@@ -27415,7 +27421,7 @@ var Weather_List = function (_React$Component) {
                 _react2.default.createElement(
                     'td',
                     null,
-                    name
+                    _react2.default.createElement(_Google_map2.default, { lon: lon, lat: lat })
                 ),
                 _react2.default.createElement(
                     'td',
@@ -27508,7 +27514,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(14);
+var _react = __webpack_require__(13);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27557,7 +27563,7 @@ exports.default = Chart;
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory(__webpack_require__(14));
+		module.exports = factory(__webpack_require__(13));
 	else if(typeof define === 'function' && define.amd)
 		define(["react"], factory);
 	else if(typeof exports === 'object')
@@ -28626,6 +28632,66 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
+
+/***/ }),
+/* 266 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(13);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Google_map = function (_React$Component) {
+    _inherits(Google_map, _React$Component);
+
+    function Google_map() {
+        _classCallCheck(this, Google_map);
+
+        return _possibleConstructorReturn(this, (Google_map.__proto__ || Object.getPrototypeOf(Google_map)).apply(this, arguments));
+    }
+
+    _createClass(Google_map, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            // second parameter optional
+            new google.maps.Map(this.refs.map, {
+                zoom: 12,
+                center: {
+                    lat: this.props.lat,
+                    lng: this.props.lon
+                }
+            });
+        }
+        // this.refs.map
+
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement('div', { style: { height: '120px', width: '180px' }, ref: 'map' });
+        }
+    }]);
+
+    return Google_map;
+}(_react2.default.Component);
+
+exports.default = Google_map;
 
 /***/ })
 /******/ ]);
