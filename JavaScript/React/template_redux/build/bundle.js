@@ -23403,8 +23403,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var store = (0, _redux.createStore)(_index2.default);
-console.log(_index2.default);
+var createStoreWithMiddleware = (0, _redux.applyMiddleware)()(_redux.createStore);
 
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -23420,7 +23419,7 @@ var App = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 _reactRedux.Provider,
-                { store: store },
+                { store: createStoreWithMiddleware(_index2.default) },
                 _react2.default.createElement(
                     'h1',
                     null,
@@ -24854,7 +24853,7 @@ exports.default = function () {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
     var action = arguments[1];
 
-    // if(action.type === 'BOOK_SELECTED') {
+    // if(action.type === 'a string from action js') {
     //     return action.payload;
     // }
     return 'state';
