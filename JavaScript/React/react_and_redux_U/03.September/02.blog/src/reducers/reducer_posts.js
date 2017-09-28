@@ -3,8 +3,8 @@ import { FETCH_POSTS } from '../actions'
 
 export default function (state = {}, action) {
     if(action.type === FETCH_POSTS) {
-        console.log(state);
-        return _.mapKeys(action.payload.data);
+        console.log(action.payload.data)
+        return _.mapKeys(action.payload.data, 'id');
     }
     else {
         return state;

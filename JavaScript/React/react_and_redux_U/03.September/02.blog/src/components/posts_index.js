@@ -11,14 +11,15 @@ class Posts_index extends React.Component {
     }
 
     renderPosts() {
-        return _.map(this.props.posts, post => {
-            return (
-                <li key = { post.title }>{ post.title }</li>
-            );
-        });
+        return  _.map(this.props.posts, post => {
+                return (
+                     <li className = 'list-group-item' key = { post.id }>{ post.title }</li>
+                )
+            })
     }
 
-    render() {   
+    render() {  
+        console.log(this.props.posts) 
         return (
             <div>
                 <div className = 'text-xs-right'>
@@ -35,9 +36,10 @@ class Posts_index extends React.Component {
     }
 }
 
-function MapSatetToProps(state) {
+function mapStateToProps(state) {
+    console.log(state)
     return { posts: state.posts }
 }
 
-// null because not passing MapSatetToProps
-export default connect(null, { fetch_posts: fetch_posts })(Posts_index);
+// null because not passing mapStateToProps
+export default connect(mapStateToProps, { fetch_posts: fetch_posts })(Posts_index);

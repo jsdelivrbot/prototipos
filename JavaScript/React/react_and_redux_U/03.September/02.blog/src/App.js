@@ -2,13 +2,13 @@ import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import promise from 'redux-promises';
+import ReduxPromise from 'redux-promise';
 
 import rootReducer from './reducers/index';
 import Posts_index from './components/posts_index';
 import Posts_new from './components/posts_new';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 class App extends React.Component {
     render(){
