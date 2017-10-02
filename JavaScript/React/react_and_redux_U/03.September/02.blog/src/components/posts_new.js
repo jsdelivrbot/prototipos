@@ -28,7 +28,9 @@ class Posts_new extends React.Component {
         )         
     }
     onSubmit(values) {
-        this.props.create_post(values)
+        this.props.create_post(values, () => {
+        this.props.history.push('');        
+        })
     }
 
     render() {
