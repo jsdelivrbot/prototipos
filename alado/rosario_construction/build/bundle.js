@@ -65373,8 +65373,9 @@ var Home = function Home() {
             _semanticUiReact.Segment,
             {
                 inverted: true,
-                textAlign: 'center',
-                style: { minHeight: 700, padding: '1em 0em' },
+                textAlign: 'center'
+                /* style={{ minHeight: 700, padding: '1em 0em' }} */
+                , style: { minHeight: 623, padding: '1em 0em' },
                 vertical: true
             },
             _react2.default.createElement(
