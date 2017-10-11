@@ -3,7 +3,7 @@ import random
                 
 
 # print(random.randint(1, 10))
-# os.system('cls' if os.name == 'nt' else 'clear')
+os.system('cls' if os.name == 'nt' else 'clear')
 # print(621)
 
 # Step 1: Write a function that can print out a board. 
