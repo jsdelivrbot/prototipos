@@ -42889,7 +42889,7 @@ var _Main = __webpack_require__(918);
 
 var _Main2 = _interopRequireDefault(_Main);
 
-var _Footer = __webpack_require__(921);
+var _Footer = __webpack_require__(923);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -65318,11 +65318,11 @@ var _About = __webpack_require__(920);
 
 var _About2 = _interopRequireDefault(_About);
 
-var _Services = __webpack_require__(922);
+var _Services = __webpack_require__(921);
 
 var _Services2 = _interopRequireDefault(_Services);
 
-var _Contact = __webpack_require__(923);
+var _Contact = __webpack_require__(922);
 
 var _Contact2 = _interopRequireDefault(_Contact);
 
@@ -65598,6 +65598,60 @@ exports.default = About;
 
 
 Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Services = function Services() {
+    return _react2.default.createElement(
+        'div',
+        null,
+        'Services'
+    );
+};
+
+exports.default = Services;
+
+/***/ }),
+/* 922 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Contact = function Contact() {
+    return _react2.default.createElement(
+        'div',
+        null,
+        'Contact'
+    );
+};
+
+exports.default = Contact;
+
+/***/ }),
+/* 923 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -65701,60 +65755,6 @@ var Footer = function Footer() {
 };
 
 exports.default = Footer;
-
-/***/ }),
-/* 922 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Services = function Services() {
-    return _react2.default.createElement(
-        'div',
-        null,
-        'Services'
-    );
-};
-
-exports.default = Services;
-
-/***/ }),
-/* 923 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Contact = function Contact() {
-    return _react2.default.createElement(
-        'div',
-        null,
-        'Contact'
-    );
-};
-
-exports.default = Contact;
 
 /***/ })
 /******/ ]);
