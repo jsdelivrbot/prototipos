@@ -9,7 +9,27 @@
     <title>Los Angeles</title>
 </head>
 <body>
-    <h2>Hello this is Los Angeles</h2>
-    <img src="{% static "images/la.jpg" %}" height="400px" width="400px" alt="la">
+    <h2>Hello Welcome to level two</h2>
+    <h3>Here are your access records: </h3>
+    <div class='django'>
+        {% if access_records %}
+        <table>
+            <thead>
+            
+            </thead>
+            <th>Site Name</th>
+            <th>Date Accessed</th>
+
+            {% for acc in access_records %}
+            <tr>
+                <td>{{  acc.name }}</td>
+                <td>{{  acc.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>NO ACCESS RECORDS FOUND!</p>
+        {% endif %}
+    </div>
 </body>
 </html>
