@@ -1,4 +1,16 @@
-<div>{{ insert }}</div>
+
 <div>
     <button><a href="/">Root</a></button>
+    {% if insert %}
+    <ol>
+        {% for person in insert %}
+        <li>Users Info</li>
+            <ul>
+                <li>First Name {{ person.first_name }}</li>
+                <li>Last Name person.last_name</li>
+                <li>Email {{ person.email }}</li>
+            </ul>
+        {% endfor %}
+    </ol>
+    {% endif %}
 </div>
