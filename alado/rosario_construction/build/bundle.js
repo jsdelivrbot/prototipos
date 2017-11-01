@@ -22869,13 +22869,13 @@ var Footer = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'footer',
-                { className: 'footer bg-dark', style: { "color": "#fff", "height": "220px" } },
+                { className: 'footer bg-dark' },
                 _react2.default.createElement(
                     'div',
                     { className: 'container' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'row' },
+                        { className: 'row', style: { "color": "#fff", "height": "220px", 'marginTop': '.5rem', 'textAlign': 'center' } },
                         _react2.default.createElement(
                             'div',
                             { className: 'col-sm', style: centered },
@@ -22899,11 +22899,11 @@ var Footer = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'div',
-                    { style: { 'textAlign': 'center' } },
+                    { style: { 'textAlign': 'center', 'color': 'white' } },
                     _react2.default.createElement(
                         'small',
                         null,
-                        'Design By ',
+                        'Powered By ',
                         _react2.default.createElement(
                             'a',
                             { style: { 'textDecoration': 'none', 'color': 'inherit' }, href: 'http://www.evergarcia.com', target: 'blank' },
@@ -23039,7 +23039,7 @@ var Home = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9' } },
+                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9', 'border': '1px solid rgba(0,0,0,.125)' } },
                         _react2.default.createElement(
                             'div',
                             { className: 'col-md-7' },
@@ -23067,7 +23067,7 @@ var Home = function (_React$Component) {
                     _react2.default.createElement('hr', null),
                     _react2.default.createElement(
                         'div',
-                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9' } },
+                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9', 'border': '1px solid rgba(0,0,0,.125)' } },
                         _react2.default.createElement(
                             'div',
                             { className: 'col-md-5' },
@@ -23095,7 +23095,7 @@ var Home = function (_React$Component) {
                     _react2.default.createElement('hr', null),
                     _react2.default.createElement(
                         'div',
-                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9' } },
+                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9', 'border': '1px solid rgba(0,0,0,.125)' } },
                         _react2.default.createElement(
                             'div',
                             { className: 'col-md-7' },
@@ -23158,20 +23158,7 @@ var Home = function (_React$Component) {
                                         'Source Title'
                                     )
                                 )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'card', style: { 'marginTop': '.5rem' } },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'card-header' },
-                            'Quote'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'card-body' },
+                            ),
                             _react2.default.createElement(
                                 'blockquote',
                                 { className: 'blockquote mb-0' },
@@ -23190,20 +23177,7 @@ var Home = function (_React$Component) {
                                         'Source Title'
                                     )
                                 )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'card', style: { 'marginTop': '.5rem' } },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'card-header' },
-                            'Quote'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'card-body' },
+                            ),
                             _react2.default.createElement(
                                 'blockquote',
                                 { className: 'blockquote mb-0' },

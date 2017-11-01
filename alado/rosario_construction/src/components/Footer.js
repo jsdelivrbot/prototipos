@@ -10,9 +10,9 @@ const centered = {
 class Footer extends React.Component {
     render(){
         return (
-            <footer className="footer bg-dark"  style={{ "color":"#fff", "height": "220px" }}>
+            <footer className="footer bg-dark">
                 <div className="container">
-                    <div className="row">
+                    <div className="row" style={{ "color":"#fff", "height": "220px", 'marginTop': '.5rem', 'textAlign': 'center'}}>
                         <div className="col-sm" style={ centered }>
                             <h6 className="title mb-4 font-bold">Company name</h6>
                             <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
@@ -20,8 +20,8 @@ class Footer extends React.Component {
                         <div className="col-sm" style={ centered }>Contact Info</div>
                     </div>
                 </div>
-                <div style={{ 'textAlign': 'center' }}>
-                    <small>Design By <a style={{ 'textDecoration':'none', 'color': 'inherit' }} href="http://www.evergarcia.com" target="blank">Ever Uriel Garcia</a></small>
+                <div style={{ 'textAlign': 'center', 'color': 'white' }}>
+                    <small>Powered By <a style={{ 'textDecoration':'none', 'color': 'inherit' }} href="http://www.evergarcia.com" target="blank">Ever Uriel Garcia</a></small>
                 </div>
             </footer>
         )

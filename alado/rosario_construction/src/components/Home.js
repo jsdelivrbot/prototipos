@@ -23,7 +23,7 @@ class Home extends React.Component {
 
                 <div>
                     <h3>Some Projects</h3>
-                    <div className="row" style={{'marginTop': '.5rem',  'backgroundColor': '#F9F9F9'}}>
+                    <div className="row" style={{'marginTop': '.5rem',  'backgroundColor': '#F9F9F9', 'border': '1px solid rgba(0,0,0,.125)'}}>
                         <div className="col-md-7">
                             <a href="#">
                                 <img className="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="" />
@@ -35,7 +35,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <hr />
-                    <div className="row" style={{'marginTop': '.5rem', 'backgroundColor': '#F9F9F9'}}>
+                    <div className="row" style={{'marginTop': '.5rem', 'backgroundColor': '#F9F9F9', 'border': '1px solid rgba(0,0,0,.125)'}}>
                         <div className="col-md-5">
                             <h3>Project One</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
@@ -47,7 +47,7 @@ class Home extends React.Component {
                         </div>
                     </div>
                     <hr />
-                    <div className="row" style={{'marginTop': '.5rem', 'backgroundColor': '#F9F9F9'}}>
+                    <div className="row" style={{'marginTop': '.5rem', 'backgroundColor': '#F9F9F9', 'border': '1px solid rgba(0,0,0,.125)'}}>
                         <div className="col-md-7">
                             <a href="#">
                                 <img className="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="" />
@@ -71,12 +71,12 @@ class Home extends React.Component {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
                             <footer className="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
                         </blockquote>
-                        </div>
-                    </div>
 
-                    <div className="card" style={{'marginTop': '.5rem'}}>
-                        <div className="card-header">Quote</div>
-                        <div className="card-body">
+                        <blockquote className="blockquote mb-0">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <footer className="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                            </blockquote>
+
                             <blockquote className="blockquote mb-0">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
                                 <footer className="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
@@ -84,15 +84,6 @@ class Home extends React.Component {
                         </div>
                     </div>
 
-                    <div className="card" style={{'marginTop': '.5rem'}}>
-                        <div className="card-header">Quote</div>
-                        <div className="card-body">
-                            <blockquote className="blockquote mb-0">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                                <footer className="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                            </blockquote>
-                        </div>
-                    </div>
                 </div>
             </main>
         )
