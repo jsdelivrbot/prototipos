@@ -789,7 +789,7 @@ module.exports = ExecutionEnvironment;
 
 
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactCurrentOwner = __webpack_require__(10);
 
@@ -1287,7 +1287,7 @@ var _prodInvariant = __webpack_require__(3),
 var CallbackQueue = __webpack_require__(61);
 var PooledClass = __webpack_require__(15);
 var ReactFeatureFlags = __webpack_require__(62);
-var ReactReconciler = __webpack_require__(18);
+var ReactReconciler = __webpack_require__(19);
 var Transaction = __webpack_require__(28);
 
 var invariant = __webpack_require__(1);
@@ -2478,6 +2478,16 @@ module.exports = PooledClass;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(17);
+
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2612,7 +2622,7 @@ module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2656,7 +2666,7 @@ function reactProdInvariant(code) {
 module.exports = reactProdInvariant;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2828,7 +2838,7 @@ module.exports = ReactReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2949,16 +2959,6 @@ DOMLazyTree.queueHTML = queueHTML;
 DOMLazyTree.queueText = queueText;
 
 module.exports = DOMLazyTree;
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(16);
-
 
 /***/ }),
 /* 21 */
@@ -5237,7 +5237,7 @@ module.exports = getEventModifierState;
 
 
 
-var DOMLazyTree = __webpack_require__(19);
+var DOMLazyTree = __webpack_require__(20);
 var Danger = __webpack_require__(118);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(8);
@@ -5536,7 +5536,7 @@ var _prodInvariant = __webpack_require__(3);
 var ReactPropTypesSecret = __webpack_require__(70);
 var propTypesFactory = __webpack_require__(55);
 
-var React = __webpack_require__(16);
+var React = __webpack_require__(17);
 var PropTypes = propTypesFactory(React.isValidElement);
 
 var invariant = __webpack_require__(1);
@@ -6581,7 +6581,7 @@ module.exports = getEventCharCode;
 
 
 
-var _prodInvariant = __webpack_require__(17),
+var _prodInvariant = __webpack_require__(18),
     _assign = __webpack_require__(4);
 
 var ReactNoopUpdateQueue = __webpack_require__(51);
@@ -8594,7 +8594,7 @@ module.exports = instantiateReactComponent;
 
 var _prodInvariant = __webpack_require__(3);
 
-var React = __webpack_require__(16);
+var React = __webpack_require__(17);
 
 var invariant = __webpack_require__(1);
 
@@ -9192,9 +9192,9 @@ module.exports = getActiveElement;
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMLazyTree = __webpack_require__(19);
+var DOMLazyTree = __webpack_require__(20);
 var DOMProperty = __webpack_require__(13);
-var React = __webpack_require__(16);
+var React = __webpack_require__(17);
 var ReactBrowserEventEmitter = __webpack_require__(32);
 var ReactCurrentOwner = __webpack_require__(10);
 var ReactDOMComponentTree = __webpack_require__(5);
@@ -9204,7 +9204,7 @@ var ReactFeatureFlags = __webpack_require__(62);
 var ReactInstanceMap = __webpack_require__(24);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactMarkupChecksum = __webpack_require__(176);
-var ReactReconciler = __webpack_require__(18);
+var ReactReconciler = __webpack_require__(19);
 var ReactUpdateQueue = __webpack_require__(47);
 var ReactUpdates = __webpack_require__(11);
 
@@ -9759,7 +9759,7 @@ module.exports = getHostComponentFromComposite;
 "use strict";
 
 
-var _react = __webpack_require__(20);
+var _react = __webpack_require__(16);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -9993,7 +9993,7 @@ module.exports = ReactChildren;
 
 
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var invariant = __webpack_require__(1);
 
@@ -10110,7 +10110,7 @@ module.exports = PooledClass;
 
 
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactCurrentOwner = __webpack_require__(10);
 var REACT_ELEMENT_TYPE = __webpack_require__(52);
@@ -10531,7 +10531,7 @@ module.exports = ReactDOMFactories;
 
 
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactPropTypeLocationNames = __webpack_require__(89);
 var ReactPropTypesSecret = __webpack_require__(90);
@@ -12216,7 +12216,7 @@ module.exports = factory;
  */
 
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactElement = __webpack_require__(14);
 
@@ -12276,7 +12276,7 @@ module.exports = __webpack_require__(99);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDefaultInjection = __webpack_require__(100);
 var ReactMount = __webpack_require__(80);
-var ReactReconciler = __webpack_require__(18);
+var ReactReconciler = __webpack_require__(19);
 var ReactUpdates = __webpack_require__(11);
 var ReactVersion = __webpack_require__(178);
 
@@ -14566,7 +14566,7 @@ module.exports = ReactComponentBrowserEnvironment;
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMLazyTree = __webpack_require__(19);
+var DOMLazyTree = __webpack_require__(20);
 var ExecutionEnvironment = __webpack_require__(6);
 
 var createNodesFromMarkup = __webpack_require__(119);
@@ -14985,7 +14985,7 @@ var _prodInvariant = __webpack_require__(3),
 
 var AutoFocusUtils = __webpack_require__(124);
 var CSSPropertyOperations = __webpack_require__(125);
-var DOMLazyTree = __webpack_require__(19);
+var DOMLazyTree = __webpack_require__(20);
 var DOMNamespaces = __webpack_require__(40);
 var DOMProperty = __webpack_require__(13);
 var DOMPropertyOperations = __webpack_require__(69);
@@ -16997,7 +16997,7 @@ module.exports = ReactDOMInput;
 
 var _assign = __webpack_require__(4);
 
-var React = __webpack_require__(16);
+var React = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMSelect = __webpack_require__(71);
 
@@ -17296,7 +17296,7 @@ var ReactInstanceMap = __webpack_require__(24);
 var ReactInstrumentation = __webpack_require__(8);
 
 var ReactCurrentOwner = __webpack_require__(10);
-var ReactReconciler = __webpack_require__(18);
+var ReactReconciler = __webpack_require__(19);
 var ReactChildReconciler = __webpack_require__(139);
 
 var emptyFunction = __webpack_require__(9);
@@ -17741,7 +17741,7 @@ module.exports = ReactMultiChild;
 
 
 
-var ReactReconciler = __webpack_require__(18);
+var ReactReconciler = __webpack_require__(19);
 
 var instantiateReactComponent = __webpack_require__(72);
 var KeyEscapeUtils = __webpack_require__(46);
@@ -17903,14 +17903,14 @@ module.exports = ReactChildReconciler;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var React = __webpack_require__(16);
+var React = __webpack_require__(17);
 var ReactComponentEnvironment = __webpack_require__(43);
 var ReactCurrentOwner = __webpack_require__(10);
 var ReactErrorUtils = __webpack_require__(35);
 var ReactInstanceMap = __webpack_require__(24);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactNodeTypes = __webpack_require__(73);
-var ReactReconciler = __webpack_require__(18);
+var ReactReconciler = __webpack_require__(19);
 
 if (process.env.NODE_ENV !== 'production') {
   var checkReactTypeSpec = __webpack_require__(141);
@@ -19352,7 +19352,7 @@ module.exports = ReactServerUpdateQueue;
 
 var _assign = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(19);
+var DOMLazyTree = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 var ReactDOMEmptyComponent = function (instantiate) {
@@ -19561,7 +19561,7 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
 var DOMChildrenOperations = __webpack_require__(39);
-var DOMLazyTree = __webpack_require__(19);
+var DOMLazyTree = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 var escapeTextContentForBrowser = __webpack_require__(31);
@@ -22418,7 +22418,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(20);
+var _react = __webpack_require__(16);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22430,7 +22430,11 @@ var _Carousel = __webpack_require__(186);
 
 var _Carousel2 = _interopRequireDefault(_Carousel);
 
-var _Home = __webpack_require__(187);
+var _Footer = __webpack_require__(187);
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
+var _Home = __webpack_require__(188);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -22456,10 +22460,15 @@ var App = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'container' },
-                _react2.default.createElement(_Navigation2.default, null),
-                _react2.default.createElement(_Carousel2.default, null),
-                _react2.default.createElement(_Home2.default, null)
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'container' },
+                    _react2.default.createElement(_Navigation2.default, null),
+                    _react2.default.createElement(_Carousel2.default, null),
+                    _react2.default.createElement(_Home2.default, null)
+                ),
+                _react2.default.createElement(_Footer2.default, null)
             );
         }
     }]);
@@ -22482,7 +22491,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(20);
+var _react = __webpack_require__(16);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22515,7 +22524,7 @@ var Nav = function (_React$Component) {
                     _react2.default.createElement(
                         "a",
                         { className: "navbar-brand", href: "index.html" },
-                        "Rosario Construction"
+                        "Strong Construction & Service"
                     ),
                     _react2.default.createElement(
                         "button",
@@ -22684,7 +22693,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(20);
+var _react = __webpack_require__(16);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22826,7 +22835,124 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(20);
+var _react = __webpack_require__(16);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var centered = {
+    margin: 'auto',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+};
+
+var Footer = function (_React$Component) {
+    _inherits(Footer, _React$Component);
+
+    function Footer() {
+        _classCallCheck(this, Footer);
+
+        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+    }
+
+    _createClass(Footer, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'footer',
+                { className: 'footer bg-dark', style: { "color": "#fff", "height": "220px" } },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'container' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-sm', style: centered },
+                            _react2.default.createElement(
+                                'h6',
+                                { className: 'title mb-4 font-bold' },
+                                'Company name'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-sm', style: centered },
+                            'Contact Info'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { style: { 'textAlign': 'center' } },
+                    _react2.default.createElement(
+                        'small',
+                        null,
+                        'Design By ',
+                        _react2.default.createElement(
+                            'a',
+                            { style: { 'textDecoration': 'none', 'color': 'inherit' }, href: 'http://www.evergarcia.com', target: 'blank' },
+                            'Ever Uriel Garcia'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Footer;
+}(_react2.default.Component);
+
+exports.default = Footer;
+
+
+{/* <footer className="footer">
+       <div className="container">
+           <span className="text-muted">Place sticky footer content here.</span>
+           <div className="col-md-3 col-lg-3 col-xl-3">
+               <h6 className="title mb-4 font-bold">Company name</h6>
+              <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+           </div>
+           <hr />
+           <div className="col-md-2 col-lg-2 col-xl-2" style={{ 'paddingLeft': 0, 'paddingRight': 0 }}>
+               <h6 className="title mb-4 font-bold">Products</h6>
+               <p><a href="#!">MDBootstrap</a></p>
+               <p><a href="#!">MDWordPress</a></p>
+               <p><a href="#!">BrandFlow</a></p>
+               <p><a href="#!">Bootstrap Angular</a></p>
+           </div>
+       </div>
+    </footer> */}
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(16);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -22851,77 +22977,252 @@ var Home = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'div',
-                { className: 'row', style: { 'textAlign': 'center', 'marginTop': '.5rem' } },
+                'main',
+                null,
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-lg-4' },
-                    _react2.default.createElement('img', { className: 'rounded-circle', src: 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt: 'Generic placeholder image', width: '140', height: '140' }),
+                    null,
                     _react2.default.createElement(
-                        'h2',
-                        null,
-                        'Heading'
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        null,
-                        'Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.'
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        null,
+                        'div',
+                        { className: 'row', style: { 'marginLeft': '3%', 'marginRight': '3%', 'textAlign': 'center', 'marginTop': '.5rem' } },
                         _react2.default.createElement(
-                            'a',
-                            { className: 'btn btn-secondary', href: '#', role: 'button' },
-                            'View details \xBB'
+                            'div',
+                            { className: 'col-lg-4' },
+                            _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Heading'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-lg-4' },
+                            _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Heading'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-lg-4' },
+                            _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Heading'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.'
+                            )
                         )
                     )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-lg-4' },
-                    _react2.default.createElement('img', { className: 'rounded-circle', src: 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt: 'Generic placeholder image', width: '140', height: '140' }),
+                    null,
                     _react2.default.createElement(
-                        'h2',
+                        'h3',
                         null,
-                        'Heading'
+                        'Some Projects'
                     ),
                     _react2.default.createElement(
-                        'p',
-                        null,
-                        'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.'
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        null,
+                        'div',
+                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9' } },
                         _react2.default.createElement(
-                            'a',
-                            { className: 'btn btn-secondary', href: '#', role: 'button' },
-                            'View details \xBB'
+                            'div',
+                            { className: 'col-md-7' },
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'http://placehold.it/700x300', alt: '' })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-md-5' },
+                            _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Project One'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('hr', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9' } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-md-5' },
+                            _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Project One'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-md-7' },
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'http://placehold.it/700x300', alt: '' })
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('hr', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row', style: { 'marginTop': '.5rem', 'backgroundColor': '#F9F9F9' } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-md-7' },
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'http://placehold.it/700x300', alt: '' })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-md-5' },
+                            _react2.default.createElement(
+                                'h3',
+                                null,
+                                'Project One'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                null,
+                                'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.'
+                            )
                         )
                     )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-lg-4' },
-                    _react2.default.createElement('img', { className: 'rounded-circle', src: 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==', alt: 'Generic placeholder image', width: '140', height: '140' }),
+                    null,
                     _react2.default.createElement(
-                        'h2',
+                        'h3',
                         null,
-                        'Heading'
+                        'References'
                     ),
                     _react2.default.createElement(
-                        'p',
-                        null,
-                        'Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.'
-                    ),
-                    _react2.default.createElement(
-                        'p',
-                        null,
+                        'div',
+                        { className: 'card', style: { 'marginTop': '.5rem' } },
                         _react2.default.createElement(
-                            'a',
-                            { className: 'btn btn-secondary', href: '#', role: 'button' },
-                            'View details \xBB'
+                            'div',
+                            { className: 'card-header' },
+                            'Quote'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-body' },
+                            _react2.default.createElement(
+                                'blockquote',
+                                { className: 'blockquote mb-0' },
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.'
+                                ),
+                                _react2.default.createElement(
+                                    'footer',
+                                    { className: 'blockquote-footer' },
+                                    'Someone famous in ',
+                                    _react2.default.createElement(
+                                        'cite',
+                                        { title: 'Source Title' },
+                                        'Source Title'
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card', style: { 'marginTop': '.5rem' } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-header' },
+                            'Quote'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-body' },
+                            _react2.default.createElement(
+                                'blockquote',
+                                { className: 'blockquote mb-0' },
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.'
+                                ),
+                                _react2.default.createElement(
+                                    'footer',
+                                    { className: 'blockquote-footer' },
+                                    'Someone famous in ',
+                                    _react2.default.createElement(
+                                        'cite',
+                                        { title: 'Source Title' },
+                                        'Source Title'
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'card', style: { 'marginTop': '.5rem' } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-header' },
+                            'Quote'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-body' },
+                            _react2.default.createElement(
+                                'blockquote',
+                                { className: 'blockquote mb-0' },
+                                _react2.default.createElement(
+                                    'p',
+                                    null,
+                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.'
+                                ),
+                                _react2.default.createElement(
+                                    'footer',
+                                    { className: 'blockquote-footer' },
+                                    'Someone famous in ',
+                                    _react2.default.createElement(
+                                        'cite',
+                                        { title: 'Source Title' },
+                                        'Source Title'
+                                    )
+                                )
+                            )
                         )
                     )
                 )
