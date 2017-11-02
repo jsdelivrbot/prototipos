@@ -22566,106 +22566,11 @@ var Nav = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 "li",
-                                { className: "nav-item dropdown" },
+                                { className: "nav-item" },
                                 _react2.default.createElement(
                                     "a",
-                                    { className: "nav-link dropdown-toggle", href: "#", id: "navbarDropdownPortfolio", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
-                                    "Portfolio"
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "dropdown-menu dropdown-menu-right", "aria-labelledby": "navbarDropdownPortfolio" },
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "portfolio-1-col.html" },
-                                        "1 Column Portfolio"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "portfolio-2-col.html" },
-                                        "2 Column Portfolio"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "portfolio-3-col.html" },
-                                        "3 Column Portfolio"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "portfolio-4-col.html" },
-                                        "4 Column Portfolio"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "portfolio-item.html" },
-                                        "Single Portfolio Item"
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "li",
-                                { className: "nav-item dropdown" },
-                                _react2.default.createElement(
-                                    "a",
-                                    { className: "nav-link dropdown-toggle", href: "#", id: "navbarDropdownBlog", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
-                                    "Blog"
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "dropdown-menu dropdown-menu-right", "aria-labelledby": "navbarDropdownBlog" },
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "blog-home-1.html" },
-                                        "Blog Home 1"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "blog-home-2.html" },
-                                        "Blog Home 2"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "blog-post.html" },
-                                        "Blog Post"
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "li",
-                                { className: "nav-item dropdown" },
-                                _react2.default.createElement(
-                                    "a",
-                                    { className: "nav-link dropdown-toggle", href: "#", id: "navbarDropdownBlog", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
-                                    "Other Pages"
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "dropdown-menu dropdown-menu-right", "aria-labelledby": "navbarDropdownBlog" },
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "full-width.html" },
-                                        "Full Width Page"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "sidebar.html" },
-                                        "Sidebar Page"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "faq.html" },
-                                        "FAQ"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "404.html" },
-                                        "404"
-                                    ),
-                                    _react2.default.createElement(
-                                        "a",
-                                        { className: "dropdown-item", href: "pricing.html" },
-                                        "Pricing Table"
-                                    )
+                                    { className: "nav-link", href: "contact.html" },
+                                    "Log In"
                                 )
                             )
                         )
@@ -22964,6 +22869,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var header = {
+    display: 'block',
+    background: 'transparent',
+    padding: '0 0 10px',
+    borderBottom: '2px solid #b6d54f'
+};
+
 var Home = function (_React$Component) {
     _inherits(Home, _React$Component);
 
@@ -22984,14 +22896,19 @@ var Home = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                         'div',
-                        { className: 'row', style: { 'marginLeft': '3%', 'marginRight': '3%', 'textAlign': 'center', 'marginTop': '.5rem' } },
+                        { className: 'row', style: { 'textAlign': 'center', 'marginTop': '.5rem' } },
                         _react2.default.createElement(
                             'div',
                             { className: 'col-lg-4' },
                             _react2.default.createElement(
                                 'h3',
-                                null,
-                                'Heading'
+                                { style: header },
+                                'Heading ',
+                                _react2.default.createElement(
+                                    'span',
+                                    { style: { 'color': '#b6d54f' } },
+                                    'One'
+                                )
                             ),
                             _react2.default.createElement(
                                 'p',
@@ -23004,8 +22921,13 @@ var Home = function (_React$Component) {
                             { className: 'col-lg-4' },
                             _react2.default.createElement(
                                 'h3',
-                                null,
-                                'Heading'
+                                { style: header },
+                                'Heading ',
+                                _react2.default.createElement(
+                                    'span',
+                                    { style: { 'color': '#b6d54f' } },
+                                    'Two'
+                                )
                             ),
                             _react2.default.createElement(
                                 'p',
@@ -23018,8 +22940,13 @@ var Home = function (_React$Component) {
                             { className: 'col-lg-4' },
                             _react2.default.createElement(
                                 'h3',
-                                null,
-                                'Heading'
+                                { style: header },
+                                'Heading ',
+                                _react2.default.createElement(
+                                    'span',
+                                    { style: { 'color': '#b6d54f' } },
+                                    'Three'
+                                )
                             ),
                             _react2.default.createElement(
                                 'p',
@@ -23074,7 +23001,7 @@ var Home = function (_React$Component) {
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'Project One'
+                                'Project Two'
                             ),
                             _react2.default.createElement(
                                 'p',
@@ -23111,7 +23038,7 @@ var Home = function (_React$Component) {
                             _react2.default.createElement(
                                 'h3',
                                 null,
-                                'Project One'
+                                'Project Three'
                             ),
                             _react2.default.createElement(
                                 'p',
@@ -23134,11 +23061,6 @@ var Home = function (_React$Component) {
                         { className: 'card', style: { 'marginTop': '.5rem' } },
                         _react2.default.createElement(
                             'div',
-                            { className: 'card-header' },
-                            'Quote'
-                        ),
-                        _react2.default.createElement(
-                            'div',
                             { className: 'card-body' },
                             _react2.default.createElement(
                                 'blockquote',
@@ -23150,7 +23072,7 @@ var Home = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'footer',
-                                    { className: 'blockquote-footer' },
+                                    { className: 'blockquote-footer ' },
                                     'Someone famous in ',
                                     _react2.default.createElement(
                                         'cite',
