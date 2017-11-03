@@ -1,4 +1,6 @@
 import React from 'react';
+import Carousel from './Carousel.js';
+
 const header = {
     display: 'block',
     background: 'transparent',
@@ -9,6 +11,8 @@ class Home extends React.Component {
     render(){
         return (
             <main>
+                <Carousel />
+
                 <div>
                     <div className="row" style={{ 'textAlign': 'center', 'marginTop': '.5rem' }}>
                         <div className="col-lg-4">
