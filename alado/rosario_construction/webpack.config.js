@@ -10,7 +10,7 @@ module.exports = {
         sourceMapFilename: "build/bundle.map"
 	},
     devtool: '#source-map',
-
+	watch: true,
 	module: {
 		loaders: [
 			{

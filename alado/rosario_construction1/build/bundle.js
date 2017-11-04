@@ -42925,7 +42925,7 @@ var App = function (_Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        _reactRouterDom.BrowserRouter,
+        _reactRouterDom.HashRouter,
         null,
         _react2.default.createElement(
           'div',
@@ -65205,7 +65205,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var _tab_name = null;
+var tab_name = null;
 
 var _Header = function (_Component) {
     _inherits(_Header, _Component);
@@ -65215,19 +65215,19 @@ var _Header = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (_Header.__proto__ || Object.getPrototypeOf(_Header)).call(this, props));
 
-        _tab_name = _this.props.page;
+        tab_name = _this.props.page;
         return _this;
     }
 
     _createClass(_Header, [{
         key: 'tab_name',
         value: function tab_name(tab) {
-            var tabs = tab.target.parentNode.parentNode.children;
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("active");
-            }
-            tab.target.parentNode.classList = 'active item';
-            _tab_name(tab.target.innerText);
+            // var tabs = tab.target.parentNode.parentNode.children;
+            // for(var i = 0; i < tabs.length; i++) {
+            //     tabs[i].classList.remove("active");
+            // }
+            // tab.target.parentNode.classList = 'active item';
+            // tab_name(tab.target.innerText);      
         }
     }, {
         key: 'render',

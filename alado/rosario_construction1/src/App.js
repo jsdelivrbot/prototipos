@@ -13,7 +13,7 @@ import {
   Visibility,
 } from 'semantic-ui-react'
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import _Header from './components/Header'
 import Main from './components/Main'
@@ -34,13 +34,13 @@ class App extends Component {
   }
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div>
             <_Header page = { this.page } />
             <Main tab = { this.state.tab } />
             <Footer />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     )
   }
 }

@@ -22,12 +22,12 @@ class _Header extends Component {
     }
     
     tab_name(tab){
-        var tabs = tab.target.parentNode.parentNode.children;
-        for(var i = 0; i < tabs.length; i++) {
-            tabs[i].classList.remove("active");
-        }
-        tab.target.parentNode.classList = 'active item';
-        tab_name(tab.target.innerText);      
+        // var tabs = tab.target.parentNode.parentNode.children;
+        // for(var i = 0; i < tabs.length; i++) {
+        //     tabs[i].classList.remove("active");
+        // }
+        // tab.target.parentNode.classList = 'active item';
+        // tab_name(tab.target.innerText);      
     }
     render() {
         return (

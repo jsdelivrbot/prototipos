@@ -10,18 +10,30 @@ const centered = {
 class Footer extends React.Component {
     render(){
         return (
-            <footer className="footer bg-dark">
-                <div className="container">
-                    <div className="row" style={{ "color":"#fff", "height": "220px", 'marginTop': '.5rem', 'textAlign': 'center'}}>
-                        <div className="col-sm" style={ centered }>
-                            <h6 className="title mb-4 font-bold">Company name</h6>
-                            <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        </div>
-                        <div className="col-sm" style={ centered }>Contact Info</div>
+            <footer className="nice">
+                <div className="row">
+                    <div className="col-md-4 col-sm-6 footer-navigation">
+                        <h3><a href="#">Company<span>logo</span></a></h3>
+                        <p className="links"><a href="#">Home</a><strong>·</strong><a href="#">About</a><strong>·</strong><a href="#">Services</a><strong>·</strong><a href="#">Contact</a></p>
+                        <p className="company-name">Company Name © 2017</p>
                     </div>
-                </div>
-                <div style={{ 'textAlign': 'center', 'color': 'white' }}>
-                    <small>Powered By <a style={{ 'textDecoration':'none', 'color': 'inherit' }} href="http://www.evergarcia.com" target="blank">Ever Uriel Garcia</a></small>
+                    <div className="col-md-4 col-sm-6 footer-contacts">
+                        <div><span className="fa fa-map-marker footer-contacts-icon"></span>
+                            <p><span className="new-line-span">21 Revolution Street</span>Paris, France</p>
+                        </div>
+                        <div><i className="fa fa-phone footer-contacts-icon"></i>
+                            <p className="footer-center-info email text-left">+1 555 123456</p>
+                        </div>
+                        <div><i className="fa fa-envelope footer-contacts-icon"></i>
+                            <p><a href="#" target="_blank">support@company.com</a></p>
+                        </div>
+                    </div>
+                    <div className="clearfix visible-sm-block"></div>
+                    <div className="col-md-4 footer-about">
+                        <h4>About the company</h4>
+                        <p>Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.</p>
+                        <div className="social-links social-icons"><a href="#"><i className="fa fa-facebook"></i></a><a href="#"><i className="fa fa-twitter"></i></a><a href="#"><i className="fa fa-linkedin"></i></a><a href="#"><i className="fa fa-github"></i></a></div>
+                    </div>
                 </div>
             </footer>
         )
@@ -29,23 +41,3 @@ class Footer extends React.Component {
 }
 
 export default Footer;
-
-{/* <footer className="footer">
-    <div className="container">
-        <span className="text-muted">Place sticky footer content here.</span>
-        <div className="col-md-3 col-lg-3 col-xl-3">
-            <h6 className="title mb-4 font-bold">Company name</h6>
-           <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-        <hr />
-        <div className="col-md-2 col-lg-2 col-xl-2" style={{ 'paddingLeft': 0, 'paddingRight': 0 }}>
-            <h6 className="title mb-4 font-bold">Products</h6>
-            <p><a href="#!">MDBootstrap</a></p>
-            <p><a href="#!">MDWordPress</a></p>
-            <p><a href="#!">BrandFlow</a></p>
-            <p><a href="#!">Bootstrap Angular</a></p>
-        </div>
-    </div>
-</footer> */}
-
-
