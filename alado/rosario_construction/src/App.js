@@ -20,13 +20,12 @@ class App extends React.Component {
             <div>
                 <div className="container-fluid">
                     <Navigation />
-                    <Route exact path="/" component={ Home }/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/services" component={Services}/>
-                    <Route path="/contact" component={Contact}/>
-                    <Route path="/login" component={Login}/>
+                    <Route exact path="/evergarcia.com/rosario_construction" component={ Home }/>
+                    <Route path="/evergarcia.com/about" component={About}/>
+                    <Route path="/evergarcia.com/services" component={Services}/>
+                    <Route path="/evergarcia.com/contact" component={Contact}/>
+                    <Route path="/evergarcia.com/login" component={Login}/>
                 </div>
-                
                 <Footer />
             </div>
             </Router>

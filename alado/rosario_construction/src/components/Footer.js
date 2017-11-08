@@ -19,7 +19,7 @@ class Footer extends React.Component {
                     </div>
                     <div className="col-md-4 col-sm-6 footer-contacts">
                         <div><span className="fa fa-map-marker footer-contacts-icon"></span>
-                            <p><span className="new-line-span">21 Revolution Street</span>Paris, France</p>
+                            <p><span className="new-line-span">21 Revolution Street</span>Albuquerque, New Mexico</p>
                         </div>
                         <div><i className="fa fa-phone footer-contacts-icon"></i>
                             <p className="footer-center-info email text-left">+1 555 123456</p>
