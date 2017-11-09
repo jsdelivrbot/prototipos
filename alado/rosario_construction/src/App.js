@@ -20,11 +20,11 @@ class App extends React.Component {
             <div>
                 <div className="container-fluid">
                     <Navigation />
-                    <Route exact path="/evergarcia.com/rosario_construction" component={ Home }/>
-                    <Route path="/evergarcia.com/about" component={About}/>
-                    <Route path="/evergarcia.com/services" component={Services}/>
-                    <Route path="/evergarcia.com/contact" component={Contact}/>
-                    <Route path="/evergarcia.com/login" component={Login}/>
+                    <Route exact path="/rosario_construction" component={ Home }/>
+                    <Route path="/rosario_construction/about" component={About}/>
+                    <Route path="/rosario_construction/services" component={Services}/>
+                    <Route path="/rosario_construction/contact" component={Contact}/>
+                    <Route path="/rosario_construction/login" component={Login}/>
                 </div>
                 <Footer />
             </div>
