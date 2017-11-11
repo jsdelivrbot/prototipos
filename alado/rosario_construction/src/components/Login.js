@@ -69,7 +69,7 @@ class Login extends React.Component {
                     <div className="panel panel-info">
                         <div className="panel-heading">
                             <div className="panel-title">Sign Up</div>
-                            <div style={{"float":"right", "fontSize": "85%", "position": "relative", "top":"-10px"}}><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                            <div style={{"float":"right", "fontSize": "85%", "position": "relative", "top":"-10px"}}><a id="signinlink" href="#" onClick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
                         </div>  
                         <div className="panel-body" >
                             <form id="signupform" className="form-horizontal" role="form">

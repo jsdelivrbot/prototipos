@@ -28445,7 +28445,7 @@ var App = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                _reactRouterDom.BrowserRouter,
+                _reactRouterDom.HashRouter,
                 null,
                 _react2.default.createElement(
                     'div',
@@ -31534,8 +31534,8 @@ var Nav = function (_React$Component) {
 
     _createClass(Nav, [{
         key: 'nav_menu',
-        value: function nav_menu(button) {
-            console.log(button.target.parentNode);
+        value: function nav_menu(link) {
+            link.target.parentNode.parentNode.parentNode.className = 'collapse navbar-collapse';
         }
     }, {
         key: 'render',
@@ -31553,7 +31553,7 @@ var Nav = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'button',
-                        { className: 'navbar-toggler navbar-toggler-right', type: 'button', 'data-toggle': 'collapse', 'data-target': '#navbarResponsive', 'aria-controls': 'navbarResponsive', 'aria-expanded': 'false', 'aria-label': 'Toggle navigation', onClick: this.nav_menu },
+                        { className: 'navbar-toggler navbar-toggler-right', type: 'button', 'data-toggle': 'collapse', 'data-target': '#navbarResponsive', 'aria-controls': 'navbarResponsive', 'aria-expanded': 'false', 'aria-label': 'Toggle navigation' },
                         _react2.default.createElement('span', { className: 'navbar-toggler-icon' })
                     ),
                     _react2.default.createElement(
@@ -31567,7 +31567,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction' },
+                                    { className: 'nav-link', to: '/rosario_construction', onClick: this.nav_menu },
                                     'Home'
                                 )
                             ),
@@ -31576,7 +31576,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/about' },
+                                    { className: 'nav-link', to: '/rosario_construction/about', onClick: this.nav_menu },
                                     'About'
                                 )
                             ),
@@ -31585,7 +31585,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/services' },
+                                    { className: 'nav-link', to: '/rosario_construction/services', onClick: this.nav_menu },
                                     'Services'
                                 )
                             ),
@@ -31594,7 +31594,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/contact' },
+                                    { className: 'nav-link', to: '/rosario_construction/contact', onClick: this.nav_menu },
                                     'Contact'
                                 )
                             ),
@@ -31603,7 +31603,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/login' },
+                                    { className: 'nav-link', to: '/rosario_construction/login', onClick: this.nav_menu },
                                     'Login'
                                 )
                             )
@@ -31923,6 +31923,10 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Modal = __webpack_require__(570);
+
+var _Modal2 = _interopRequireDefault(_Modal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -31949,240 +31953,350 @@ var card = {
     padding: ".75rem",
     marginBottom: "2rem",
     border: 0
-};
+
+    // const Modal = () => (
+    //     <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    //       <div className="modal-dialog" role="document">
+    //         <div className="modal-content">
+    //           <div className="modal-header">
+    //             <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+    //             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+    //               <span aria-hidden="true">&times;</span>
+    //             </button>
+    //           </div>
+    //           <div className="modal-body">
+    //             ...
+    //           </div>
+    //           <div className="modal-footer">
+    //             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+    //             <button type="button" className="btn btn-primary">Save changes</button>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    // )
+
+    // const Modal = (props) => (
+    //     <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    //       <div className="modal-dialog" role="document">
+    //         <div className="modal-content">
+    //           <div className="modal-header">
+    //             <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+    //             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+    //               <span aria-hidden="true">&times;</span>
+    //             </button>
+    //           </div>
+    //           <div className="modal-body">
+    //                 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+    //                     <ol className="carousel-indicators">
+    //                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+    //                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    //                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    //                     </ol>
+    //                     <div className="carousel-inner">
+    //                         <div className="carousel-item active" style={{ height: 0 }} >
+    //                             <img className="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="First slide" />
+    //                         </div>
+    //                         <div className="carousel-item" style={{ height: 0 }} >
+    //                             <img className="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Second slide" />
+    //                         </div>
+    //                         <div className="carousel-item" style={{ height: 0 }} >
+    //                             <img className="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Third slide" />
+    //                         </div>
+    //                     </div>
+    //                     <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    //                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    //                         <span className="sr-only">Previous</span>
+    //                     </a>
+    //                     <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    //                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    //                         <span className="sr-only">Next</span>
+    //                     </a>
+    //                 </div>
+    //           </div>
+    //           <div className="modal-footer">
+    //             <button type="button" className="btn btn-secondary" data-dismiss="modal">{ props.src }</button>
+    //             {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    // )
+};var thumbnail = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+var pics = [thumbnail, thumbnail, thumbnail, thumbnail, thumbnail];
 
 var Services = function (_React$Component) {
     _inherits(Services, _React$Component);
 
-    function Services() {
+    function Services(props) {
         _classCallCheck(this, Services);
 
-        return _possibleConstructorReturn(this, (Services.__proto__ || Object.getPrototypeOf(Services)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Services.__proto__ || Object.getPrototypeOf(Services)).call(this, props));
+
+        _this.state = {
+            modal: null
+        };
+        _this.modal_carousel = _this.modal_carousel.bind(_this);
+        _this.modals_array = ['Modal1', 'Modal2', 'Modal3', 'Modal4', 'Modal5', 'Modal6', 'Modal7', 'Modal8', 'Modal9'];
+        _this.la_pics = ['https://blogs.chapman.edu/wp-content/uploads/sites/26/2015/01/o-SANTA-MONICA-facebook.jpg', 'http://www.orangemover.com/wp-content/uploads/2015/12/florida-los-angeles.jpg', 'http://static.temblor.net/wp-content/uploads/2017/05/santa-monica-pier-santa-monica-earthquake-1.jpg'];
+        _this.thumbnail = [thumbnail, thumbnail, thumbnail];
+        return _this;
     }
 
     _createClass(Services, [{
-        key: "render",
+        key: 'modal_carousel',
+        value: function modal_carousel(card) {
+            var modal = card.currentTarget.getAttribute('data-target').substring(1);
+            console.log(modal);
+            this.setState({ modal: _react2.default.createElement(_Modal2.default, { modal: modal, pics: this.if_modal(modal) }) });
+        }
+    }, {
+        key: 'if_modal',
+        value: function if_modal(modal) {
+            if (modal === 'Modal1') {
+                return this.thumbnail;
+            } else if (modal === 'Modal2') {
+                return this.la_pics;
+            } else if (modal === 'Modal3') {
+                return this.thumbnail;
+            } else if (modal === 'Modal4') {
+                return this.thumbnail;
+            } else if (modal === 'Modal5') {
+                return this.thumbnail;
+            } else if (modal === 'Modal6') {
+                return this.thumbnail;
+            } else if (modal === 'Modal7') {
+                return this.thumbnail;
+            } else if (modal === 'Modal8') {
+                return this.thumbnail;
+            } else if (modal === 'Modal9') {
+                return this.thumbnail;
+            }
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "main",
-                { role: "main" },
+                'main',
+                { role: 'main' },
+                this.state.modal,
                 _react2.default.createElement(
-                    "section",
-                    { className: "jumbotron text-center", style: jumbotron },
+                    'section',
+                    { className: 'jumbotron text-center', style: jumbotron },
                     _react2.default.createElement(
-                        "div",
-                        { className: "container", style: { "maxWidth": "40rem" } },
+                        'div',
+                        { className: 'container', style: { "maxWidth": "40rem" } },
                         _react2.default.createElement(
-                            "h1",
-                            { className: "jumbotron-heading", style: { "fontWeight": 300 } },
-                            "Album example"
+                            'h1',
+                            { className: 'jumbotron-heading', style: { "fontWeight": 300 } },
+                            'Album example'
                         ),
                         _react2.default.createElement(
-                            "p",
-                            { className: "lead text-muted" },
-                            "Something short and leading about the collection below\u2014its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely."
+                            'p',
+                            { className: 'lead text-muted' },
+                            'Something short and leading about the collection below\u2014its contents, the creator, etc. Make it short and sweet, but not too short so folks don\'t simply skip over it entirely.'
                         ),
                         _react2.default.createElement(
-                            "p",
+                            'p',
                             { style: { "marginBottom": 0 } },
                             _react2.default.createElement(
-                                "a",
-                                { href: "#", className: "btn btn-primary" },
-                                "Main call to action"
+                                'a',
+                                { href: '#', className: 'btn btn-primary' },
+                                'Main call to action'
                             ),
                             _react2.default.createElement(
-                                "a",
-                                { href: "#", className: "btn btn-secondary" },
-                                "Secondary action"
+                                'a',
+                                { href: '#', className: 'btn btn-secondary' },
+                                'Secondary action'
                             )
                         )
                     )
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { className: "album text-muted", style: album },
+                    'div',
+                    { className: 'album text-muted', style: album },
                     _react2.default.createElement(
-                        "div",
-                        { className: "container" },
+                        'div',
+                        { className: 'container' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
+                            'div',
+                            { className: 'row' },
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal1' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             ),
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal2' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             ),
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal3' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
+                            'div',
+                            { className: 'row' },
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal4' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             ),
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal5' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             ),
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal6' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
+                            'div',
+                            { className: 'row' },
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal7' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             ),
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal8' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             ),
                             _react2.default.createElement(
-                                "div",
-                                { className: "card col-sm", style: { "width": "20rem" } },
-                                _react2.default.createElement("img", { className: "card-img-top", src: "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E", alt: "Card image cap" }),
+                                'div',
+                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal9' }),
                                 _react2.default.createElement(
-                                    "div",
-                                    { className: "card-body" },
+                                    'div',
+                                    { className: 'card-body' },
                                     _react2.default.createElement(
-                                        "h4",
-                                        { className: "card-title" },
-                                        "Card title"
+                                        'h4',
+                                        { className: 'card-title' },
+                                        'Card title'
                                     ),
                                     _react2.default.createElement(
-                                        "p",
-                                        { className: "card-text" },
-                                        "Some quick example text to build on the card title and make up the bulk of the card's content."
+                                        'p',
+                                        { className: 'card-text' },
+                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
                                     )
                                 )
                             )
@@ -45936,7 +46050,7 @@ var Login = function (_React$Component) {
                                 { style: { "float": "right", "fontSize": "85%", "position": "relative", "top": "-10px" } },
                                 _react2.default.createElement(
                                     "a",
-                                    { id: "signinlink", href: "#", onclick: "$('#signupbox').hide(); $('#loginbox').show()" },
+                                    { id: "signinlink", href: "#", onClick: "$('#signupbox').hide(); $('#loginbox').show()" },
                                     "Sign In"
                                 )
                             )
@@ -46072,6 +46186,156 @@ var Login = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Login;
+
+/***/ }),
+/* 570 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Images = __webpack_require__(571);
+
+var _Images2 = _interopRequireDefault(_Images);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Modal = function Modal(props) {
+    return _react2.default.createElement(
+        'div',
+        { className: 'modal fade', id: props.modal, tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exampleModalLabel', 'aria-hidden': 'true' },
+        _react2.default.createElement(
+            'div',
+            { className: 'modal-dialog', role: 'document' },
+            _react2.default.createElement(
+                'div',
+                { className: 'modal-content' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal-header' },
+                    _react2.default.createElement(
+                        'h5',
+                        { className: 'modal-title', id: 'exampleModalLabel' },
+                        'Modal title'
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
+                        _react2.default.createElement(
+                            'span',
+                            { 'aria-hidden': 'true' },
+                            '\xD7'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal-body' },
+                    _react2.default.createElement(
+                        'div',
+                        { id: 'carouselExampleIndicators', className: 'carousel slide', 'data-ride': 'carousel' },
+                        _react2.default.createElement(
+                            'ol',
+                            { className: 'carousel-indicators' },
+                            _react2.default.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '0', className: 'active' }),
+                            _react2.default.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '1' }),
+                            _react2.default.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '2' })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'carousel-inner' },
+                            _react2.default.createElement(_Images2.default, { images: props.number_images, pics: props.pics })
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { className: 'carousel-control-prev', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'prev' },
+                            _react2.default.createElement('span', { className: 'carousel-control-prev-icon', 'aria-hidden': 'true' }),
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'sr-only' },
+                                'Previous'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { className: 'carousel-control-next', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'next' },
+                            _react2.default.createElement('span', { className: 'carousel-control-next-icon', 'aria-hidden': 'true' }),
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'sr-only' },
+                                'Next'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal-footer' },
+                    _react2.default.createElement(
+                        'button',
+                        { type: 'button', className: 'btn btn-secondary', 'data-dismiss': 'modal' },
+                        'Close'
+                    )
+                )
+            )
+        )
+    );
+};
+
+exports.default = Modal;
+
+/***/ }),
+/* 571 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Images = function Images(props) {
+    console.log(props.pics);
+    var img = props.pics.map(function (src, index) {
+        var image = null;
+        if (index === 0) {
+            image = _react2.default.createElement(
+                'div',
+                { className: 'carousel-item active', style: { height: 'auto' }, key: index },
+                _react2.default.createElement('img', { className: 'd-block w-100', src: src, alt: 'First slide' })
+            );
+        } else {
+            image = _react2.default.createElement(
+                'div',
+                { className: 'carousel-item', style: { height: 'auto' }, key: index },
+                _react2.default.createElement('img', { className: 'd-block w-100', src: src, alt: 'First slide' })
+            );
+        }
+        return image;
+    });
+    return _react2.default.createElement(
+        'div',
+        null,
+        img
+    );
+};
+
+exports.default = Images;
 
 /***/ })
 /******/ ]);
