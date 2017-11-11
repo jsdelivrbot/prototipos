@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Modal from './modal_carousel/Modal';
 
 
@@ -144,11 +145,10 @@ class Services extends React.Component {
             { this.state.modal }
                 <section className="jumbotron text-center" style={jumbotron}>
                     <div className="container" style={{ "maxWidth": "40rem" }}>
-                        <h1 className="jumbotron-heading" style={{ "fontWeight": 300 }}>Album example</h1>
-                        <p className="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+                        <h1 className="jumbotron-heading" style={{ "fontWeight": 300 }}>Lorem ipsum </h1>
+                        <p className="lead text-muted">Lorem ipsum dolor sit amet consectetur adipiscing elit senectus, urna penatibus tellus diam tristique himenaeos posuere, nisl habitasse duis aptent tortor lobortis dapibus. Bibendum quisque orci phasellus commodo, arcu laoreet.</p>
                         <p style={{ "marginBottom": 0 }}>
-                            <a href="#" className="btn btn-primary">Main call to action</a>
-                            <a href="#" className="btn btn-secondary">Secondary action</a>
+                            <Link className="btn btn-primary" to="/rosario_construction/contact">Contact</Link>
                         </p>
                     </div>
                 </section>
@@ -164,7 +164,7 @@ class Services extends React.Component {
                                 </div>
                             </div>
                             <div className="card col-sm" style={{"width": "20rem"}}>
-                                <img onClick={ this.modal_carousel } className="card-img-top" src={ thumbnail } alt="Card image cap" data-toggle="modal" data-target="#Modal2" />
+                                <img onClick={ this.modal_carousel } className="card-img-top" src={ this.la_pics[0] } style={{ 'width': '288px', 'height': '226px' }} alt="Card image cap" data-toggle="modal" data-target="#Modal2" />
                                 <div className="card-body">
                                     <h4 className="card-title">Card title</h4>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
