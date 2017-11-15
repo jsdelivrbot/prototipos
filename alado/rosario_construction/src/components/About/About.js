@@ -6,7 +6,7 @@ class About extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
-                        <img className="img-fluid rounded mb-4" src="http://placehold.it/750x450" alt="" />
+                        <img className="img-fluid rounded mb-4" src="../image/other/man_ladder.jpg" alt="" />
                     </div>
                     <div className="col-lg-6">
                         <h2>About</h2>

@@ -1,24 +1,10 @@
 import React from 'react';
-
-// class Map extends React.Component {
-//     render(){
-//         return (
-//             <div>
-//                 MAP
-//             </div>
-//         )
-//     }
-// }
-
-// export default Map;
-
 import { compose } from "recompose";
 import {
     withScriptjs,
     withGoogleMap,
     GoogleMap,
 } from "react-google-maps";
-// const { MarkerWithLabel } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
 import { MarkerWithLabel } from 'react-google-maps/lib/components/addons/MarkerWithLabel';
 const demoFancyMapStyles = require("./map_style.json"); 
 

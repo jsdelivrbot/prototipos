@@ -128,17 +128,10 @@ div.social-links{
   color:#fff;
 }
 
-.social-links a{
-  display:inline-block;
-  width:35px;
-  height:35px;
-  cursor:pointer;
-  background-color:#33383b;
-  border-radius:2px;
-  font-size:20px;
-  color:#ffffff;
-  text-align:center;
-  line-height:35px;
-  margin-right:5px;
-  margin-bottom:5px;
+#app > div > div > footer > div > div.col-md-4.col-sm-6.footer-navigation > h5 > a {
+  color: #fff;
+}
+
+#app > div > div > footer > div > div.col-md-4.col-sm-6.footer-navigation > p > a {
+  color: #8f9296;
 }

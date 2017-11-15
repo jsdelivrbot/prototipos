@@ -17,21 +17,20 @@ class Contact extends React.Component {
                     <div className="col-sm col-md-4">
                           <h3>Contact Details</h3>
                           <p>
-                              3481 Melrose Place
-                              <br />Beverly Hills, CA 90210
+                              <br />Albuquerque, NM
                               <br />
                           </p>
                           <p>
                             <i className="fa fa-mobile" aria-hidden="true"></i>
-                              (123) 456-7890
+                              <span> (505) 400-1198</span>
                           </p>
                           <p>
                               <i className="fa fa-envelope-o" aria-hidden="true"></i>
-                              <a href="mailto:name@example.com">name@example.com</a>
+                              <a href="mailto:uriel621@live.com"> uriel621@live.com</a>
                           </p>
                           <p>
                               <i className="fa fa-clock-o" aria-hidden="true"></i>
-                              Monday - Friday: 9:00 AM to 5:00 PM
+                              <span> Monday - Friday: 9:00 AM to 5:00 PM</span>
                           </p>
                       </div>
 

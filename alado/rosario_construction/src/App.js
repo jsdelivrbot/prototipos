@@ -5,13 +5,13 @@ import {
     Link
   } from 'react-router-dom'
 
-import Navigation from './components/Navigation.js';
-import Footer from './components/Footer.js';
-import About from './components/About.js';
-import Services from './components/Services.js';
-import Contact from './components/Contact.js';
+import Navigation from './components/Navigation/Navigation';
+import Footer from './components/Footer/Footer';
+import About from './components/About/About';
+import Services from './components/Services/Services';
+import Contact from './components/Contact/Contact';
 import Home from './components/Home/Home';
-import Login from './components/Login.js';
+import Login from './components/Login/Login';
 
 class App extends React.Component {
     render(){
