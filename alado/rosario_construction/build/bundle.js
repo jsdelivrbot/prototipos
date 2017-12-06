@@ -31884,76 +31884,9 @@ var card = {
     padding: ".75rem",
     marginBottom: "2rem",
     border: 0
+};
 
-    // const Modal = () => (
-    //     <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    //       <div className="modal-dialog" role="document">
-    //         <div className="modal-content">
-    //           <div className="modal-header">
-    //             <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-    //             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-    //               <span aria-hidden="true">&times;</span>
-    //             </button>
-    //           </div>
-    //           <div className="modal-body">
-    //             ...
-    //           </div>
-    //           <div className="modal-footer">
-    //             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-    //             <button type="button" className="btn btn-primary">Save changes</button>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    // )
-
-    // const Modal = (props) => (
-    //     <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    //       <div className="modal-dialog" role="document">
-    //         <div className="modal-content">
-    //           <div className="modal-header">
-    //             <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-    //             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-    //               <span aria-hidden="true">&times;</span>
-    //             </button>
-    //           </div>
-    //           <div className="modal-body">
-    //                 <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-    //                     <ol className="carousel-indicators">
-    //                         <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-    //                         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    //                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    //                     </ol>
-    //                     <div className="carousel-inner">
-    //                         <div className="carousel-item active" style={{ height: 0 }} >
-    //                             <img className="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="First slide" />
-    //                         </div>
-    //                         <div className="carousel-item" style={{ height: 0 }} >
-    //                             <img className="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Second slide" />
-    //                         </div>
-    //                         <div className="carousel-item" style={{ height: 0 }} >
-    //                             <img className="d-block w-100" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Third slide" />
-    //                         </div>
-    //                     </div>
-    //                     <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    //                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-    //                         <span className="sr-only">Previous</span>
-    //                     </a>
-    //                     <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    //                         <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    //                         <span className="sr-only">Next</span>
-    //                     </a>
-    //                 </div>
-    //           </div>
-    //           <div className="modal-footer">
-    //             <button type="button" className="btn btn-secondary" data-dismiss="modal">{ props.src }</button>
-    //             {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    // )
-};var thumbnail = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
+var thumbnail = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22356%22%20height%3D%22280%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20356%20280%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15f99d16b9b%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A18pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15f99d16b9b%22%3E%3Crect%20width%3D%22356%22%20height%3D%22280%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22117.34375%22%20y%3D%22148.1%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E";
 var pics = [thumbnail, thumbnail, thumbnail, thumbnail, thumbnail];
 
 var Services = function (_React$Component) {
@@ -32049,7 +31982,7 @@ var Services = function (_React$Component) {
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal1' }),
                                 _react2.default.createElement(
                                     'div',
@@ -32068,8 +32001,8 @@ var Services = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: this.la_pics[0], style: { 'width': '288px', 'height': '226px' }, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal2' }),
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
+                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: this.la_pics[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal2' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'card-body' },
@@ -32087,7 +32020,7 @@ var Services = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal3' }),
                                 _react2.default.createElement(
                                     'div',
@@ -32110,7 +32043,7 @@ var Services = function (_React$Component) {
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal4' }),
                                 _react2.default.createElement(
                                     'div',
@@ -32129,7 +32062,7 @@ var Services = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal5' }),
                                 _react2.default.createElement(
                                     'div',
@@ -32148,7 +32081,7 @@ var Services = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal6' }),
                                 _react2.default.createElement(
                                     'div',
@@ -32171,7 +32104,7 @@ var Services = function (_React$Component) {
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal7' }),
                                 _react2.default.createElement(
                                     'div',
@@ -32190,7 +32123,7 @@ var Services = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal8' }),
                                 _react2.default.createElement(
                                     'div',
@@ -32209,7 +32142,7 @@ var Services = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'card col-sm', style: { "width": "20rem" } },
+                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
                                 _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal9' }),
                                 _react2.default.createElement(
                                     'div',
