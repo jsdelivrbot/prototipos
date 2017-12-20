@@ -91,6 +91,46 @@ const inputs = (number) => {
                 </div>
         divs.push(div);
     }
+
+    // const url = 'http://127.0.0.1:8000/calculations/circle.py';
+    // $.ajax({
+    //     url: url,
+    //     data: {
+    //         firstname: 'Ever',
+    //         age: 621
+    //     },
+    //     success:function(data){
+    //       // successful request; do something with the data
+    //       console.log('SUCCESS: ', data)
+    //     },
+    //     error:function(){
+    //       // failed request; give feedback to user
+    //       console.log('ERROR')
+    //     }
+    //   });
+    // fetch(url)
+    //     .then(response => response.json())
+    //     .then(data => console.log(data))
+    // ---------------------------------------
+    // const request = new XMLHttpRequest();
+    // request.open('post', url, true);
+
+    // request.onload = function() {
+    //     if(request.status >= 200 && request.status < 400) {
+    //         console.log(request);
+    //         var response = request.response;
+    //         console.log('SUCCESS: ', response);
+    //     }
+    //     else {
+    //         console.log('Target reached but error');
+    //     }
+    // }
+    
+    // request.onerror = function() {
+    //     console.log('ERROR')
+    // }
+    // request.send();
+
     return (
         <div>
             { divs }
