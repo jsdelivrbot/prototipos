@@ -23,11 +23,11 @@
 # print(sys.argv[1])
 
 
-from flask import flask
-app = Flask(__name__)
-@app.route('/')
-def hello():
-    return 'Welcome to Flask':
+# from flask import flask
+# app = Flask(__name__)
+# @app.route('/')
+# def hello():
+#     return 'Welcome to Flask':
     
-if __name__ == '__main__':    
-    app.run()
+# if __name__ == '__main__':    
+#     app.run()

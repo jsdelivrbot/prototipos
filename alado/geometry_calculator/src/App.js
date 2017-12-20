@@ -92,22 +92,26 @@ const inputs = (number) => {
         divs.push(div);
     }
 
-    // const url = 'http://127.0.0.1:8000/calculations/circle.py';
-    // $.ajax({
-    //     url: url,
-    //     data: {
-    //         firstname: 'Ever',
-    //         age: 621
-    //     },
-    //     success:function(data){
-    //       // successful request; do something with the data
-    //       console.log('SUCCESS: ', data)
-    //     },
-    //     error:function(){
-    //       // failed request; give feedback to user
-    //       console.log('ERROR')
-    //     }
-    //   });
+    const url = '/signUpUser';
+    console.log(url)
+    let formData = new FormData();
+        formData.append('name', 'Ever')
+        formData.append('age', 24)
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success:function(data){
+          const response = JSON.parse(data);
+          console.log('SUCCEsS: ', response)
+        },
+        error:function(){
+          // failed request; give feedback to user
+          console.log('ERROR')
+        }
+      });
     // fetch(url)
     //     .then(response => response.json())
     //     .then(data => console.log(data))

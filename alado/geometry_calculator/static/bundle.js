@@ -22530,18 +22530,20 @@ var input_div = {}
         divs.push(div);
     }
 
-    var url = '/testing';
+    var url = '/signUpUser';
     console.log(url);
+    var formData = new FormData();
+    formData.append('name', 'Ever');
+    formData.append('age', 24);
     $.ajax({
         url: url,
         type: 'POST',
-        data: {
-            firstname: 'Ever',
-            age: 621
-        },
+        data: formData,
+        contentType: false,
+        processData: false,
         success: function success(data) {
-            // successful request; do something with the data
-            console.log('SUCCESS: ', data);
+            var response = JSON.parse(data);
+            console.log('SUCCEsS: ', response);
         },
         error: function error() {
             // failed request; give feedback to user
@@ -22710,4 +22712,4 @@ exports.default = App;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.map
+//# sourceMappingURL=bundle.js.map
