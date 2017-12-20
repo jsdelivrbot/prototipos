@@ -28454,11 +28454,10 @@ var App = function (_React$Component) {
                         'div',
                         { className: 'container-fluid' },
                         _react2.default.createElement(_Navigation2.default, null),
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/rosario_construction', component: _Home2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/rosario_construction/about', component: _About2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/rosario_construction/services', component: _Services2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/rosario_construction/contact', component: _Contact2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: '/rosario_construction/login', component: _Login2.default })
+                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _About2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/services', component: _Services2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { path: '/contact', component: _Contact2.default })
                     ),
                     _react2.default.createElement(_Footer2.default, null)
                 )
@@ -31549,7 +31548,7 @@ var Nav = function (_React$Component) {
                     { className: 'container' },
                     _react2.default.createElement(
                         _reactRouterDom.Link,
-                        { className: 'navbar-brand', to: '/rosario_construction', onClick: window.scrollTo(0, 0), replace: true },
+                        { className: 'navbar-brand', to: '/', onClick: window.scrollTo(0, 0), replace: true },
                         'Strong Construction & Service'
                     ),
                     _react2.default.createElement(
@@ -31568,7 +31567,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction', onClick: this.nav_menu, replace: true },
+                                    { className: 'nav-link', to: '/', onClick: this.nav_menu, replace: true },
                                     'Home'
                                 )
                             ),
@@ -31577,7 +31576,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/about', onClick: this.nav_menu, replace: true },
+                                    { className: 'nav-link', to: '/about', onClick: this.nav_menu, replace: true },
                                     'About'
                                 )
                             ),
@@ -31586,7 +31585,7 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/services', onClick: this.nav_menu, replace: true },
+                                    { className: 'nav-link', to: '/services', onClick: this.nav_menu, replace: true },
                                     'Services'
                                 )
                             ),
@@ -31595,17 +31594,8 @@ var Nav = function (_React$Component) {
                                 { className: 'nav-item' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/contact', onClick: this.nav_menu, replace: true },
+                                    { className: 'nav-link', to: '/contact', onClick: this.nav_menu, replace: true },
                                     'Contact'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'li',
-                                { className: 'nav-item' },
-                                _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { className: 'nav-link', to: '/rosario_construction/login', onClick: this.nav_menu, replace: true },
-                                    'Login'
                                 )
                             )
                         )
