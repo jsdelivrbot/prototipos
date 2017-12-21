@@ -1,0 +1,12 @@
+{
+    "circle": {
+        "area": ["radius"],
+        "circumference": ["radius"],
+        "diameter": ["radius"],
+        "radius": ["area"]
+    },
+    "cone": {
+        "base_area": ["radius"],
+        "height": ["surface_area", "radius"]
+    }
+}

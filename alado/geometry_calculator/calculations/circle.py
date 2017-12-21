@@ -1,33 +1,36 @@
-
-# import requests
-
-# userdata = {
-#     "firstname": 'Ever',
-#     'lastname': 'Garcia'
-# }
-
-# resp = requests.post('http://127.0.0.1:8000', params=userdata)
-
-
-# print('resp')
-
-# import cgi, cgitb
-# cgitb.enable()
-# data = cgi.FieldStorage()
-# print('Content-Type: text/html\n')
-# print('My name is ' + data["firstname"])
-# print(data)
-# # print(form.getvalue('username'))
-
-# import sys
+import sys
+import math
 # print(sys.argv[1])
 
-
-# from flask import flask
-# app = Flask(__name__)
-# @app.route('/')
-# def hello():
-#     return 'Welcome to Flask':
+class Circle (object):
+    pi = math.pi
+    def __init__(self, radius = 0, area = 1):
+        self._radius = radius
+        self._area = area
     
-# if __name__ == '__main__':    
-#     app.run()
+    def area(self):
+        area = self.pi * self._radius**2
+        return area
+    
+    def circumference(self):
+        circumference = 2 * self.pi * self._radius
+        return circumference
+
+    def diameter(self):
+        diameter = 2 * self._radius
+        return diameter
+
+    def radius(self):
+        radius = self._area / self.pi
+        radius = math.sqrt(radius)
+        return radius
+
+# radius = sys.argv[1]
+# # area = sys.argv[1]
+# radius = float(radius)
+# # radius = float(radius)
+# radius = Circle(radius, radius)
+# print(radius.area())
+# print(radius.circumference())
+# print(radius.diameter())
+# print(radius.radius())

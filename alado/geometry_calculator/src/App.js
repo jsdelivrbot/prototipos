@@ -67,105 +67,93 @@ const input_div = {
     // 'textAlign':'left'
 }
 
-// multiple_inputs = {
-//     'width':'100%',
-// }
+const result_label = {
+    // marginTop: '10%',
+    // marginBottom: '10%',
+    // textAlign: 'center'
+}
 
-const inputs = (number) => {
+
+const inputs = number => {
+    // array of inputs[area, volume, perimeter] will be looped
     let divs = [];
-    let multiple_inputs = null;
-    if(number === 1){
-        multiple_inputs = {
-            'width':'100%',
-        }
-    }
-    if(number === 2){
-        multiple_inputs = {
-            'width':'50%',
-        }
-    }
     for(let i = 0; i < number; i++) {
-        var div =  <div key={ i } style={ multiple_inputs }>
-                    <label className="label">{ 'Circumference' }: </label>
-                    <input className='input'/>
-                </div>
+        let width = '49%';
+        if(number === 1 || number === 2) {
+            width = '99%';
+        }
+        let style = { 'display':'inline-block', 'height':'25px', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
+        var div =   <div key={ i } style={ style }>
+                        <label className="label">{ 'Circumference' }: </label>
+                        <input className='input'/>
+                    </div>
         divs.push(div);
     }
-
-    const url = '/signUpUser';
-    console.log(url)
-    let formData = new FormData();
-        formData.append('name', 'Ever')
-        formData.append('age', 24)
-    $.ajax({
-        url: url,
-        type: 'POST',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success:function(data){
-          const response = JSON.parse(data);
-          console.log('SUCCEsS: ', response)
-        },
-        error:function(){
-          // failed request; give feedback to user
-          console.log('ERROR')
-        }
-      });
-    // fetch(url)
-    //     .then(response => response.json())
-    //     .then(data => console.log(data))
-    // ---------------------------------------
-    // const request = new XMLHttpRequest();
-    // request.open('post', url, true);
-
-    // request.onload = function() {
-    //     if(request.status >= 200 && request.status < 400) {
-    //         console.log(request);
-    //         var response = request.response;
-    //         console.log('SUCCESS: ', response);
-    //     }
-    //     else {
-    //         console.log('Target reached but error');
-    //     }
-    // }
-    
-    // request.onerror = function() {
-    //     console.log('ERROR')
-    // }
-    // request.send();
-
     return (
         <div>
             { divs }
         </div>
     )
 }
-
-// const Images = (props) => {
-//     console.log(props.pics)
-//     let img = props.pics.map((src, index) => {
-//         let image = null;
-//         if(index === 0){
-//             image = <div className="carousel-item active" style={{ height: 'auto' }} key={ index } >
-//                         <img className="d-block w-100" src={ src } alt="First slide" />
-//                     </div>  
-//         }
-//         else{
-//             image = <div className="carousel-item" style={{ height: 'auto' }} key={ index } >
-//                         <img className="d-block w-100" src={ src } alt="First slide" />
-//                     </div>
-//         }
-//         return image;
-//     })
-//     return (
-//         <div>
-//            { img }
-//         </div>
-//     );
-// }
+const url = '/calculate';
+let formData = new FormData();
+    formData.append('name', 'Ever')
+    formData.append('age', 24)
+$.ajax({
+    url: url,
+    type: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false,
+    success:function(data){
+        const response = JSON.parse(data);
+        console.log('SUCCEsS: ', response)
+    },
+    error:function(){
+        // failed request; give feedback to user
+        console.log('ERROR')
+    }
+});
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            shape: null,
+            formula: null,
+            needed_values: null,
+        }
+        this.calculate = this.calculate.bind(this);
+        this.calculate_success = this.calculate_success.bind(this);
+    }
+    calculate(event){
+        let shape = 'circle'
+        let formula = event.target.value;
+            console.log(event.target.parentNode)
+        //this.setState({ 'formula':event.target.value })
+        // make it work with a promise 
+        $.ajax({
+            url: '/static/shapes.json',
+            success: this.calculate_success
+        })
+    }
+
+    calculate_success(data){
+        let response = JSON.parse(data);
+        Object.keys(response).forEach(key => {
+            if(shape === key){
+                // console.log(key, response[key]);
+                response = response[key]
+                Object.keys(response).forEach(key => {
+                    if(formula === key) {
+                        console.log(response[key]);
+                        this.setState({ 'needed_values':  response[key] })
+                        console.log(this.state.needed_values)
+                    }
+                })
+            }
+        });
+    }
     render(){
         return (
             <div>
@@ -176,13 +164,13 @@ class App extends React.Component {
                     <div>
                         <select className="select" style= { select_shape_style }>
                             <option>Circle</option>
-                            <option>Square</option>
-                            <option>Triagle</option>
                         </select>
-                        <select className="select" style={ select_formula_style }>
-                            <option>Circle</option>
-                            <option>Square</option>
-                            <option>Triagle</option>
+                        <select className="select" style={ select_formula_style } onChange={ this.calculate }>
+                            <option defaultValue></option>
+                            <option value='area'>Area</option>
+                            <option value='circumference'>Circumference</option>
+                            <option value='diameter'>Diameter</option>
+                            <option value='radius'>Radius</option>
                         </select>
                         <div style={ clearfix }></div>
                     </div>
@@ -194,9 +182,11 @@ class App extends React.Component {
                             <img style={ image_shape } src="http://store-images.s-microsoft.com/image/apps.26251.13510798883213349.c74c048e-8bf5-42b5-9825-57104efe5ff6.058ff6e5-b6b5-4bd6-9fcc-4fda6bc214ec?w=180&h=180&q=60" />
                         </div>
                         <div style={ input_data } >
-                            <label className="label">{ 'Area' }: {'?'}</label>
+                            <label className="label" style = { result_label }>{ 'Area' }: {'?'}</label>
                             {/* <div>{ 'Area' }: {'?'}</div> */}
-                            { inputs(2) } 
+                            <div style={{ 'textAlign':'center', 'marginTop':'8%', 'marginBottom':'8%' }}>
+                                { inputs(this.state.needed_values) } 
+                            </div>
                         </div>
                         <div style={ clearfix }></div>
                     </div>
