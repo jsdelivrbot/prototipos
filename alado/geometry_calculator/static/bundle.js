@@ -22505,7 +22505,6 @@ var result_label = {
 };
 
 var Inputs = function Inputs(props) {
-    // console.log(props)
     return _react2.default.createElement(
         'div',
         null,
@@ -22514,17 +22513,17 @@ var Inputs = function Inputs(props) {
             if (props.values.length === 1 || props.values.length === 2) {
                 width = '99%';
             }
-            var style = { 'display': 'inline-block', 'height': '25px', 'marginTop': '2.5%', 'marginLeft': '0.5%', 'marginRight': '0.5%', 'width': width };
+            var style = { 'display': 'inline-block', 'marginTop': '2.5%', 'marginLeft': '0.5%', 'marginRight': '0.5%', 'width': width };
             var div = _react2.default.createElement(
                 'div',
                 { key: index, style: style },
                 _react2.default.createElement(
                     'label',
-                    { className: 'label' },
+                    { className: 'label', style: { "textAlign": "left" } },
                     value,
                     ': '
                 ),
-                _react2.default.createElement('input', { className: 'input' })
+                _react2.default.createElement('input', { className: 'input', onKeyUp: props.method })
             );
             return div;
         })
@@ -22535,7 +22534,6 @@ var Select = function Select(props) {
     if (!props.options) {
         return _react2.default.createElement('div', null);
     }
-    console.log('654', props);
     return _react2.default.createElement(
         'select',
         { className: 'select', style: props.style, onChange: props.method },
@@ -22583,23 +22581,20 @@ var App = function (_React$Component) {
             needed_values: ["radius"],
             image_formula: 'static/images/formula_images/circle/area.png',
             image_shape: 'static/images/shape_images/circle.png'
-            // this.select();
+        };
 
-        };_this.calculate = _this.calculate.bind(_this);
-        // this.calculate_success = this.calculate_success.bind(this);
+        _this.input_calculate = _this.input_calculate.bind(_this);
         _this.select = _this.select.bind(_this);
-        // this.select_success = this.select_success.bind(this);
         _this.find_formulas = _this.find_formulas.bind(_this);
+        _this.calculate = _this.calculate.bind(_this);
         _this.image_formula = _this.image_formula.bind(_this);
         _this.image_shape = _this.image_shape.bind(_this);
-        // this.find_formulas_success = this.find_formulas_success.bind(this);
         return _this;
     }
 
     _createClass(App, [{
         key: 'select',
         value: function select() {
-            console.log('lol', this.data);
             var options = [];
             Object.keys(this.data).forEach(function (key) {
                 options.push(key);
@@ -22611,7 +22606,8 @@ var App = function (_React$Component) {
         value: function find_formulas(event) {
             var _this2 = this;
 
-            event.target.parentNode.children[1].selectedIndex = 0;
+            var formula_select_element = event.target.parentNode.children[1];
+            formula_select_element.selectedIndex = 0;
             var shape = event.target.value;
             var formulas = [];
             Object.keys(this.data).forEach(function (key) {
@@ -22622,25 +22618,31 @@ var App = function (_React$Component) {
                     _this2.setState({ 'formulas_for_shapes': formulas });
                     _this2.setState({ 'current_shape': shape });
                     _this2.setState({ 'current_formula': formulas[0] });
+                    _this2.input_calculate(false, formulas[0], shape);
                     _this2.image_formula(shape, formulas[0]);
                     _this2.image_shape(shape);
                 }
             });
         }
     }, {
-        key: 'calculate',
-        value: function calculate(event) {
+        key: 'input_calculate',
+        value: function input_calculate(event, auto, _shape) {
             var _this3 = this;
 
-            var shape = this.state.current_shape;
-            var formula = event.target.value;
-            var response = this.data;
-            Object.keys(response).forEach(function (key) {
+            var shape = null;
+            var formula = null;
+            if (!event) {
+                formula = auto;
+                shape = _shape;
+            } else {
+                shape = this.state.current_shape;
+                formula = event.target.value;
+            }
+            Object.keys(this.data).forEach(function (key) {
                 if (shape === key) {
-                    response = response[key];
+                    var response = _this3.data[key];
                     Object.keys(response).forEach(function (key) {
                         if (formula === key) {
-                            console.log(response[key]);
                             _this3.setState({ 'current_formula': formula });
                             _this3.setState({ 'needed_values': response[key] });
                             _this3.image_formula(shape, formula);
@@ -22648,6 +22650,11 @@ var App = function (_React$Component) {
                     });
                 }
             });
+        }
+    }, {
+        key: 'calculate',
+        value: function calculate(event) {
+            console.log(event.target.value);
         }
     }, {
         key: 'image_shape',
@@ -22683,8 +22690,8 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(Select, { style: select_formula_style, options: this.state.all_shapes, method: this.find_formulas }),
-                        _react2.default.createElement(Select, { style: select_shape_style, options: this.state.formulas_for_shapes, method: this.calculate }),
+                        _react2.default.createElement(Select, { style: select_shape_style, options: this.state.all_shapes, method: this.find_formulas }),
+                        _react2.default.createElement(Select, { style: select_formula_style, options: this.state.formulas_for_shapes, method: this.input_calculate }),
                         _react2.default.createElement('div', { style: clearfix })
                     ),
                     _react2.default.createElement(
@@ -22713,7 +22720,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { style: { 'textAlign': 'center', 'marginTop': '8%', 'marginBottom': '8%' } },
-                                _react2.default.createElement(Inputs, { values: this.state.needed_values })
+                                _react2.default.createElement(Inputs, { values: this.state.needed_values, method: this.calculate })
                             )
                         ),
                         _react2.default.createElement('div', { style: clearfix })

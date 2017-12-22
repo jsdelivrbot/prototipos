@@ -74,7 +74,6 @@ const result_label = {
 }
 
 const Inputs = (props) => {
-    // console.log(props)
     return(
         <div>
             {
@@ -83,10 +82,10 @@ const Inputs = (props) => {
                     if(props.values.length === 1 || props.values.length === 2) {
                         width = '99%';
                     }
-                    let style = { 'display':'inline-block', 'height':'25px', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
+                    let style = { 'display':'inline-block', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
                     let div =   <div key={ index } style={ style }>
-                                    <label className="label">{ value }: </label>
-                                    <input className='input'/>
+                                    <label className="label" style={{ "textAlign":"left" }} >{ value }: </label>
+                                    <input className='input' onKeyUp={ props.method } />
                                 </div> 
                     return div     
                 })
@@ -102,7 +101,6 @@ const Select = (props) => {
             <div></div>
         )
     }
-    console.log('654', props)
     return (
         <select className="select" style={ props.style } onChange={ props.method }>
             {
@@ -142,20 +140,16 @@ class App extends React.Component {
             image_formula: 'static/images/formula_images/circle/area.png',
             image_shape: 'static/images/shape_images/circle.png'
         } 
-        // this.select();
 
-        this.calculate = this.calculate.bind(this);
-        // this.calculate_success = this.calculate_success.bind(this);
+        this.input_calculate = this.input_calculate.bind(this);
         this.select = this.select.bind(this);
-        // this.select_success = this.select_success.bind(this);
         this.find_formulas = this.find_formulas.bind(this);
+        this.calculate = this.calculate.bind(this);
         this.image_formula = this.image_formula.bind(this);
         this.image_shape = this.image_shape.bind(this);
-        // this.find_formulas_success = this.find_formulas_success.bind(this);
     }
 
     select(){
-        console.log('lol', this.data)
         let options = [];
         Object.keys(this.data).forEach(key => {
             options.push(key);
@@ -164,7 +158,8 @@ class App extends React.Component {
     }
 
     find_formulas(event){
-        event.target.parentNode.children[1].selectedIndex = 0;
+        var formula_select_element = event.target.parentNode.children[1]
+            formula_select_element.selectedIndex = 0;
         let shape = event.target.value;
         let formulas = [];  
         Object.keys(this.data).forEach(key => {
@@ -175,22 +170,29 @@ class App extends React.Component {
                 this.setState({ 'formulas_for_shapes': formulas })
                 this.setState({ 'current_shape': shape })
                 this.setState({ 'current_formula': formulas[0] })
+                this.input_calculate(false, formulas[0], shape)
                 this.image_formula(shape, formulas[0])
                 this.image_shape(shape)
             }
         })
     }
 
-    calculate(event){
-        let shape = this.state.current_shape;
-        let formula = event.target.value;
-        let response = this.data
-        Object.keys(response).forEach(key => {
+    input_calculate(event, auto, _shape){
+        let shape = null;
+        let formula = null;
+        if(!event){
+            formula = auto;
+            shape = _shape;
+        }
+        else {
+            shape = this.state.current_shape;
+            formula = event.target.value;
+        }                                      
+        Object.keys(this.data).forEach(key => {
             if(shape === key){
-                response = response[key];
+                var response = this.data[key];
                 Object.keys(response).forEach(key => {
                     if(formula === key) {
-                        console.log(response[key])
                         this.setState({ 'current_formula':formula })
                         this.setState({ 'needed_values':  response[key] })
                         this.image_formula(shape, formula)
@@ -198,6 +200,10 @@ class App extends React.Component {
                 })
             }
         });
+    }
+
+    calculate(event){
+        console.log(event.target.value);
     }
 
     image_shape(shape){
@@ -219,8 +225,8 @@ class App extends React.Component {
                         <h1 className="title is-3">Geometry Calculator</h1>
                     </div>
                     <div>
-                        <Select style={ select_formula_style } options={ this.state.all_shapes } method={ this.find_formulas }/>
-                        <Select style={ select_shape_style } options={ this.state.formulas_for_shapes } method={ this.calculate }/>
+                        <Select style={ select_shape_style } options={ this.state.all_shapes } method={ this.find_formulas }/>
+                        <Select style={ select_formula_style } options={ this.state.formulas_for_shapes } method={ this.input_calculate }/>
                         <div style={ clearfix }></div>
                     </div>
                     <div style={ image_formula_div_style }>
@@ -237,7 +243,7 @@ class App extends React.Component {
                             {/* <div>{ 'Area' }: {'?'}</div> */}
                             <div style={{ 'textAlign':'center', 'marginTop':'8%', 'marginBottom':'8%' }}>
                                 {/* { inputs(["radius"]) }  */}
-                                <Inputs values={ this.state.needed_values }/>
+                                <Inputs values={ this.state.needed_values } method={ this.calculate }/>
                             </div>
                         </div>
                         <div style={ clearfix }></div>
