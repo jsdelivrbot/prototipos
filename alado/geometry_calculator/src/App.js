@@ -4,7 +4,7 @@ import React from 'react';
 const calculator_div_style = {
     'maxWidth':'560px', 
     'height':'360px', 
-    // 'border':'solid 2px black',
+    'border':'solid 2px black',
     'margin':'0 auto',
     'textAlign':'center',
 }
@@ -102,8 +102,9 @@ const Select = (props) => {
             <div></div>
         )
     }
+    console.log('654', props)
     return (
-        <select className="select" style={ select_shape_style } onChange={ props.method }>
+        <select className="select" style={ props.style } onChange={ props.method }>
             {
                 props.options.map((option, index) => {
                     let section_text = option[0].toUpperCase() + option.slice(1);
@@ -138,8 +139,9 @@ class App extends React.Component {
             current_shape: 'circle',
             current_formula: 'area',
             needed_values: ["radius"],
-            image_formula: 'static/formula_images/circle/area.png'
-        }
+            image_formula: 'static/images/formula_images/circle/area.png',
+            image_shape: 'static/images/shape_images/circle.png'
+        } 
         // this.select();
 
         this.calculate = this.calculate.bind(this);
@@ -148,6 +150,7 @@ class App extends React.Component {
         // this.select_success = this.select_success.bind(this);
         this.find_formulas = this.find_formulas.bind(this);
         this.image_formula = this.image_formula.bind(this);
+        this.image_shape = this.image_shape.bind(this);
         // this.find_formulas_success = this.find_formulas_success.bind(this);
     }
 
@@ -173,6 +176,7 @@ class App extends React.Component {
                 this.setState({ 'current_shape': shape })
                 this.setState({ 'current_formula': formulas[0] })
                 this.image_formula(shape, formulas[0])
+                this.image_shape(shape)
             }
         })
     }
@@ -196,8 +200,13 @@ class App extends React.Component {
         });
     }
 
+    image_shape(shape){
+        const src = `static/images/shape_images/${shape}.png`
+        this.setState({ "image_shape":src });
+    }
+
     image_formula(shape, formula){
-        const src = `static/formula_images/${shape}/${formula}.png`
+        const src = `static/images/formula_images/${shape}/${formula}.png`
         this.setState({ "image_formula":src });
     }
 
@@ -207,11 +216,11 @@ class App extends React.Component {
             <div>
                 <div style={ calculator_div_style }>
                     <div>
-                        <h1 className="title is-3">621</h1>
+                        <h1 className="title is-3">Geometry Calculator</h1>
                     </div>
                     <div>
-                        <Select options={ this.state.all_shapes } method={ this.find_formulas }/>
-                        <Select options={ this.state.formulas_for_shapes } method={ this.calculate }/>
+                        <Select style={ select_formula_style } options={ this.state.all_shapes } method={ this.find_formulas }/>
+                        <Select style={ select_shape_style } options={ this.state.formulas_for_shapes } method={ this.calculate }/>
                         <div style={ clearfix }></div>
                     </div>
                     <div style={ image_formula_div_style }>
@@ -220,7 +229,7 @@ class App extends React.Component {
                     </div>
                     <div style={ details_div_style }>
                         <div style={ image_shape_div } >
-                            <img style={ image_shape } src="" />
+                            <img style={ image_shape } src={ this.state.image_shape } />
                             {/* <img style={ image_shape } src="http://store-images.s-microsoft.com/image/apps.26251.13510798883213349.c74c048e-8bf5-42b5-9825-57104efe5ff6.058ff6e5-b6b5-4bd6-9fcc-4fda6bc214ec?w=180&h=180&q=60" /> */}
                         </div>
                         <div style={ input_data } >

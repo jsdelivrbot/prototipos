@@ -22435,7 +22435,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var calculator_div_style = {
     'maxWidth': '560px',
     'height': '360px',
-    // 'border':'solid 2px black',
+    'border': 'solid 2px black',
     'margin': '0 auto',
     'textAlign': 'center'
 };
@@ -22535,9 +22535,10 @@ var Select = function Select(props) {
     if (!props.options) {
         return _react2.default.createElement('div', null);
     }
+    console.log('654', props);
     return _react2.default.createElement(
         'select',
-        { className: 'select', style: select_shape_style, onChange: props.method },
+        { className: 'select', style: props.style, onChange: props.method },
         props.options.map(function (option, index) {
             var section_text = option[0].toUpperCase() + option.slice(1);
             if (index === 0) {
@@ -22580,7 +22581,8 @@ var App = function (_React$Component) {
             current_shape: 'circle',
             current_formula: 'area',
             needed_values: ["radius"],
-            image_formula: 'static/formula_images/circle/area.png'
+            image_formula: 'static/images/formula_images/circle/area.png',
+            image_shape: 'static/images/shape_images/circle.png'
             // this.select();
 
         };_this.calculate = _this.calculate.bind(_this);
@@ -22589,6 +22591,7 @@ var App = function (_React$Component) {
         // this.select_success = this.select_success.bind(this);
         _this.find_formulas = _this.find_formulas.bind(_this);
         _this.image_formula = _this.image_formula.bind(_this);
+        _this.image_shape = _this.image_shape.bind(_this);
         // this.find_formulas_success = this.find_formulas_success.bind(this);
         return _this;
     }
@@ -22620,6 +22623,7 @@ var App = function (_React$Component) {
                     _this2.setState({ 'current_shape': shape });
                     _this2.setState({ 'current_formula': formulas[0] });
                     _this2.image_formula(shape, formulas[0]);
+                    _this2.image_shape(shape);
                 }
             });
         }
@@ -22646,9 +22650,15 @@ var App = function (_React$Component) {
             });
         }
     }, {
+        key: 'image_shape',
+        value: function image_shape(shape) {
+            var src = 'static/images/shape_images/' + shape + '.png';
+            this.setState({ "image_shape": src });
+        }
+    }, {
         key: 'image_formula',
         value: function image_formula(shape, formula) {
-            var src = 'static/formula_images/' + shape + '/' + formula + '.png';
+            var src = 'static/images/formula_images/' + shape + '/' + formula + '.png';
             this.setState({ "image_formula": src });
         }
     }, {
@@ -22667,14 +22677,14 @@ var App = function (_React$Component) {
                         _react2.default.createElement(
                             'h1',
                             { className: 'title is-3' },
-                            '621'
+                            'Geometry Calculator'
                         )
                     ),
                     _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(Select, { options: this.state.all_shapes, method: this.find_formulas }),
-                        _react2.default.createElement(Select, { options: this.state.formulas_for_shapes, method: this.calculate }),
+                        _react2.default.createElement(Select, { style: select_formula_style, options: this.state.all_shapes, method: this.find_formulas }),
+                        _react2.default.createElement(Select, { style: select_shape_style, options: this.state.formulas_for_shapes, method: this.calculate }),
                         _react2.default.createElement('div', { style: clearfix })
                     ),
                     _react2.default.createElement(
@@ -22688,7 +22698,7 @@ var App = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { style: image_shape_div },
-                            _react2.default.createElement('img', { style: image_shape, src: '' })
+                            _react2.default.createElement('img', { style: image_shape, src: this.state.image_shape })
                         ),
                         _react2.default.createElement(
                             'div',
