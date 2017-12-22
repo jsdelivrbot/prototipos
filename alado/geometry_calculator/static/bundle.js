@@ -22435,7 +22435,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var calculator_div_style = {
     'maxWidth': '560px',
     'height': '360px',
-    'border': 'solid 2px black',
+    // 'border':'solid 2px black',
     'margin': '0 auto',
     'textAlign': 'center'
 };
@@ -22457,8 +22457,8 @@ var clearfix = {
 var image_formula_div_style = {
     'height': '59px',
     'verticalAlign': 'middle',
-    'lineHeight': '59px',
-    'border': 'solid 0.5px'
+    'lineHeight': '59px'
+    // 'border': 'solid 0.5px'
 };
 
 var image_formula = {
@@ -22472,7 +22472,7 @@ var details_div_style = {
 
 var image_shape_div = {
     'float': 'left',
-    'border': 'solid 0.5px',
+    // 'border': 'solid 0.5px',
     'width': '50%',
     'height': '100%',
     'verticalAlign': 'middle',
@@ -22486,7 +22486,7 @@ var image_shape = {
 
 var input_data = {
     'float': 'right',
-    'border': 'solid 0.5px',
+    // 'border': 'solid 0.5px',
     'width': '50%',
     'height': '100%',
     'textAlign': 'left'
@@ -22504,53 +22504,59 @@ var result_label = {
     // textAlign: 'center'
 };
 
-var inputs = function inputs(number) {
-    // array of inputs[area, volume, perimeter] will be looped
-    var divs = [];
-    for (var i = 0; i < number; i++) {
-        var width = '49%';
-        if (number === 1 || number === 2) {
-            width = '99%';
-        }
-        var style = { 'display': 'inline-block', 'height': '25px', 'marginTop': '2.5%', 'marginLeft': '0.5%', 'marginRight': '0.5%', 'width': width };
-        var div = _react2.default.createElement(
-            'div',
-            { key: i, style: style },
-            _react2.default.createElement(
-                'label',
-                { className: 'label' },
-                'Circumference',
-                ': '
-            ),
-            _react2.default.createElement('input', { className: 'input' })
-        );
-        divs.push(div);
-    }
+var Inputs = function Inputs(props) {
+    // console.log(props)
     return _react2.default.createElement(
         'div',
         null,
-        divs
+        props.values.map(function (value, index) {
+            var width = '49%';
+            if (props.values.length === 1 || props.values.length === 2) {
+                width = '99%';
+            }
+            var style = { 'display': 'inline-block', 'height': '25px', 'marginTop': '2.5%', 'marginLeft': '0.5%', 'marginRight': '0.5%', 'width': width };
+            var div = _react2.default.createElement(
+                'div',
+                { key: index, style: style },
+                _react2.default.createElement(
+                    'label',
+                    { className: 'label' },
+                    value,
+                    ': '
+                ),
+                _react2.default.createElement('input', { className: 'input' })
+            );
+            return div;
+        })
     );
 };
-var url = '/calculate';
-var formData = new FormData();
-formData.append('name', 'Ever');
-formData.append('age', 24);
-$.ajax({
-    url: url,
-    type: 'POST',
-    data: formData,
-    contentType: false,
-    processData: false,
-    success: function success(data) {
-        var response = JSON.parse(data);
-        console.log('SUCCEsS: ', response);
-    },
-    error: function error() {
-        // failed request; give feedback to user
-        console.log('ERROR');
+
+var Select = function Select(props) {
+    if (!props.options) {
+        return _react2.default.createElement('div', null);
     }
-});
+    return _react2.default.createElement(
+        'select',
+        { className: 'select', style: select_shape_style, onChange: props.method },
+        props.options.map(function (option, index) {
+            var section_text = option[0].toUpperCase() + option.slice(1);
+            if (index === 0) {
+                option = _react2.default.createElement(
+                    'option',
+                    { key: index, value: option, defaultValue: true },
+                    section_text
+                );
+            } else {
+                option = _react2.default.createElement(
+                    'option',
+                    { key: index, value: option },
+                    section_text
+                );
+            }
+            return option;
+        })
+    );
+};
 
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -22560,52 +22566,95 @@ var App = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
+        _this.data = null;
+        fetch('/static/shapes.json').then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            _this.data = data;
+            _this.select();
+        });
+
         _this.state = {
-            shape: null,
-            formula: null,
-            needed_values: null
-        };
-        _this.calculate = _this.calculate.bind(_this);
-        _this.calculate_success = _this.calculate_success.bind(_this);
+            all_shapes: null,
+            formulas_for_shapes: ["area", "circumference", "diameter", "radius"],
+            current_shape: 'circle',
+            current_formula: 'area',
+            needed_values: ["radius"],
+            image_formula: 'static/formula_images/circle/area.png'
+            // this.select();
+
+        };_this.calculate = _this.calculate.bind(_this);
+        // this.calculate_success = this.calculate_success.bind(this);
+        _this.select = _this.select.bind(_this);
+        // this.select_success = this.select_success.bind(this);
+        _this.find_formulas = _this.find_formulas.bind(_this);
+        _this.image_formula = _this.image_formula.bind(_this);
+        // this.find_formulas_success = this.find_formulas_success.bind(this);
         return _this;
     }
 
     _createClass(App, [{
-        key: 'calculate',
-        value: function calculate(event) {
-            var shape = 'circle';
-            var formula = event.target.value;
-            console.log(event.target.parentNode);
-            //this.setState({ 'formula':event.target.value })
-            // make it work with a promise 
-            $.ajax({
-                url: '/static/shapes.json',
-                success: this.calculate_success
+        key: 'select',
+        value: function select() {
+            console.log('lol', this.data);
+            var options = [];
+            Object.keys(this.data).forEach(function (key) {
+                options.push(key);
+            });
+            this.setState({ 'all_shapes': options });
+        }
+    }, {
+        key: 'find_formulas',
+        value: function find_formulas(event) {
+            var _this2 = this;
+
+            event.target.parentNode.children[1].selectedIndex = 0;
+            var shape = event.target.value;
+            var formulas = [];
+            Object.keys(this.data).forEach(function (key) {
+                if (shape === key) {
+                    Object.keys(_this2.data[key]).forEach(function (key) {
+                        formulas.push(key);
+                    });
+                    _this2.setState({ 'formulas_for_shapes': formulas });
+                    _this2.setState({ 'current_shape': shape });
+                    _this2.setState({ 'current_formula': formulas[0] });
+                    _this2.image_formula(shape, formulas[0]);
+                }
             });
         }
     }, {
-        key: 'calculate_success',
-        value: function calculate_success(data) {
-            var _this2 = this;
+        key: 'calculate',
+        value: function calculate(event) {
+            var _this3 = this;
 
-            var response = JSON.parse(data);
+            var shape = this.state.current_shape;
+            var formula = event.target.value;
+            var response = this.data;
             Object.keys(response).forEach(function (key) {
                 if (shape === key) {
-                    // console.log(key, response[key]);
                     response = response[key];
                     Object.keys(response).forEach(function (key) {
                         if (formula === key) {
                             console.log(response[key]);
-                            _this2.setState({ 'needed_values': response[key] });
-                            console.log(_this2.state.needed_values);
+                            _this3.setState({ 'current_formula': formula });
+                            _this3.setState({ 'needed_values': response[key] });
+                            _this3.image_formula(shape, formula);
                         }
                     });
                 }
             });
         }
     }, {
+        key: 'image_formula',
+        value: function image_formula(shape, formula) {
+            var src = 'static/formula_images/' + shape + '/' + formula + '.png';
+            this.setState({ "image_formula": src });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            console.log(this.state);
             return _react2.default.createElement(
                 'div',
                 null,
@@ -22618,52 +22667,20 @@ var App = function (_React$Component) {
                         _react2.default.createElement(
                             'h1',
                             { className: 'title is-3' },
-                            'Geometry Calculator'
+                            '621'
                         )
                     ),
                     _react2.default.createElement(
                         'div',
                         null,
-                        _react2.default.createElement(
-                            'select',
-                            { className: 'select', style: select_shape_style },
-                            _react2.default.createElement(
-                                'option',
-                                null,
-                                'Circle'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'select',
-                            { className: 'select', style: select_formula_style, onChange: this.calculate },
-                            _react2.default.createElement('option', { defaultValue: true }),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'area' },
-                                'Area'
-                            ),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'circumference' },
-                                'Circumference'
-                            ),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'diameter' },
-                                'Diameter'
-                            ),
-                            _react2.default.createElement(
-                                'option',
-                                { value: 'radius' },
-                                'Radius'
-                            )
-                        ),
+                        _react2.default.createElement(Select, { options: this.state.all_shapes, method: this.find_formulas }),
+                        _react2.default.createElement(Select, { options: this.state.formulas_for_shapes, method: this.calculate }),
                         _react2.default.createElement('div', { style: clearfix })
                     ),
                     _react2.default.createElement(
                         'div',
                         { style: image_formula_div_style },
-                        _react2.default.createElement('img', { style: image_formula, src: 'https://i.ytimg.com/vi/riNAA-jx0u8/maxresdefault.jpg' })
+                        _react2.default.createElement('img', { style: image_formula, src: this.state.image_formula })
                     ),
                     _react2.default.createElement(
                         'div',
@@ -22671,7 +22688,7 @@ var App = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { style: image_shape_div },
-                            _react2.default.createElement('img', { style: image_shape, src: 'http://store-images.s-microsoft.com/image/apps.26251.13510798883213349.c74c048e-8bf5-42b5-9825-57104efe5ff6.058ff6e5-b6b5-4bd6-9fcc-4fda6bc214ec?w=180&h=180&q=60' })
+                            _react2.default.createElement('img', { style: image_shape, src: '' })
                         ),
                         _react2.default.createElement(
                             'div',
@@ -22679,14 +22696,14 @@ var App = function (_React$Component) {
                             _react2.default.createElement(
                                 'label',
                                 { className: 'label', style: result_label },
-                                'Area',
+                                this.state.current_formula,
                                 ': ',
                                 '?'
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { style: { 'textAlign': 'center', 'marginTop': '8%', 'marginBottom': '8%' } },
-                                inputs(this.state.needed_values)
+                                _react2.default.createElement(Inputs, { values: this.state.needed_values })
                             )
                         ),
                         _react2.default.createElement('div', { style: clearfix })
@@ -22698,6 +22715,36 @@ var App = function (_React$Component) {
 
     return App;
 }(_react2.default.Component);
+
+// $.ajax({
+//     url: '/static/shapes.json',
+//     success: this.calculate_success
+// })
+
+
+//     // const request = new XMLHttpRequest();
+//     // request.open('post', url, true);
+
+//     // request.onload = function() {
+//     //     if(request.status >= 200 && request.status < 400) {
+//     //         console.log(request);
+//     //         var response = request.response;
+//     //         console.log('SUCCESS: ', response);
+//     //     }
+//     //     else {
+//     //         console.log('Target reached but error');
+//     //     }
+//     // }
+
+//     // request.onerror = function() {
+//     //     console.log('ERROR')
+//     // }
+//     // request.send();
+
+// fetch('/static/shapes.json')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+
 
 exports.default = App;
 

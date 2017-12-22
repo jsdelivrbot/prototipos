@@ -4,7 +4,7 @@ import React from 'react';
 const calculator_div_style = {
     'maxWidth':'560px', 
     'height':'360px', 
-    'border':'solid 2px black',
+    // 'border':'solid 2px black',
     'margin':'0 auto',
     'textAlign':'center',
 }
@@ -27,7 +27,7 @@ const image_formula_div_style = {
     'height':'59px',
     'verticalAlign': 'middle',
     'lineHeight': '59px',
-    'border': 'solid 0.5px'
+    // 'border': 'solid 0.5px'
 }
 
 const image_formula = {
@@ -41,7 +41,7 @@ const details_div_style = {
 
 const image_shape_div = {
     'float':'left',
-    'border': 'solid 0.5px',
+    // 'border': 'solid 0.5px',
     'width':'50%',
     'height':'100%',
     'verticalAlign': 'middle',
@@ -55,7 +55,7 @@ const image_shape = {
 
 const input_data = {
     'float':'right',
-    'border': 'solid 0.5px',
+    // 'border': 'solid 0.5px',
     'width':'50%',
     'height':'100%',
     'textAlign':'left'
@@ -73,119 +73,162 @@ const result_label = {
     // textAlign: 'center'
 }
 
-
-const inputs = number => {
-    // array of inputs[area, volume, perimeter] will be looped
-    let divs = [];
-    for(let i = 0; i < number; i++) {
-        let width = '49%';
-        if(number === 1 || number === 2) {
-            width = '99%';
-        }
-        let style = { 'display':'inline-block', 'height':'25px', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
-        var div =   <div key={ i } style={ style }>
-                        <label className="label">{ 'Circumference' }: </label>
-                        <input className='input'/>
-                    </div>
-        divs.push(div);
-    }
-    return (
+const Inputs = (props) => {
+    // console.log(props)
+    return(
         <div>
-            { divs }
+            {
+                props.values.map( (value, index) => {
+                    let width = '49%';
+                    if(props.values.length === 1 || props.values.length === 2) {
+                        width = '99%';
+                    }
+                    let style = { 'display':'inline-block', 'height':'25px', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
+                    let div =   <div key={ index } style={ style }>
+                                    <label className="label">{ value }: </label>
+                                    <input className='input'/>
+                                </div> 
+                    return div     
+                })
+            }
         </div>
     )
 }
-const url = '/calculate';
-let formData = new FormData();
-    formData.append('name', 'Ever')
-    formData.append('age', 24)
-$.ajax({
-    url: url,
-    type: 'POST',
-    data: formData,
-    contentType: false,
-    processData: false,
-    success:function(data){
-        const response = JSON.parse(data);
-        console.log('SUCCEsS: ', response)
-    },
-    error:function(){
-        // failed request; give feedback to user
-        console.log('ERROR')
+
+
+const Select = (props) => {
+    if(!props.options){
+        return (
+            <div></div>
+        )
     }
-});
+    return (
+        <select className="select" style={ select_shape_style } onChange={ props.method }>
+            {
+                props.options.map((option, index) => {
+                    let section_text = option[0].toUpperCase() + option.slice(1);
+                    if(index === 0){
+                        option = <option key={ index } value={ option } defaultValue>{ section_text }</option>;
+                    }
+                    else{
+                        option = <option key={ index } value={ option }>{ section_text }</option>;
+                    }
+                    return option
+                })          
+            }
+        </select>
+    )
+}
 
 class App extends React.Component {
     constructor(props) {
         super(props);
+
+        this.data = null;
+        fetch('/static/shapes.json')
+            .then(response => response.json())
+            .then(data => {
+                this.data = data
+                this.select()
+            })      
+
         this.state = {
-            shape: null,
-            formula: null,
-            needed_values: null,
+            all_shapes: null,
+            formulas_for_shapes: ["area", "circumference", "diameter", "radius"],
+            current_shape: 'circle',
+            current_formula: 'area',
+            needed_values: ["radius"],
+            image_formula: 'static/formula_images/circle/area.png'
         }
+        // this.select();
+
         this.calculate = this.calculate.bind(this);
-        this.calculate_success = this.calculate_success.bind(this);
+        // this.calculate_success = this.calculate_success.bind(this);
+        this.select = this.select.bind(this);
+        // this.select_success = this.select_success.bind(this);
+        this.find_formulas = this.find_formulas.bind(this);
+        this.image_formula = this.image_formula.bind(this);
+        // this.find_formulas_success = this.find_formulas_success.bind(this);
     }
-    calculate(event){
-        let shape = 'circle'
-        let formula = event.target.value;
-            console.log(event.target.parentNode)
-        //this.setState({ 'formula':event.target.value })
-        // make it work with a promise 
-        $.ajax({
-            url: '/static/shapes.json',
-            success: this.calculate_success
+
+    select(){
+        console.log('lol', this.data)
+        let options = [];
+        Object.keys(this.data).forEach(key => {
+            options.push(key);
+        })
+        this.setState({ 'all_shapes': options })
+    }
+
+    find_formulas(event){
+        event.target.parentNode.children[1].selectedIndex = 0;
+        let shape = event.target.value;
+        let formulas = [];  
+        Object.keys(this.data).forEach(key => {
+            if(shape === key) {
+                Object.keys(this.data[key]).forEach(key => {
+                    formulas.push(key)
+                })
+                this.setState({ 'formulas_for_shapes': formulas })
+                this.setState({ 'current_shape': shape })
+                this.setState({ 'current_formula': formulas[0] })
+                this.image_formula(shape, formulas[0])
+            }
         })
     }
 
-    calculate_success(data){
-        let response = JSON.parse(data);
+    calculate(event){
+        let shape = this.state.current_shape;
+        let formula = event.target.value;
+        let response = this.data
         Object.keys(response).forEach(key => {
             if(shape === key){
-                // console.log(key, response[key]);
-                response = response[key]
+                response = response[key];
                 Object.keys(response).forEach(key => {
                     if(formula === key) {
-                        console.log(response[key]);
+                        console.log(response[key])
+                        this.setState({ 'current_formula':formula })
                         this.setState({ 'needed_values':  response[key] })
-                        console.log(this.state.needed_values)
+                        this.image_formula(shape, formula)
                     }
                 })
             }
         });
     }
+
+    image_formula(shape, formula){
+        const src = `static/formula_images/${shape}/${formula}.png`
+        this.setState({ "image_formula":src });
+    }
+
     render(){
+        console.log(this.state)
         return (
             <div>
                 <div style={ calculator_div_style }>
                     <div>
-                        <h1 className="title is-3">Geometry Calculator</h1>
+                        <h1 className="title is-3">621</h1>
                     </div>
                     <div>
-                        <select className="select" style= { select_shape_style }>
-                            <option>Circle</option>
-                        </select>
-                        <select className="select" style={ select_formula_style } onChange={ this.calculate }>
-                            <option defaultValue></option>
-                            <option value='area'>Area</option>
-                            <option value='circumference'>Circumference</option>
-                            <option value='diameter'>Diameter</option>
-                            <option value='radius'>Radius</option>
-                        </select>
+                        <Select options={ this.state.all_shapes } method={ this.find_formulas }/>
+                        <Select options={ this.state.formulas_for_shapes } method={ this.calculate }/>
                         <div style={ clearfix }></div>
                     </div>
                     <div style={ image_formula_div_style }>
-                        <img style={ image_formula }src="https://i.ytimg.com/vi/riNAA-jx0u8/maxresdefault.jpg" />
+                        <img style={ image_formula }src={ this.state.image_formula } />
+                        {/* <img style={ image_formula }src="https://i.ytimg.com/vi/riNAA-jx0u8/maxresdefault.jpg" /> */}
                     </div>
                     <div style={ details_div_style }>
                         <div style={ image_shape_div } >
-                            <img style={ image_shape } src="http://store-images.s-microsoft.com/image/apps.26251.13510798883213349.c74c048e-8bf5-42b5-9825-57104efe5ff6.058ff6e5-b6b5-4bd6-9fcc-4fda6bc214ec?w=180&h=180&q=60" />
+                            <img style={ image_shape } src="" />
+                            {/* <img style={ image_shape } src="http://store-images.s-microsoft.com/image/apps.26251.13510798883213349.c74c048e-8bf5-42b5-9825-57104efe5ff6.058ff6e5-b6b5-4bd6-9fcc-4fda6bc214ec?w=180&h=180&q=60" /> */}
                         </div>
                         <div style={ input_data } >
-                            <label className="label" style = { result_label }>{ 'Area' }: {'?'}</label>
+                            <label className="label" style = { result_label }>{ this.state.current_formula }: {'?'}</label>
                             {/* <div>{ 'Area' }: {'?'}</div> */}
                             <div style={{ 'textAlign':'center', 'marginTop':'8%', 'marginBottom':'8%' }}>
-                                { inputs(this.state.needed_values) } 
+                                {/* { inputs(["radius"]) }  */}
+                                <Inputs values={ this.state.needed_values }/>
                             </div>
                         </div>
                         <div style={ clearfix }></div>
@@ -196,4 +239,32 @@ class App extends React.Component {
     }
 }
 
+        // $.ajax({
+        //     url: '/static/shapes.json',
+        //     success: this.calculate_success
+        // })
+
+
+        //     // const request = new XMLHttpRequest();
+//     // request.open('post', url, true);
+
+//     // request.onload = function() {
+//     //     if(request.status >= 200 && request.status < 400) {
+//     //         console.log(request);
+//     //         var response = request.response;
+//     //         console.log('SUCCESS: ', response);
+//     //     }
+//     //     else {
+//     //         console.log('Target reached but error');
+//     //     }
+//     // }
+    
+//     // request.onerror = function() {
+//     //     console.log('ERROR')
+//     // }
+//     // request.send();
+
+// fetch('/static/shapes.json')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
 export default App;

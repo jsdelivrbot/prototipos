@@ -7,6 +7,62 @@
     },
     "cone": {
         "base_area": ["radius"],
-        "height": ["surface_area", "radius"]
+        "height": ["surface_area", "radius"],
+        "lateral_surface": ["radius", "height"],
+        "radius": ["surface_area", "height"],
+        "slant_height": ["radius", "height"],
+        "surface_area": ["radius", "height"],
+        "volume": ["radius", "height"]
+    },
+    "cube": {
+        "diagonal": ["edge"],
+        "edge": ["surface_area"],
+        "surface_area": ["edge"],
+        "volume": ["edge"]
+    },
+    "cylinder": {
+        "base_area": ["radius"],
+        "height": ["area", "radius"],
+        "lateral_surface": ["radius", "height"],
+        "radius": ["surface_area", "height"],
+        "surface_area": ["radius", "height"],
+        "volume": ["radius", "height"]
+    },
+    "ellipse": {
+        "area": ["axis_a", "axis_b"],
+        "axis_a": ["area", "axis_b"],
+        "axis_b": ["area", "axis_a"],
+        "circumference": ["axis_a", "axis_b"]
+    },
+    "equilateral_triangle": {
+        "area": ["side"],
+        "perimeter": ["side"]
+    },
+    "heptagon": {
+        "area": ["side"],
+        "perimeter": ["side"],
+        "side": ["area"]
+    },
+    "hexagon": {
+        "area": ["side"],
+        "perimeter": ["side"],
+        "side": ["area"]
+    },
+    "isosceles_triangle": {
+        "area": ["height", "base"],
+        "base": ["area", "height"],
+        "height": ["area", "base"],
+        "perimeter": ["side", "side", "base"],
+        "side": ["area", "base", "gamma"]
+    },
+    "octagon": {
+        "area": ["side"],
+        "perimeter": ["side"],
+        "side": ["area"]
+    },
+    "octahedron": {
+        "edge": ["area (A)"],
+        "surface_area": ["edge (a)"],
+        "volume": ["area (a)"]
     }
 }
