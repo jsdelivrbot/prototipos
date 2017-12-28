@@ -85,7 +85,7 @@ const Inputs = (props) => {
                     let style = { 'display':'inline-block', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
                     let div =   <div key={ index } style={ style }>
                                     <label className="label" style={{ "textAlign":"left" }} >{ value }: </label>
-                                    <input className='input' onKeyUp={ props.method } />
+                                    <input type='number' id={ value }  className='input' onKeyUp={ props.method } />
                                 </div> 
                     return div     
                 })
@@ -203,7 +203,44 @@ class App extends React.Component {
     }
 
     calculate(event){
-        console.log(event.target.value);
+        // console.log(event.target.id);
+        // console.log(event.target.value);
+        // console.log(this.state.current_shape);
+        // console.log(this.state.current_formula);
+        // console.log(this.state.needed_values.length);
+
+        var form_data = new FormData()
+            form_data.append("shape", this.state.current_shape);
+            form_data.append("formula", this.state.current_formula);
+
+            let some  = [];
+            this.state.needed_values.forEach((value, index) => {
+                var input_values = document.querySelector(`#${ value }`).value;
+                if(!input_values){
+                    return
+                }
+                console.log(value, '-->', input_values)
+                    input_values = [value, input_values]
+                    some.push(input_values)
+            })
+        form_data.append("needed_values", some)
+        if(this.state.needed_values.length === some.length){
+            console.log('some: ', some)
+            console.log(...form_data)
+            let data = {
+                "shape": this.state.current_shape,
+                "formula": this.state.current_formula,
+                "needed_values": some,
+            }
+            const request = new XMLHttpRequest();
+                request.open('POST', '/calculate', true);
+                request.send(data_form)
+                request.onload = function(){
+                    let data = JSON.parse(request.response)
+                    console.log(data)
+                }       
+        }
+
     }
 
     image_shape(shape){
@@ -253,9 +290,15 @@ class App extends React.Component {
         )
     }
 }
+// request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+
 
         // $.ajax({
         //     url: '/static/shapes.json',
+                // type:'POST',
+                // data: formdata: false,
+                // proccessData:false,
+                // contentType:false
         //     success: this.calculate_success
         // })
 

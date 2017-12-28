@@ -22424,6 +22424,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -22523,7 +22525,7 @@ var Inputs = function Inputs(props) {
                     value,
                     ': '
                 ),
-                _react2.default.createElement('input', { className: 'input', onKeyUp: props.method })
+                _react2.default.createElement('input', { type: 'number', id: value, className: 'input', onKeyUp: props.method })
             );
             return div;
         })
@@ -22654,7 +22656,45 @@ var App = function (_React$Component) {
     }, {
         key: 'calculate',
         value: function calculate(event) {
-            console.log(event.target.value);
+            // console.log(event.target.id);
+            // console.log(event.target.value);
+            // console.log(this.state.current_shape);
+            // console.log(this.state.current_formula);
+            // console.log(this.state.needed_values.length);
+
+            var form_data = new FormData();
+            form_data.append("shape", this.state.current_shape);
+            form_data.append("formula", this.state.current_formula);
+
+            var some = [];
+            this.state.needed_values.forEach(function (value, index) {
+                var input_values = document.querySelector('#' + value).value;
+                if (!input_values) {
+                    return;
+                }
+                console.log(value, '-->', input_values);
+                input_values = [value, input_values];
+                some.push(input_values);
+            });
+            form_data.append("needed_values", some);
+            if (this.state.needed_values.length === some.length) {
+                var _console;
+
+                console.log('some: ', some);
+                (_console = console).log.apply(_console, _toConsumableArray(form_data));
+                var data = {
+                    "shape": this.state.current_shape,
+                    "formula": this.state.current_formula,
+                    "needed_values": some
+                };
+                var request = new XMLHttpRequest();
+                request.open('POST', '/calculate', true);
+                request.send(data_form);
+                request.onload = function () {
+                    var data = JSON.parse(request.response);
+                    console.log(data);
+                };
+            }
         }
     }, {
         key: 'image_shape',
@@ -22732,9 +22772,15 @@ var App = function (_React$Component) {
 
     return App;
 }(_react2.default.Component);
+// request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+
 
 // $.ajax({
 //     url: '/static/shapes.json',
+// type:'POST',
+// data: formdata: false,
+// proccessData:false,
+// contentType:false
 //     success: this.calculate_success
 // })
 

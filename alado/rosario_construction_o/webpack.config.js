@@ -3,11 +3,13 @@ var path = require('path');
 
 module.exports = {
 	entry: {
-		app: "./static/rosario_construction_app/js/src/index.js"
+		app: "./src/index.js"
 	},
 	output: {
-		filename:"/static/rosario_construction_app/js/bundle.js"
+		filename:"build/bundle.js",
+        sourceMapFilename: "build/bundle.map"
 	},
+    devtool: '#source-map',
 	watch: true,
 	module: {
 		loaders: [
