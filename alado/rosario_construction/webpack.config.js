@@ -6,7 +6,7 @@ module.exports = {
 		app: "./static/rosario_construction_app/js/src/index.js"
 	},
 	output: {
-		filename:"/static/rosario_construction_app/js/bundle.js"
+		filename:"./static/rosario_construction_app/js/bundle.js"
 	},
 	watch: true,
 	module: {

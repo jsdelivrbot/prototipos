@@ -24,7 +24,7 @@ class App extends React.Component {
                     <Route path="/about" component={About}/>
                     <Route path="/services" component={Services}/>
                     <Route path="/contact" component={Contact}/>
-                    {/* <Route path="/login" component={Login}/> */}
+                    <Route path="/login" component={Login}/>
                 </div>
                 <Footer />
             </div>
