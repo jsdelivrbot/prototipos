@@ -24351,7 +24351,7 @@ var App = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                _reactRouterDom.HashRouter,
+                _reactRouterDom.BrowserRouter,
                 null,
                 _react2.default.createElement(
                     'div',
