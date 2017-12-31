@@ -22424,8 +22424,6 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -22678,10 +22676,8 @@ var App = function (_React$Component) {
             });
             form_data.append("needed_values", some);
             if (this.state.needed_values.length === some.length) {
-                var _console;
-
-                console.log('some: ', some);
-                (_console = console).log.apply(_console, _toConsumableArray(form_data));
+                // console.log('some: ', some)
+                // console.log(...form_data)
                 var data = {
                     "shape": this.state.current_shape,
                     "formula": this.state.current_formula,
@@ -22689,10 +22685,10 @@ var App = function (_React$Component) {
                 };
                 var request = new XMLHttpRequest();
                 request.open('POST', '/calculate', true);
-                request.send(data_form);
+                request.send(form_data);
                 request.onload = function () {
                     var data = JSON.parse(request.response);
-                    console.log(data);
+                    console.log('response: ', data);
                 };
             }
         }

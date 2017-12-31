@@ -225,8 +225,8 @@ class App extends React.Component {
             })
         form_data.append("needed_values", some)
         if(this.state.needed_values.length === some.length){
-            console.log('some: ', some)
-            console.log(...form_data)
+            // console.log('some: ', some)
+            // console.log(...form_data)
             let data = {
                 "shape": this.state.current_shape,
                 "formula": this.state.current_formula,
@@ -234,10 +234,10 @@ class App extends React.Component {
             }
             const request = new XMLHttpRequest();
                 request.open('POST', '/calculate', true);
-                request.send(data_form)
+                request.send(form_data)
                 request.onload = function(){
                     let data = JSON.parse(request.response)
-                    console.log(data)
+                    console.log('response: ', data)
                 }       
         }
 

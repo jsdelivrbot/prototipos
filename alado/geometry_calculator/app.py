@@ -22,8 +22,9 @@ def calculate():
     needed_values = request.form['needed_values']
     print(needed_values, file=sys.stderr)
     
-    array_tthi = needed_values.split(',')
-    print(array_tthi, file=sys.stderr)
+    data = needed_values.split(',')
+    data = [(data[2*i], int(data[2*i+1])) for i in range(len(data)//2)]
+    print(data, file=sys.stderr)
     
     # counter = 0
     # d = {}
@@ -48,7 +49,7 @@ def calculate():
         'formula': formula,
         'needed_values': needed_values
     }
-    return json.dumps(enc_str)
+    return json.dumps(data)
 
 print('lop')
 radius = 4
