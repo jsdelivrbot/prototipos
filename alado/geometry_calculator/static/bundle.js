@@ -22580,7 +22580,8 @@ var App = function (_React$Component) {
             current_formula: 'area',
             needed_values: ["radius"],
             image_formula: 'static/images/formula_images/circle/area.png',
-            image_shape: 'static/images/shape_images/circle.png'
+            image_shape: 'static/images/shape_images/circle.png',
+            answer: '?'
         };
 
         _this.input_calculate = _this.input_calculate.bind(_this);
@@ -22589,6 +22590,7 @@ var App = function (_React$Component) {
         _this.calculate = _this.calculate.bind(_this);
         _this.image_formula = _this.image_formula.bind(_this);
         _this.image_shape = _this.image_shape.bind(_this);
+        _this.answer = _this.answer.bind(_this);
         return _this;
     }
 
@@ -22600,6 +22602,10 @@ var App = function (_React$Component) {
                 options.push(key);
             });
             this.setState({ 'all_shapes': options });
+            this.setState({ 'answer': '?' });
+            document.querySelectorAll('input').forEach(function (input) {
+                return input.value = '';
+            });
         }
     }, {
         key: 'find_formulas',
@@ -22618,6 +22624,7 @@ var App = function (_React$Component) {
                     _this2.setState({ 'formulas_for_shapes': formulas });
                     _this2.setState({ 'current_shape': shape });
                     _this2.setState({ 'current_formula': formulas[0] });
+
                     _this2.input_calculate(false, formulas[0], shape);
                     _this2.image_formula(shape, formulas[0]);
                     _this2.image_shape(shape);
@@ -22645,6 +22652,10 @@ var App = function (_React$Component) {
                         if (formula === key) {
                             _this3.setState({ 'current_formula': formula });
                             _this3.setState({ 'needed_values': response[key] });
+                            _this3.setState({ 'answer': '?' });
+                            document.querySelectorAll('input').forEach(function (input) {
+                                return input.value = '';
+                            });
                             _this3.image_formula(shape, formula);
                         }
                     });
@@ -22676,20 +22687,22 @@ var App = function (_React$Component) {
             });
             form_data.append("needed_values", some);
             if (this.state.needed_values.length === some.length) {
+                console.log(event.target);
+
                 // console.log('some: ', some)
                 // console.log(...form_data)
-                var data = {
-                    "shape": this.state.current_shape,
-                    "formula": this.state.current_formula,
-                    "needed_values": some
-                };
+                // let data = {
+                //     "shape": this.state.current_shape,
+                //     "formula": this.state.current_formula,
+                //     "needed_values": some,
+                // }
+
                 var request = new XMLHttpRequest();
                 request.open('POST', '/calculate', true);
                 request.send(form_data);
-                request.onload = function () {
-                    var data = JSON.parse(request.response);
-                    console.log('response: ', data);
-                };
+                request.onload = this.answer;
+            } else {
+                this.setState({ 'answer': '?' });
             }
         }
     }, {
@@ -22703,6 +22716,12 @@ var App = function (_React$Component) {
         value: function image_formula(shape, formula) {
             var src = 'static/images/formula_images/' + shape + '/' + formula + '.png';
             this.setState({ "image_formula": src });
+        }
+    }, {
+        key: 'answer',
+        value: function answer(request) {
+            var data = JSON.parse(request.currentTarget.response);
+            this.setState({ 'answer': data });
         }
     }, {
         key: 'render',
@@ -22751,7 +22770,7 @@ var App = function (_React$Component) {
                                 { className: 'label', style: result_label },
                                 this.state.current_formula,
                                 ': ',
-                                '?'
+                                this.state.answer
                             ),
                             _react2.default.createElement(
                                 'div',

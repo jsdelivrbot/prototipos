@@ -4,7 +4,7 @@ import math
 
 class Circle (object):
     pi = math.pi
-    def __init__(self, radius = 0, area = 1):
+    def __init__(self, radius = 0, area = 0):
         self._radius = radius
         self._area = area
     

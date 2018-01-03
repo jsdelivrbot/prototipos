@@ -138,7 +138,8 @@ class App extends React.Component {
             current_formula: 'area',
             needed_values: ["radius"],
             image_formula: 'static/images/formula_images/circle/area.png',
-            image_shape: 'static/images/shape_images/circle.png'
+            image_shape: 'static/images/shape_images/circle.png',
+            answer: '?'
         } 
 
         this.input_calculate = this.input_calculate.bind(this);
@@ -147,6 +148,7 @@ class App extends React.Component {
         this.calculate = this.calculate.bind(this);
         this.image_formula = this.image_formula.bind(this);
         this.image_shape = this.image_shape.bind(this);
+        this.answer = this.answer.bind(this);
     }
 
     select(){
@@ -155,6 +157,8 @@ class App extends React.Component {
             options.push(key);
         })
         this.setState({ 'all_shapes': options })
+        this.setState({ 'answer': '?' })
+        document.querySelectorAll('input').forEach(input => input.value = '');        
     }
 
     find_formulas(event){
@@ -170,6 +174,7 @@ class App extends React.Component {
                 this.setState({ 'formulas_for_shapes': formulas })
                 this.setState({ 'current_shape': shape })
                 this.setState({ 'current_formula': formulas[0] })
+                
                 this.input_calculate(false, formulas[0], shape)
                 this.image_formula(shape, formulas[0])
                 this.image_shape(shape)
@@ -195,6 +200,8 @@ class App extends React.Component {
                     if(formula === key) {
                         this.setState({ 'current_formula':formula })
                         this.setState({ 'needed_values':  response[key] })
+                        this.setState({ 'answer': '?' })
+                        document.querySelectorAll('input').forEach(input => input.value = '');
                         this.image_formula(shape, formula)
                     }
                 })
@@ -225,20 +232,23 @@ class App extends React.Component {
             })
         form_data.append("needed_values", some)
         if(this.state.needed_values.length === some.length){
+        console.log(event.target)
+            
             // console.log('some: ', some)
             // console.log(...form_data)
-            let data = {
-                "shape": this.state.current_shape,
-                "formula": this.state.current_formula,
-                "needed_values": some,
-            }
+            // let data = {
+            //     "shape": this.state.current_shape,
+            //     "formula": this.state.current_formula,
+            //     "needed_values": some,
+            // }
+            
             const request = new XMLHttpRequest();
                 request.open('POST', '/calculate', true);
                 request.send(form_data)
-                request.onload = function(){
-                    let data = JSON.parse(request.response)
-                    console.log('response: ', data)
-                }       
+                request.onload = this.answer  
+        }
+        else {
+            this.setState({ 'answer': '?' })
         }
 
     }
@@ -251,6 +261,11 @@ class App extends React.Component {
     image_formula(shape, formula){
         const src = `static/images/formula_images/${shape}/${formula}.png`
         this.setState({ "image_formula":src });
+    }
+
+    answer(request){
+        let data = JSON.parse(request.currentTarget.response)
+        this.setState({ 'answer':data })
     }
 
     render(){
@@ -276,7 +291,7 @@ class App extends React.Component {
                             {/* <img style={ image_shape } src="http://store-images.s-microsoft.com/image/apps.26251.13510798883213349.c74c048e-8bf5-42b5-9825-57104efe5ff6.058ff6e5-b6b5-4bd6-9fcc-4fda6bc214ec?w=180&h=180&q=60" /> */}
                         </div>
                         <div style={ input_data } >
-                            <label className="label" style = { result_label }>{ this.state.current_formula }: {'?'}</label>
+                            <label className="label" style = { result_label }>{ this.state.current_formula }: { this.state.answer }</label>
                             {/* <div>{ 'Area' }: {'?'}</div> */}
                             <div style={{ 'textAlign':'center', 'marginTop':'8%', 'marginBottom':'8%' }}>
                                 {/* { inputs(["radius"]) }  */}
