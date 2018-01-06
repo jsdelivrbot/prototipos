@@ -22435,19 +22435,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var calculator_div_style = {
     'maxWidth': '560px',
     'height': '360px',
-    'border': 'solid 2px black',
+    'border': '1px solid rgb(39, 145, 218)',
     'margin': '0 auto',
     'textAlign': 'center'
 };
 
 var select_shape_style = {
     'float': 'left',
-    'width': '49.5%'
+    'width': '49.5%',
+    'border': '1px solid #bfdcf0'
 };
 
 var select_formula_style = {
     'float': 'right',
-    'width': '49.5%'
+    'width': '49.5%',
+    'border': '1px solid #bfdcf0'
 };
 
 var clearfix = {
@@ -22455,19 +22457,19 @@ var clearfix = {
 };
 
 var image_formula_div_style = {
-    'height': '59px',
+    'height': '70px',
     'verticalAlign': 'middle',
-    'lineHeight': '59px'
+    'lineHeight': '70px'
     // 'border': 'solid 0.5px'
 };
 
 var image_formula = {
-    'width': '78px',
-    'height': '22px'
+    // 'width':'78px', 
+    // 'height':'22px'
 };
 
 var details_div_style = {
-    'height': '233px'
+    'height': '220px'
 };
 
 var image_shape_div = {
@@ -22476,7 +22478,7 @@ var image_shape_div = {
     'width': '50%',
     'height': '100%',
     'verticalAlign': 'middle',
-    'lineHeight': '233px'
+    'lineHeight': '220px'
 };
 
 var image_shape = {
@@ -22504,7 +22506,18 @@ var result_label = {
     // textAlign: 'center'
 };
 
+var input_css = {
+    fontSize: '13px',
+    width: '100%',
+    color: '#555',
+    backgroundColor: '#f2f8fc',
+    border: '1px solid #bfdcf0',
+    padding: '1px 1px',
+    textAlign: 'center'
+};
+
 var Inputs = function Inputs(props) {
+    console.log('lolololol', props);
     return _react2.default.createElement(
         'div',
         null,
@@ -22514,6 +22527,7 @@ var Inputs = function Inputs(props) {
                 width = '99%';
             }
             var style = { 'display': 'inline-block', 'marginTop': '2.5%', 'marginLeft': '0.5%', 'marginRight': '0.5%', 'width': width };
+            var label_name = void 0;
             var div = _react2.default.createElement(
                 'div',
                 { key: index, style: style },
@@ -22523,7 +22537,7 @@ var Inputs = function Inputs(props) {
                     value,
                     ': '
                 ),
-                _react2.default.createElement('input', { type: 'number', id: value, className: 'input', onKeyUp: props.method })
+                _react2.default.createElement('input', { style: input_css, type: 'number', id: value, className: 'input', onKeyUp: props.method })
             );
             return div;
         })

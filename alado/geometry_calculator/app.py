@@ -6,6 +6,7 @@ from calculations.circle import Circle
 from calculations.cone import Cone
 from calculations.cube import Cube
 from calculations.cylinder import Cylinder
+from calculations.parallelogram import Parallelogram
 
 app = Flask(__name__, static_url_path='/static')
 @app.route('/')
@@ -27,11 +28,11 @@ def calculate():
     data = needed_values.split(',')
     data = [(data[2*i], int(data[2*i+1])) for i in range(len(data)//2)]
     # print('Inputs: ', data, file=sys.stderr)
-
     pairs = {}
     for pair in data:
         pairs[pair[0]] = pair[1]
 
+    print('Inputs: ', pairs, file=sys.stderr)
     result = find(shape, formula, pairs)
     print('Inputs: ', pairs, file=sys.stderr)
 
@@ -124,6 +125,28 @@ def cylinder(formula, pairs):
         
     return round(result, 3)
 
+
+
+
+def parallelogram(formula, pairs):
+    result = None
+    if formula == 'area':
+        parallelogram = Parallelogram(base=2, height=3, area=4, side=5, perimeter=6)
+        result = parallelogram.area()
+    elif formula == 'base':
+        cparallelogram = Parallelogram(base=2, height=3, area=4, side=5, perimeter=6)
+        result = parallelogram.base()
+    elif formula == 'height':
+        parallelogram = Parallelogram(base=2, height=3, area=4, side=5, perimeter=6)
+        result = parallelogram.height()
+    elif formula == 'perimeter':
+        parallelogram = Parallelogram(base=2, height=3, area=4, side=5, perimeter=6)
+        result = parallelogram.perimeter()
+    elif formula == 'side':
+        parallelogram = Parallelogram(base=2, height=3, area=4, side=5, perimeter=6)
+        result = parallelogram.side()
+
+    return round(result, 3)
 
 def find(shape, formula, pairs):
     result = None

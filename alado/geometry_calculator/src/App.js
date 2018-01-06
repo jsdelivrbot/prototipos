@@ -4,19 +4,21 @@ import React from 'react';
 const calculator_div_style = {
     'maxWidth':'560px', 
     'height':'360px', 
-    'border':'solid 2px black',
+    'border':'1px solid rgb(39, 145, 218)',
     'margin':'0 auto',
     'textAlign':'center',
 }
 
 const select_shape_style = {
     'float':'left',
-    'width':'49.5%'
+    'width':'49.5%',
+    'border': '1px solid #bfdcf0'
 }
 
 const select_formula_style = {
     'float':'right',
-    'width':'49.5%'
+    'width':'49.5%',
+    'border': '1px solid #bfdcf0'
 }
 
 const clearfix = {
@@ -24,19 +26,19 @@ const clearfix = {
 }
 
 const image_formula_div_style = {
-    'height':'59px',
+    'height':'70px',
     'verticalAlign': 'middle',
-    'lineHeight': '59px',
+    'lineHeight': '70px',
     // 'border': 'solid 0.5px'
 }
 
 const image_formula = {
-    'width':'78px', 
-    'height':'22px'
+    // 'width':'78px', 
+    // 'height':'22px'
 }
 
 const details_div_style = {
-    'height':'233px'
+    'height':'220px'
 }
 
 const image_shape_div = {
@@ -45,7 +47,7 @@ const image_shape_div = {
     'width':'50%',
     'height':'100%',
     'verticalAlign': 'middle',
-    'lineHeight': '233px'
+    'lineHeight': '220px'
 }
 
 const image_shape = {
@@ -73,7 +75,18 @@ const result_label = {
     // textAlign: 'center'
 }
 
+const input_css = {
+    fontSize: '13px',
+    width: '100%',
+    color: '#555',
+    backgroundColor: '#f2f8fc',
+    border: '1px solid #bfdcf0',
+    padding: '1px 1px',
+    textAlign: 'center',
+}
+
 const Inputs = (props) => {
+    console.log('lolololol', props)
     return(
         <div>
             {
@@ -83,9 +96,10 @@ const Inputs = (props) => {
                         width = '99%';
                     }
                     let style = { 'display':'inline-block', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
+                    let label_name
                     let div =   <div key={ index } style={ style }>
                                     <label className="label" style={{ "textAlign":"left" }} >{ value }: </label>
-                                    <input type='number' id={ value }  className='input' onKeyUp={ props.method } />
+                                    <input style={ input_css } type='number' id={ value }  className='input' onKeyUp={ props.method } />
                                 </div> 
                     return div     
                 })

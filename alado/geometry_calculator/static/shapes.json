@@ -1,9 +1,9 @@
 {
     "circle": {
-        "area": ["radius"],
-        "circumference": ["radius"],
-        "diameter": ["radius"],
-        "radius": ["area"]
+        "area": ["radius_r"],
+        "circumference": ["radius_r"],
+        "diameter": ["radius_r"],
+        "radius": ["area_a"]
     },
     "cone": {
         "base_area": ["radius"],
@@ -64,5 +64,19 @@
         "edge": ["area (A)"],
         "surface_area": ["edge (a)"],
         "volume": ["area (a)"]
+    },
+    "parallelogram": {
+        "area": ["base_b", "height_h"],
+        "base": ["area_A", "height_h"],
+        "height": ["area_A", "base_b"],
+        "perimeter": ["side_a", "base_b"],
+        "side": ["perimeter_P", "Base_b"]
+      },
+    "pentagon": {
+        "area": ["side_a"],
+        "diagonal": ["side_a"],
+        "perimeter": ["side_a"],
+        "side": ["side_a"]
     }
+        
 }
