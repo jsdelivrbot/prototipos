@@ -96,9 +96,14 @@ const Inputs = (props) => {
                         width = '99%';
                     }
                     let style = { 'display':'inline-block', 'marginTop':'2.5%', 'marginLeft':'0.5%', 'marginRight':'0.5%', 'width': width }
-                    let label_name
+                    let label_name = value[0].toUpperCase() + value.slice(1);
+                    let replace = label_name.replace('_', ' ');
+                    let _index = replace.indexOf(' ');
+                    let letter = label_name.substring(_index+1)
+                        label_name = label_name.substring(0, _index)
+                        label_name = `${label_name} (${letter})`;
                     let div =   <div key={ index } style={ style }>
-                                    <label className="label" style={{ "textAlign":"left" }} >{ value }: </label>
+                                    <label className="label" style={{ "textAlign":"left" }} >{ label_name }: </label>
                                     <input style={ input_css } type='number' id={ value }  className='input' onKeyUp={ props.method } />
                                 </div> 
                     return div     
@@ -150,7 +155,7 @@ class App extends React.Component {
             formulas_for_shapes: ["area", "circumference", "diameter", "radius"],
             current_shape: 'circle',
             current_formula: 'area',
-            needed_values: ["radius"],
+            needed_values: ["radius_r"],
             image_formula: 'static/images/formula_images/circle/area.png',
             image_shape: 'static/images/shape_images/circle.png',
             answer: '?'

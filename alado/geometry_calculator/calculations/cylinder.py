@@ -1,43 +1,42 @@
-import sys
 import math
 
-class Cylinder (object):
+class Cylinder:
 
-    def __init__(self, radius = 0, area = 0, height=0, surface_area=0):
-        self._radius = radius
-        self._area = area
-        self._height = height
-        self._surface_area = surface_area
+    # def __init__(self, radius = 0, area = 0, height=0, surface_area=0):
+    #     self._radius = radius
+    #     self._area = area
+    #     self._height = height
+    #     self._surface_area = surface_area
 
-    def base_area(self):
-        result = self._radius**2
+    def base_area(self, radius):
+        result = radius**2
         result = math.pi * result
         return result
     
-    def height(self):
-        result = 2 * math.pi * self._radius
-        result = self._area / result
-        result = result -self._radius
+    def height(self, area, radius):
+        result = 2 * math.pi * radius
+        result = area / result
+        result = result - radius
         return result
 
-    def lateral_surface(self):
-        result = 2 * math.pi * self._radius * self._height
+    def lateral_surface(self, radius, height):
+        result = 2 * math.pi * radius * height
         return result
 
-    def radius(self):
-        result = self._surface_area / math.pi
+    def radius(self, surface_area, height):
+        result = surface_area / math.pi
         result = 2 * result
-        result = self._height**2 + result
+        result = height**2 + result
         result = math.sqrt(result) 
-        result = 1/2 * result- self._height / 2
+        result = 1/2 * result - height / 2
         return result
     
-    def surface_area(self):
-        result = 2 * math.pi * self._radius * self._height + 2 * math.pi * self._radius**2
+    def surface_area(self, radius, height):
+        result = 2 * math.pi * radius * height + 2 * math.pi * radius**2
         return result
 
-    def volume(self):
-        result = math.pi * self._radius**2 * self._height
+    def volume(self, radius, height):
+        result = math.pi * radius**2 * height
         return result
 
 # cylinder = Cylinder(radius = 3, area = 5, height=10, surface_area=7)

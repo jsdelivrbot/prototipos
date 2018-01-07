@@ -11,11 +11,6 @@ class Triangle:
     result = 2 * result
     return result
     
-  # def gamma(self, side_a, base_b, area):
-  #   result = math.sin(2 * area / side_a * base_b)
-  #   result = side_a * result
-  #   return result    
-
   def height(self, area, base_b):
     result = area / base_b
     result = 2 * result

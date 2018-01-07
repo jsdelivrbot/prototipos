@@ -1,20 +1,20 @@
 import math
 
-class Hexagon(object):
-    def __init__(self, side=0, area=0):
-        self._side = side
-        self._area = area
+class Hexagon:
+    # def __init__(self, side=0, area=0):
+    #     self._side = side
+    #     self._area = area
 
-    def area(self):
-        result = 3 * math.sqrt(3) / 2 * self._side**2
+    def area(self, side):
+        result = 3 * math.sqrt(3) / 2 * side**2
         return result
 
-    def perimeter(self):
-        result = 6 * self._side
+    def perimeter(self, side):
+        result = 6 * side
         return result
 
-    def side(self):
-        result = self._area * 2 / (3 * math.sqrt(3))
+    def side(self, area):
+        result = area * 2 / (3 * math.sqrt(3))
         result = math.sqrt(result)
         return result
 

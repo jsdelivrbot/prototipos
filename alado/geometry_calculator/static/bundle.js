@@ -22527,14 +22527,19 @@ var Inputs = function Inputs(props) {
                 width = '99%';
             }
             var style = { 'display': 'inline-block', 'marginTop': '2.5%', 'marginLeft': '0.5%', 'marginRight': '0.5%', 'width': width };
-            var label_name = void 0;
+            var label_name = value[0].toUpperCase() + value.slice(1);
+            var replace = label_name.replace('_', ' ');
+            var _index = replace.indexOf(' ');
+            var letter = label_name.substring(_index + 1);
+            label_name = label_name.substring(0, _index);
+            label_name = label_name + ' (' + letter + ')';
             var div = _react2.default.createElement(
                 'div',
                 { key: index, style: style },
                 _react2.default.createElement(
                     'label',
                     { className: 'label', style: { "textAlign": "left" } },
-                    value,
+                    label_name,
                     ': '
                 ),
                 _react2.default.createElement('input', { style: input_css, type: 'number', id: value, className: 'input', onKeyUp: props.method })
@@ -22592,7 +22597,7 @@ var App = function (_React$Component) {
             formulas_for_shapes: ["area", "circumference", "diameter", "radius"],
             current_shape: 'circle',
             current_formula: 'area',
-            needed_values: ["radius"],
+            needed_values: ["radius_r"],
             image_formula: 'static/images/formula_images/circle/area.png',
             image_shape: 'static/images/shape_images/circle.png',
             answer: '?'

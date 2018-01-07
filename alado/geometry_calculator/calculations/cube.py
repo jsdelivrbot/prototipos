@@ -1,28 +1,27 @@
-import sys
 import math
 
 class Cube (object):
 
-    def __init__(self, edge = 0, surface_area = 0):
-        self._edge = edge
-        self._surface_area = surface_area
+    # def __init__(self, edge = 0, surface_area = 0):
+    #     self._edge = edge
+    #     self._surface_area = surface_area
     
-    def diagonal(self):
+    def diagonal(self, edge_a):
         result = math.sqrt(3)
-        result = result * self._edge
+        result = result * edge_a
         return result
     
-    def edge(self):
-        result = self._surface_area / 6
+    def edge(self, surface_area):
+        result = surface_area / 6
         result = math.sqrt(result)
         return result
 
-    def surface_area(self):
-        result = 6 * self._edge**2
+    def surface_area(self, edge_a):
+        result = 6 * edge_a**2
         return result
 
-    def volume(self):
-        result = self._edge**3
+    def volume(self, edge_a):
+        result = edge_a**3
         return result
 
 # cube = Cube(edge=3, surface_area=300)
