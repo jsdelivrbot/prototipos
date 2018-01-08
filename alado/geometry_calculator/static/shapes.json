@@ -74,8 +74,7 @@
     "pentagon": {
         "area": ["side_a"],
         "diagonal": ["side_a"],
-        "perimeter": ["side_a"],
-        "side": ["area_A"]
+        "perimeter": ["side_a"]
     },
     "pyramid": {
         "base_area": ["width_w", "length_l"],
@@ -138,7 +137,6 @@
     "triangle": {
         "area": ["height_h", "base_b"],
         "base": ["area_A", "height_h"],
-        "gamma": ["side_a", "base_b", "area_A"],
         "height": ["area_A", "base_b"],
         "perimeter": ["side_a", "base_b", "side_c"],
         "side_a": ["area_A", "base_b", "gamma_y"],

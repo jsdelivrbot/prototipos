@@ -249,8 +249,6 @@ def pentagon(formula, pairs):
         result = pentagon.diagonal(pairs["side_a"])
     elif formula == 'perimeter':
         result = pentagon.perimeter(pairs["side_a"])
-    elif formula == 'side':
-        result = pentagon.side(pairs["area_A"])
     return round(result, 3)
 
 def pyramid(formula, pairs):
@@ -317,19 +315,17 @@ def right_triangle(formula, pairs):
         result = right_triangle.side(pairs["hypotenuse_c"], pairs["gamma_y"])
     return round(result, 3)
 
-def right_triangle(formula, pairs):
+def sphere(formula, pairs):
     result = None
-    right_triangle = Right_triangle()
-    if formula == 'area':
-        result = right_triangle.area(pairs["side_a"], pairs["base_b"])
-    elif formula == 'base':
-        result = right_triangle.base(pairs["hypotenuse_c"], pairs["gamma_y"])
-    elif formula == 'hypotenuse':
-        result = right_triangle.hypotenuse(pairs["side_a"], pairs["base_b"])
-    elif formula == 'perimeter':
-        result = right_triangle.perimeter(pairs["side_a"], pairs["base_b"], pairs["hypotenuse_c"])
-    elif formula == 'side':
-        result = right_triangle.side(pairs["hypotenuse_c"], pairs["gamma_y"])
+    sphere = Sphere()
+    if formula == 'diameter':
+        result = sphere.diameter(pairs["radius_r"])
+    elif formula == 'radius':
+        result = sphere.radius(pairs["surface_area"])
+    elif formula == 'surface_area':
+        result = sphere.surface_area(pairs["radius_r"])
+    elif formula == 'volume':
+        result = sphere.volume(pairs["radius_r"])
     return round(result, 3)
 
 def square(formula, pairs):
@@ -369,15 +365,15 @@ def trapezoid(formula, pairs):
     elif formula == 'base_a':
         result = trapezoid.base_a(pairs["area_A"], pairs["base_b"], pairs["height_h"])
     elif formula == 'base_b':
-        result = trapezoid.base_b(pairs["area_A"], pairs["base_b"], pairs["height_h"])
+        result = trapezoid.base_b(pairs["area_A"], pairs["base_a"], pairs["height_h"])
     elif formula == 'height':
         result = trapezoid.height(pairs["base_a"], pairs["base_b"], pairs["area_A"])
     elif formula == 'perimeter':
         result = trapezoid.perimeter(pairs["base_a"], pairs["base_b"], pairs["side_c"], pairs["side_d"])
     elif formula == 'side_c':
-        result = trapezoid.side_c(pairs["perimeter_P"], pairs["perimeter_P"], pairs["base_a"], pairs["base_b"], pairs["side_d"])
+        result = trapezoid.side_c(pairs["perimeter_P"], pairs["base_a"], pairs["base_b"], pairs["side_d"])
     elif formula == 'side_d':
-        result = trapezoid.side_d(pairs["perimeter_P"], pairs["perimeter_P"], pairs["base_a"], pairs["base_b"], pairs["side_c"])    
+        result = trapezoid.side_d(pairs["perimeter_P"], pairs["base_a"], pairs["base_b"], pairs["side_c"])    
     return round(result, 3)
 
 def triangle(formula, pairs):
