@@ -124,7 +124,24 @@ const Select = (props) => {
         <select className="select" style={ props.style } onChange={ props.method }>
             {
                 props.options.map((option, index) => {
+                    
                     let section_text = option[0].toUpperCase() + option.slice(1);
+                        section_text = section_text.replace('_', ' ')
+                        // cut the the word capital then join them
+                    let _index = section_text.indexOf(' ')
+                    if(_index !== -1){
+                        section_text[_index + 1].toUpperCase()
+                    }
+                    // console.log(section_text)
+                    // let section_text = option.replace('_', ' ')
+                    // let _index = _section_text.indexOf(' ')
+                    // console.log(_section_text)
+                    // console.log(_index)
+
+                    // if(_index !== -1){
+                    //     console.log(section_text[_index + 1].toUpperCase() + option)
+                    // }
+                    // let section_text = option[0].toUpperCase() + option.slice(1);
                     if(index === 0){
                         option = <option key={ index } value={ option } defaultValue>{ section_text }</option>;
                     }
