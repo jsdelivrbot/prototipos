@@ -2,6 +2,10 @@ import React from 'react';
 import Map from './Map.js';
 
 class Contact extends React.Component {
+    onSubmit(event){
+        console.log(event)
+        // var formData = new FormData(document.getElementsByName('yourForm')[0])
+    }
     render(){
         return (
             <div className="container">
@@ -38,7 +42,7 @@ class Contact extends React.Component {
                       
                       <div className="col-sm col-md-8">
                           <h3>Send us a Message</h3>
-                          <form name="sentMessage" id="contactForm" noValidate="">
+                          <form onSubmit={ this.onSubmit } action="post" name="sentMessage" id="contactForm" noValidate="">
                               <div className="control-group form-group">
                                   <div className="controls">
                                       <label>Full Name:</label>

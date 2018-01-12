@@ -15,14 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from rosario_construction_app import views 
-
-app_name = 'rosario_construction_app'
+from rosario_construction_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^login/$', views.login, name='login'),
-    # url(r'^user_login/$', views.user_login, name='user_login')
-
+    url(r'^login/', views.login, name='login'),
+    url(r'^post/', views.post, name='post'),
 ]

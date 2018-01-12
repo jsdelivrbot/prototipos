@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+{% extends 'rosario_construction_app/base.html' %}
+{% block body_block %}
+  <div>
+    <div>
+      <div>
+        <div class="container-fluid">
+          <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container"><a class="navbar-brand" href="/">Strong Construction &amp; Service</a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/#/about">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/#/services">Services</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/#/contact">Contact</a></li>
+                  <!-- <li class="nav-item"><a class="nav-link" href="/login" replace="true">Login</a></li> -->
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <main>
+
+            <div class="container col-md-6" style="text-align: center; height: 300px;">
+              <form class="form-signin"  method='POST'>
+                <br>
+                <br> 
+                {% csrf_token %}
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                <div class="pull-left">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+              </form>
+            </div>
+
+          </main>
+        </div>
+        <footer class="nice">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 footer-navigation" style="text-align: center;">
+              <h5>Strong Construction &amp; Service</h5>
+              <p class="company-name"><a href="evergarcia.com">Ever Uriel Garcia</a> © 2017</p>
+            </div>
+            <div class="col-md-4 col-sm-6 footer-contacts">
+              <div><span class="fa fa-map-marker footer-contacts-icon"></span>
+                <p>Albuquerque, New Mexico</p>
+              </div>
+              <div><i class="fa fa-phone footer-contacts-icon"></i>
+                <p class="footer-center-info email text-left">505 400-1198</p>
+              </div>
+              <div><i class="fa fa-envelope footer-contacts-icon"></i>
+                <p><a href="mailto:uriel621@live.com">uriel621@live.com</a></p>
+              </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 footer-about" style="text-align: center;">
+              <h4>About the company</h4>
+              <p>Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+

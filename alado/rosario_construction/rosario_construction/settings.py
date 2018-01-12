@@ -21,7 +21,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'g!3d2iq+zp+l8dtg9tl3(#=k-zkt1)v93hxm($@+%@8w-)nh$*'
+SECRET_KEY = 'ypq5$hslxf(xpv1$6#muscbpyo&no8t2n)=pi2-^at@c7*x*a1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,15 +86,6 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
-PASSWORD_HASHERS = [
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
-    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-]
-
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -132,5 +123,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     STATIC_DIR
 ]
-
-LOGIN_URL = '/rosario_construction_app/user_login'
