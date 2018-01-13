@@ -4,7 +4,17 @@ import Map from './Map.js';
 class Contact extends React.Component {
     onSubmit(event){
         console.log(event)
-        // var formData = new FormData(document.getElementsByName('yourForm')[0])
+        event.preventDefault();
+        console.log(document.getElementById('contactForm'))
+        let form_data = new FormData(document.getElementById('contactForm'))
+        console.log(form_data)
+        const request = new XMLHttpRequest();
+        request.open('POST', '/post/', true);
+        request.send(form_data)
+        // request.onload = this.answer  
+        request.onload = function(){
+            console.log(request.response);
+        }  
     }
     render(){
         return (
@@ -42,32 +52,32 @@ class Contact extends React.Component {
                       
                       <div className="col-sm col-md-8">
                           <h3>Send us a Message</h3>
-                          <form onSubmit={ this.onSubmit } action="post" name="sentMessage" id="contactForm" noValidate="">
+                          <form onSubmit={ this.onSubmit } name="sentMessage" id="contactForm" noValidate="">
                               <div className="control-group form-group">
                                   <div className="controls">
                                       <label>Full Name:</label>
-                                      <input type="text" className="form-control" id="name" required="" data-validation-required-message="Please enter your name." />
+                                      <input type="text" className="form-control" id="name" name="name" required="" data-validation-required-message="Please enter your name." />
                                       <p className="help-block"></p>
                                   </div>
                               </div>
                               <div className="control-group form-group">
                                   <div className="controls">
                                       <label>Phone Number:</label>
-                                      <input type="tel" className="form-control" id="phone" required="" data-validation-required-message="Please enter your phone number." />
+                                      <input type="tel" className="form-control" id="phone" name="phone" required="" data-validation-required-message="Please enter your phone number." />
                                       <div className="help-block"></div>
                                   </div>
                               </div>
                               <div className="control-group form-group">
                                   <div className="controls">
                                       <label>Email Address:</label>
-                                      <input type="email" className="form-control" id="email" required="" data-validation-required-message="Please enter your email address." />
+                                      <input type="email" className="form-control" id="email" name="email" required="" data-validation-required-message="Please enter your email address." />
                                       <div className="help-block"></div>
                                   </div>
                               </div>
                               <div className="control-group form-group">
                                   <div className="controls">
                                       <label>Message:</label>
-                                      <textarea rows="10" cols="100" className="form-control" id="message" required="" data-validation-required-message="Please enter your message" maxLength="999" style={{ "resize":"none" }}></textarea>
+                                      <textarea rows="10" cols="100" className="form-control" id="message" name="message" required="" data-validation-required-message="Please enter your message" maxLength="999" style={{ "resize":"none" }}></textarea>
                                       <div className="help-block"></div>
                                   </div>
                               </div>

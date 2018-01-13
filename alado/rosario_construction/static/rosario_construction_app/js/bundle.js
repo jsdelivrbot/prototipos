@@ -28818,7 +28818,17 @@ var Contact = function (_React$Component) {
         key: 'onSubmit',
         value: function onSubmit(event) {
             console.log(event);
-            // var formData = new FormData(document.getElementsByName('yourForm')[0])
+            event.preventDefault();
+            console.log(document.getElementById('contactForm'));
+            var form_data = new FormData(document.getElementById('contactForm'));
+            console.log(form_data);
+            var request = new XMLHttpRequest();
+            request.open('POST', '/post/', true);
+            request.send(form_data);
+            // request.onload = this.answer  
+            request.onload = function () {
+                console.log(request.response);
+            };
         }
     }, {
         key: 'render',
@@ -28895,7 +28905,7 @@ var Contact = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'form',
-                                { onSubmit: this.onSubmit, action: 'post', name: 'sentMessage', id: 'contactForm', noValidate: '' },
+                                { onSubmit: this.onSubmit, name: 'sentMessage', id: 'contactForm', noValidate: '' },
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'control-group form-group' },
@@ -28907,7 +28917,7 @@ var Contact = function (_React$Component) {
                                             null,
                                             'Full Name:'
                                         ),
-                                        _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'name', required: '', 'data-validation-required-message': 'Please enter your name.' }),
+                                        _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'name', name: 'name', required: '', 'data-validation-required-message': 'Please enter your name.' }),
                                         _react2.default.createElement('p', { className: 'help-block' })
                                     )
                                 ),
@@ -28922,7 +28932,7 @@ var Contact = function (_React$Component) {
                                             null,
                                             'Phone Number:'
                                         ),
-                                        _react2.default.createElement('input', { type: 'tel', className: 'form-control', id: 'phone', required: '', 'data-validation-required-message': 'Please enter your phone number.' }),
+                                        _react2.default.createElement('input', { type: 'tel', className: 'form-control', id: 'phone', name: 'phone', required: '', 'data-validation-required-message': 'Please enter your phone number.' }),
                                         _react2.default.createElement('div', { className: 'help-block' })
                                     )
                                 ),
@@ -28937,7 +28947,7 @@ var Contact = function (_React$Component) {
                                             null,
                                             'Email Address:'
                                         ),
-                                        _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', required: '', 'data-validation-required-message': 'Please enter your email address.' }),
+                                        _react2.default.createElement('input', { type: 'email', className: 'form-control', id: 'email', name: 'email', required: '', 'data-validation-required-message': 'Please enter your email address.' }),
                                         _react2.default.createElement('div', { className: 'help-block' })
                                     )
                                 ),
@@ -28952,7 +28962,7 @@ var Contact = function (_React$Component) {
                                             null,
                                             'Message:'
                                         ),
-                                        _react2.default.createElement('textarea', { rows: '10', cols: '100', className: 'form-control', id: 'message', required: '', 'data-validation-required-message': 'Please enter your message', maxLength: '999', style: { "resize": "none" } }),
+                                        _react2.default.createElement('textarea', { rows: '10', cols: '100', className: 'form-control', id: 'message', name: 'message', required: '', 'data-validation-required-message': 'Please enter your message', maxLength: '999', style: { "resize": "none" } }),
                                         _react2.default.createElement('div', { className: 'help-block' })
                                     )
                                 ),

@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^login/', views.login, name='login'),
     url(r'^post/', views.post, name='post'),
+    url(r'^contacts/', views.contacts, name='contacts'),
 ]
