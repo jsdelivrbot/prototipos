@@ -13,25 +13,25 @@ class Carousel extends React.Component {
                     </ol>
                     <div className="carousel-inner" role="listbox">
 
-                        <div className="carousel-item active" style={{"backgroundImage": "url('http://placehold.it/1900x1080')"}}>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-item active" style={{"backgroundImage": "url('https://cecoop.coopwebbuilder2.com/sites/cecoop/files/Clark%20Electric%20Coop/Services/Construction/Residentual-Home-Construction%20Pic.jpg')"}}>
+                        {/* <div className="carousel-caption d-none d-md-block">
                             <h3>First Slide</h3>
                             <p>This is a description for the first slide.</p>
-                        </div>
+                        </div> */}
                         </div>
                 
-                        <div className="carousel-item" style={{"backgroundImage": "url('http://placehold.it/1900x1080')"}}>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-item" style={{"backgroundImage": "url('static/rosario_construction_app/images/block_walls_3/image_1.jpg')"}}>
+                        {/* <div className="carousel-caption d-none d-md-block"> 
                             <h3>Second Slide</h3>
                             <p>This is a description for the second slide.</p>
-                        </div>
+                        </div> */}
                         </div>
 
-                        <div className="carousel-item" style={{"backgroundImage": "url('http://placehold.it/1900x1080')"}}>
-                        <div className="carousel-caption d-none d-md-block">
+                        <div className="carousel-item" style={{"backgroundImage": "url('http://www.billfrymire.com/gallery/weblarge/house-plan-blueprints-drafting-construction.jpg')"}}>
+                        {/* <div className="carousel-caption d-none d-md-block">
                             <h3>Third Slide</h3>
                             <p>This is a description for the third slide.</p>
-                        </div>
+                        </div> */}
                         </div>
                     </div>
                     <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

@@ -28139,7 +28139,7 @@ var Footer = function (_React$Component) {
                             { className: 'company-name' },
                             _react2.default.createElement(
                                 'a',
-                                { href: 'evergarcia.com' },
+                                { href: 'http://www.evergarcia.com', target: '_blank' },
                                 'Ever Uriel Garcia'
                             ),
                             ' \xA9 2017'
@@ -28357,7 +28357,13 @@ var Services = function (_React$Component) {
         };
         _this.modal_carousel = _this.modal_carousel.bind(_this);
         _this.modals_array = ['Modal1', 'Modal2', 'Modal3', 'Modal4', 'Modal5', 'Modal6', 'Modal7', 'Modal8', 'Modal9'];
-        _this.la_pics = ['https://blogs.chapman.edu/wp-content/uploads/sites/26/2015/01/o-SANTA-MONICA-facebook.jpg', 'http://www.orangemover.com/wp-content/uploads/2015/12/florida-los-angeles.jpg', 'http://static.temblor.net/wp-content/uploads/2017/05/santa-monica-pier-santa-monica-earthquake-1.jpg'];
+        _this.block_walls_1 = ['static/rosario_construction_app/images/block_walls_1/image_1.jpg', 'static/rosario_construction_app/images/block_walls_1/image_2.jpg', 'static/rosario_construction_app/images/block_walls_1/image_3.jpg', 'static/rosario_construction_app/images/block_walls_1/image_4.jpg'];
+        _this.block_walls_2 = ['static/rosario_construction_app/images/block_walls_2/image_1.jpg', 'static/rosario_construction_app/images/block_walls_2/image_2.jpg', 'static/rosario_construction_app/images/block_walls_1/image_2.jpg'];
+        _this.block_walls_3 = ['static/rosario_construction_app/images/block_walls_3/image_1.jpg'];
+        _this.concrete = ['static/rosario_construction_app/images/concrete/image_1.jpg', 'static/rosario_construction_app/images/concrete/image_2.jpg', 'static/rosario_construction_app/images/concrete/image_3.jpg', 'static/rosario_construction_app/images/concrete/image_4.jpg'];
+        _this.tile = ['static/rosario_construction_app/images/tile/image_1.jpg', 'static/rosario_construction_app/images/tile/image_2.jpg', 'static/rosario_construction_app/images/tile/image_3.jpg', 'static/rosario_construction_app/images/tile/image_4.jpg', 'static/rosario_construction_app/images/tile/image_5.jpg', 'static/rosario_construction_app/images/tile/image_6.jpg', 'static/rosario_construction_app/images/tile/image_7.jpg', 'static/rosario_construction_app/images/tile/image_8.jpg'];
+        _this.plaster = ['static/rosario_construction_app/images/plaster/image_1.jpg', 'static/rosario_construction_app/plaster/tile/image_2.jpg', 'static/rosario_construction_app/images/plaster/image_3.jpg', 'static/rosario_construction_app/images/plaster/image_4.jpg'];
+
         _this.thumbnail = [thumbnail, thumbnail, thumbnail];
         return _this;
     }
@@ -28373,17 +28379,17 @@ var Services = function (_React$Component) {
         key: 'if_modal',
         value: function if_modal(modal) {
             if (modal === 'Modal1') {
-                return this.thumbnail;
+                return this.block_walls_1;
             } else if (modal === 'Modal2') {
-                return this.la_pics;
+                return this.block_walls_2;
             } else if (modal === 'Modal3') {
-                return this.thumbnail;
+                return this.block_walls_3;
             } else if (modal === 'Modal4') {
-                return this.thumbnail;
+                return this.concrete;
             } else if (modal === 'Modal5') {
-                return this.thumbnail;
+                return this.tile;
             } else if (modal === 'Modal6') {
-                return this.thumbnail;
+                return this.plaster;
             } else if (modal === 'Modal7') {
                 return this.thumbnail;
             } else if (modal === 'Modal8') {
@@ -28438,7 +28444,7 @@ var Services = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal1' }),
+                                _react2.default.createElement('img', { style: { 'height': '383px' }, onClick: this.modal_carousel, className: 'card-img-top', src: this.block_walls_1[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal1' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'card-body' },
@@ -28457,7 +28463,7 @@ var Services = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: this.la_pics[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal2' }),
+                                _react2.default.createElement('img', { style: { 'height': '383px' }, onClick: this.modal_carousel, className: 'card-img-top', src: this.block_walls_2[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal2' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'card-body' },
@@ -28476,7 +28482,7 @@ var Services = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal3' }),
+                                _react2.default.createElement('img', { style: { 'height': '383px' }, onClick: this.modal_carousel, className: 'card-img-top', src: this.block_walls_3[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal3' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'card-body' },
@@ -28499,7 +28505,7 @@ var Services = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal4' }),
+                                _react2.default.createElement('img', { style: { 'height': '383px' }, onClick: this.modal_carousel, className: 'card-img-top', src: this.concrete[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal4' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'card-body' },
@@ -28518,7 +28524,7 @@ var Services = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal5' }),
+                                _react2.default.createElement('img', { style: { 'height': '383px' }, onClick: this.modal_carousel, className: 'card-img-top', src: this.tile[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal5' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'card-body' },
@@ -28537,68 +28543,7 @@ var Services = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal6' }),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'card-body' },
-                                    _react2.default.createElement(
-                                        'h4',
-                                        { className: 'card-title' },
-                                        'Card title'
-                                    ),
-                                    _react2.default.createElement(
-                                        'p',
-                                        { className: 'card-text' },
-                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal7' }),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'card-body' },
-                                    _react2.default.createElement(
-                                        'h4',
-                                        { className: 'card-title' },
-                                        'Card title'
-                                    ),
-                                    _react2.default.createElement(
-                                        'p',
-                                        { className: 'card-text' },
-                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal8' }),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'card-body' },
-                                    _react2.default.createElement(
-                                        'h4',
-                                        { className: 'card-title' },
-                                        'Card title'
-                                    ),
-                                    _react2.default.createElement(
-                                        'p',
-                                        { className: 'card-text' },
-                                        'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'card col-sm-12 col-md-4', style: { "width": "20rem" } },
-                                _react2.default.createElement('img', { onClick: this.modal_carousel, className: 'card-img-top', src: thumbnail, alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal9' }),
+                                _react2.default.createElement('img', { style: { 'height': '383px' }, onClick: this.modal_carousel, className: 'card-img-top', src: this.plaster[0], alt: 'Card image cap', 'data-toggle': 'modal', 'data-target': '#Modal6' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'card-body' },
@@ -41862,8 +41807,7 @@ var Home = function (_React$Component) {
                 null,
                 _react2.default.createElement(_Carousel2.default, null),
                 _react2.default.createElement(_SomeAbout2.default, null),
-                _react2.default.createElement(_SomeProjects2.default, null),
-                _react2.default.createElement(_Reference2.default, null)
+                _react2.default.createElement(_SomeProjects2.default, null)
             );
         }
     }]);
@@ -41929,60 +41873,9 @@ var Carousel = function (_React$Component) {
                         _react2.default.createElement(
                             "div",
                             { className: "carousel-inner", role: "listbox" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "carousel-item active", style: { "backgroundImage": "url('http://placehold.it/1900x1080')" } },
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "carousel-caption d-none d-md-block" },
-                                    _react2.default.createElement(
-                                        "h3",
-                                        null,
-                                        "First Slide"
-                                    ),
-                                    _react2.default.createElement(
-                                        "p",
-                                        null,
-                                        "This is a description for the first slide."
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "carousel-item", style: { "backgroundImage": "url('http://placehold.it/1900x1080')" } },
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "carousel-caption d-none d-md-block" },
-                                    _react2.default.createElement(
-                                        "h3",
-                                        null,
-                                        "Second Slide"
-                                    ),
-                                    _react2.default.createElement(
-                                        "p",
-                                        null,
-                                        "This is a description for the second slide."
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "carousel-item", style: { "backgroundImage": "url('http://placehold.it/1900x1080')" } },
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "carousel-caption d-none d-md-block" },
-                                    _react2.default.createElement(
-                                        "h3",
-                                        null,
-                                        "Third Slide"
-                                    ),
-                                    _react2.default.createElement(
-                                        "p",
-                                        null,
-                                        "This is a description for the third slide."
-                                    )
-                                )
-                            )
+                            _react2.default.createElement("div", { className: "carousel-item active", style: { "backgroundImage": "url('https://cecoop.coopwebbuilder2.com/sites/cecoop/files/Clark%20Electric%20Coop/Services/Construction/Residentual-Home-Construction%20Pic.jpg')" } }),
+                            _react2.default.createElement("div", { className: "carousel-item", style: { "backgroundImage": "url('static/rosario_construction_app/images/block_walls_3/image_1.jpg')" } }),
+                            _react2.default.createElement("div", { className: "carousel-item", style: { "backgroundImage": "url('http://www.billfrymire.com/gallery/weblarge/house-plan-blueprints-drafting-construction.jpg')" } })
                         ),
                         _react2.default.createElement(
                             "a",
@@ -42146,8 +42039,8 @@ var SomeProjects = function SomeProjects() {
                 { className: 'col-md-7' },
                 _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/rosario_construction/services' },
-                    _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'http://placehold.it/700x300', alt: '' })
+                    { to: '/services' },
+                    _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'static/rosario_construction_app/images/concrete/image_4.jpg', alt: '' })
                 )
             ),
             _react2.default.createElement(
@@ -42174,8 +42067,8 @@ var SomeProjects = function SomeProjects() {
                 { className: 'col-md-7' },
                 _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/rosario_construction/services' },
-                    _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'http://placehold.it/700x300', alt: '' })
+                    { to: '/services' },
+                    _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'static/rosario_construction_app/images/plaster/image_1.jpg', alt: '' })
                 )
             ),
             _react2.default.createElement(
@@ -42202,8 +42095,8 @@ var SomeProjects = function SomeProjects() {
                 { className: 'col-md-7' },
                 _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/rosario_construction/services' },
-                    _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'http://placehold.it/700x300', alt: '' })
+                    { to: '/services' },
+                    _react2.default.createElement('img', { className: 'img-fluid rounded mb-3 mb-md-0', src: 'static/rosario_construction_app/images/block_walls_1/image_2.jpg', alt: '' })
                 )
             ),
             _react2.default.createElement(

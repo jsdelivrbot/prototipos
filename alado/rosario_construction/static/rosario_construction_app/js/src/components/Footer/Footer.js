@@ -14,7 +14,7 @@ class Footer extends React.Component {
                 <div className="row">
                     <div className="col-md-4 col-sm-6 footer-navigation" style={{ 'textAlign':'center' }}>
                         <h5>Strong Construction & Service</h5>
-                        <p className="company-name"><a href="evergarcia.com">Ever Uriel Garcia</a> © 2017</p>
+                        <p className="company-name"><a href="http://www.evergarcia.com" target="_blank">Ever Uriel Garcia</a> © 2017</p>
                     </div>
                     <div className="col-md-4 col-sm-6 footer-contacts">
                         <div><span className="fa fa-map-marker footer-contacts-icon"></span>

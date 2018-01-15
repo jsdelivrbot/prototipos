@@ -12,7 +12,7 @@ class Home extends React.Component {
                 <Carousel />
                 <SomeAbout />
                 <SomeProjects />
-                <Reference />
+                {/* <Reference /> */}
             </main>
         )
     }

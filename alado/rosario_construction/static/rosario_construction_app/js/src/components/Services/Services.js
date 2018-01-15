@@ -34,7 +34,13 @@ class Services extends React.Component {
         }
         this.modal_carousel = this.modal_carousel.bind(this);
         this.modals_array = ['Modal1', 'Modal2', 'Modal3', 'Modal4', 'Modal5', 'Modal6', 'Modal7', 'Modal8', 'Modal9']
-        this.la_pics = ['https://blogs.chapman.edu/wp-content/uploads/sites/26/2015/01/o-SANTA-MONICA-facebook.jpg', 'http://www.orangemover.com/wp-content/uploads/2015/12/florida-los-angeles.jpg', 'http://static.temblor.net/wp-content/uploads/2017/05/santa-monica-pier-santa-monica-earthquake-1.jpg'];
+        this.block_walls_1 = ['static/rosario_construction_app/images/block_walls_1/image_1.jpg', 'static/rosario_construction_app/images/block_walls_1/image_2.jpg', 'static/rosario_construction_app/images/block_walls_1/image_3.jpg', 'static/rosario_construction_app/images/block_walls_1/image_4.jpg'];
+        this.block_walls_2 = ['static/rosario_construction_app/images/block_walls_2/image_1.jpg', 'static/rosario_construction_app/images/block_walls_2/image_2.jpg', 'static/rosario_construction_app/images/block_walls_1/image_2.jpg'];
+        this.block_walls_3 = ['static/rosario_construction_app/images/block_walls_3/image_1.jpg'];
+        this.concrete = ['static/rosario_construction_app/images/concrete/image_1.jpg', 'static/rosario_construction_app/images/concrete/image_2.jpg', 'static/rosario_construction_app/images/concrete/image_3.jpg', 'static/rosario_construction_app/images/concrete/image_4.jpg'];
+        this.tile = ['static/rosario_construction_app/images/tile/image_1.jpg', 'static/rosario_construction_app/images/tile/image_2.jpg', 'static/rosario_construction_app/images/tile/image_3.jpg', 'static/rosario_construction_app/images/tile/image_4.jpg', 'static/rosario_construction_app/images/tile/image_5.jpg', 'static/rosario_construction_app/images/tile/image_6.jpg', 'static/rosario_construction_app/images/tile/image_7.jpg', 'static/rosario_construction_app/images/tile/image_8.jpg'];
+        this.plaster = ['static/rosario_construction_app/images/plaster/image_1.jpg', 'static/rosario_construction_app/plaster/tile/image_2.jpg', 'static/rosario_construction_app/images/plaster/image_3.jpg', 'static/rosario_construction_app/images/plaster/image_4.jpg'];
+        
         this.thumbnail = [thumbnail, thumbnail, thumbnail]
     }
     modal_carousel(card){
@@ -44,22 +50,22 @@ class Services extends React.Component {
     }
     if_modal(modal){
         if(modal === 'Modal1'){
-            return this.thumbnail;
+            return this.block_walls_1;
         }
         else if(modal === 'Modal2'){
-            return this.la_pics;
+            return this.block_walls_2;
         }
         else if(modal === 'Modal3'){
-            return this.thumbnail;
+            return this.block_walls_3;
         }
         else if(modal === 'Modal4'){
-            return this.thumbnail;
+            return this.concrete;
         }
         else if(modal === 'Modal5'){
-            return this.thumbnail;
+            return this.tile;
         }
         else if(modal === 'Modal6'){
-            return this.thumbnail;
+            return this.plaster;
         }
         else if(modal === 'Modal7'){
             return this.thumbnail;
@@ -89,21 +95,21 @@ class Services extends React.Component {
                     <div className="container">
                         <div className="row">
                             <div className="card col-sm-12 col-md-4" style={{"width": "20rem"}}>
-                                <img onClick={ this.modal_carousel } className="card-img-top" src={ thumbnail } alt="Card image cap" data-toggle="modal" data-target="#Modal1" />
+                                <img style={{ 'height': '383px' }} onClick={ this.modal_carousel } className="card-img-top" src={ this.block_walls_1[0] } alt="Card image cap" data-toggle="modal" data-target="#Modal1" />
                                 <div className="card-body">
                                     <h4 className="card-title">Card title</h4>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
                             <div className="card col-sm-12 col-md-4" style={{"width": "20rem"}}>
-                                <img onClick={ this.modal_carousel } className="card-img-top" src={ this.la_pics[0] } alt="Card image cap" data-toggle="modal" data-target="#Modal2" />
+                                <img style={{ 'height': '383px' }} onClick={ this.modal_carousel } className="card-img-top" src={ this.block_walls_2[0] } alt="Card image cap" data-toggle="modal" data-target="#Modal2" />
                                 <div className="card-body">
                                     <h4 className="card-title">Card title</h4>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
                             <div className="card col-sm-12 col-md-4" style={{"width": "20rem"}}>
-                                <img onClick={ this.modal_carousel } className="card-img-top" src={ thumbnail } alt="Card image cap" data-toggle="modal" data-target="#Modal3" />
+                                <img style={{ 'height': '383px' }} onClick={ this.modal_carousel } className="card-img-top" src={ this.block_walls_3[0] } alt="Card image cap" data-toggle="modal" data-target="#Modal3" />
                                 <div className="card-body">
                                     <h4 className="card-title">Card title</h4>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -113,21 +119,21 @@ class Services extends React.Component {
 
                         <div className="row">
                             <div className="card col-sm-12 col-md-4" style={{"width": "20rem"}}>
-                                <img onClick={ this.modal_carousel } className="card-img-top" src={ thumbnail } alt="Card image cap" data-toggle="modal" data-target="#Modal4" />
+                                <img style={{ 'height': '383px' }} onClick={ this.modal_carousel } className="card-img-top" src={ this.concrete[0] } alt="Card image cap" data-toggle="modal" data-target="#Modal4" />
                                 <div className="card-body">
                                     <h4 className="card-title">Card title</h4>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
                             <div className="card col-sm-12 col-md-4" style={{"width": "20rem"}}>
-                                <img onClick={ this.modal_carousel } className="card-img-top" src={ thumbnail } alt="Card image cap" data-toggle="modal" data-target="#Modal5" />
+                                <img style={{ 'height': '383px' }} onClick={ this.modal_carousel } className="card-img-top" src={ this.tile[0] } alt="Card image cap" data-toggle="modal" data-target="#Modal5" />
                                 <div className="card-body">
                                     <h4 className="card-title">Card title</h4>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
                             <div className="card col-sm-12 col-md-4" style={{"width": "20rem"}}>
-                                <img onClick={ this.modal_carousel } className="card-img-top" src={ thumbnail } alt="Card image cap" data-toggle="modal" data-target="#Modal6" />
+                                <img style={{ 'height': '383px' }} onClick={ this.modal_carousel } className="card-img-top" src={ this.plaster[0] } alt="Card image cap" data-toggle="modal" data-target="#Modal6" />
                                 <div className="card-body">
                                     <h4 className="card-title">Card title</h4>
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -135,7 +141,7 @@ class Services extends React.Component {
                             </div>
                         </div>
 
-                        <div className="row">
+                        {/* <div className="row">
                             <div className="card col-sm-12 col-md-4" style={{"width": "20rem"}}>
                                 <img onClick={ this.modal_carousel } className="card-img-top" src={ thumbnail } alt="Card image cap" data-toggle="modal" data-target="#Modal7" />
                                 <div className="card-body">
@@ -157,7 +163,7 @@ class Services extends React.Component {
                                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </main>
