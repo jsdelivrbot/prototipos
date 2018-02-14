@@ -18,15 +18,19 @@
 //       '####'
 
 function steps(n, row = 0, stair = '') {
+    // if (row === n) then we have hit the end of the problem
     if(n === row) {
         return;
     }
-
+    // if stair.length string === n then we its the end of the row
     if (n === stair.length) {
         console.log(stair)
         return steps(n, row + 1);
     }
 
+    // if length of the stair string is
+    // less than or equal to row (s <= r)
+    // add # else ' '
     if (stair.length <= row) {
         stair += '#';
     }
