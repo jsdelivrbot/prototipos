@@ -61037,8 +61037,9 @@ var Main = function (_React$Component) {
         _this.state = {
             chosen_food: '',
             food_chooser: 'food_types',
-            details: 'Details'
+            details: currentList
         };
+        console.log('currentList ', currentList);
         _this.current_location();
         _this.get_the_food = _this.get_the_food.bind(_this);
         return _this;
@@ -61053,8 +61054,12 @@ var Main = function (_React$Component) {
                 return response.json();
             }).then(function (data) {
                 gLocation = data.location;
-                console.log(gLocation);
+                initMap(gLocation.lat, gLocation.lng);
             });
+
+            // fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.1445,-106.6447&rankby=distance&type=restaurant&keyword=food&key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU')
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
             //first ajax call to get longitude and latitude from current location
             // $.ajax({
             //     url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCJClzDDzSQKXcCAw9UlCm2C8L4ypBj-tg',
@@ -61069,6 +61074,14 @@ var Main = function (_React$Component) {
         value: function get_the_food(food_array) {
             var value = food_array[Math.floor(Math.random() * food_array.length)];
             this.setState({ chosen_food: value });
+            initMap(gLocation.lat, gLocation.lng, value);
+        }
+    }, {
+        key: 'details',
+        value: function details() {
+            if (currentList) {
+                return _react2.default.createElement(_Details2.default, { details: currentList });
+            }
         }
     }, {
         key: 'render',
@@ -61083,13 +61096,13 @@ var Main = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     _semanticUiReact.Segment,
-                    { style: { background: 'transparent', height: '30%' } },
+                    { style: { background: 'transparent', height: '25%' } },
                     _react2.default.createElement(_FoodChooser2.default, { food_chooser: this.get_the_food })
                 ),
                 _react2.default.createElement(
                     _semanticUiReact.Segment,
-                    { style: { background: 'transparent', height: '60%' } },
-                    _react2.default.createElement(_Details2.default, { details: this.state.details })
+                    { style: { background: 'transparent', height: '65%', 'overflow': 'auto' } },
+                    this.details()
                 )
             );
         }
@@ -61189,10 +61202,39 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Details = function Details(props) {
+
+    var lists = [];
+    if (!props) {
+        return;
+    }
+    // console.log('props--> ', props.details[0].name)
+    for (var i = 0; i < 5; i++) {
+        lists.push(_react2.default.createElement(
+            'div',
+            { className: 'restaurant', style: { 'height': '20%' }, key: i },
+            _react2.default.createElement(
+                'p',
+                { style: { 'margin': '0' }, className: 'restaurant-name' },
+                i
+            ),
+            _react2.default.createElement(
+                'p',
+                { style: { 'margin': '0' }, className: 'restaurant-address' },
+                '201 N Los Angeles St #22a, Los Angeles'
+            ),
+            _react2.default.createElement(
+                'button',
+                null,
+                'Directions'
+            )
+        ));
+    }
     return _react2.default.createElement(
         'div',
         null,
-        props.details
+        lists.map(function (list, index) {
+            return list;
+        })
     );
 };
 

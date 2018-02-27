@@ -31,8 +31,9 @@ class Main extends React.Component {
         this.state = {
             chosen_food: '',
             food_chooser: 'food_types',
-            details: 'Details'
+            details: currentList
         }
+        console.log('currentList ', currentList)
         this.current_location();
         this.get_the_food = this.get_the_food.bind(this);
     }
@@ -44,9 +45,13 @@ class Main extends React.Component {
         fetch(url, {method: 'post'})
             .then(response => response.json())
             .then(data => {
-                gLocation = data.location
-                console.log(gLocation)
+                gLocation = data.location;
+                initMap(gLocation.lat, gLocation.lng);
             })
+
+        // fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.1445,-106.6447&rankby=distance&type=restaurant&keyword=food&key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU')
+        //     .then(response => response.json())
+        //     .then(data => console.log(data))
         //first ajax call to get longitude and latitude from current location
         // $.ajax({
         //     url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCJClzDDzSQKXcCAw9UlCm2C8L4ypBj-tg',
@@ -60,6 +65,16 @@ class Main extends React.Component {
     get_the_food (food_array) {     
         var value = food_array[Math.floor(Math.random() * food_array.length)];
         this.setState({chosen_food: value});
+        initMap(gLocation.lat, gLocation.lng, value);
+    }
+
+    details(){
+        if(currentList){
+            return (
+                <Details details = { currentList } />
+            )
+        }
+
     }
 
     render(){
@@ -68,14 +83,15 @@ class Main extends React.Component {
                     <Segment style = {{ background: 'transparent', height: '10%' }}>
                         <FoodChoice food = { this.state.chosen_food } />
                     </Segment>
-                    <Segment style = {{ background: 'transparent', height: '30%' }}>
+                    <Segment style = {{ background: 'transparent', height: '25%' }}>
                         <FoodChooser food_chooser = { this.get_the_food }/>
                     </Segment>
-                    <Segment style = {{ background: 'transparent', height: '60%' }}>
-                        <Details details = { this.state.details } />
+                    <Segment style = {{ background: 'transparent', height: '65%', 'overflow':'auto' }}>
+                        {/* <Details details = { currentList } /> */}
+                        { this.details() }
                     </Segment>
                 </Segment.Group>
-        )
+            )
         }
     }
 
