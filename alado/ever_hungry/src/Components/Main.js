@@ -15,63 +15,106 @@ const main_style = {
                         url('./assets/images/background3.jpg')`
 }
 
-/**
- *  locationSuccess - Handle success callback for getting geolocation information.
- *    Data returned from API.
- */
-// function locationSuccessCurrent(data){
-//     console.log('locationSuccessCurrent');
-//     console.log(data.location);
-//     gLocation = data.location;
-// }
-let gLocation = null
 class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             chosen_food: '',
             food_chooser: 'food_types',
-            details: currentList
+            details: []
         }
-        console.log('currentList ', currentList)
+
+        this.map;
+        this.infowindow;
+        this.gLocation;
+        this.food_types =   [   'american', 'barbecue', 'buffet', 'burgers', 'chinese', 'fast casual', 'fast food',
+                                'indian', 'italian', 'mediterranean', 'mexican', 'pizza', 'pub', 'sandwiches',
+                                'seafood', 'sushi', 'tapas', 'teppanyaki', 'thai', 'vegetarian'
+                            ];
+        
         this.current_location();
         this.get_the_food = this.get_the_food.bind(this);
+        this.callback = this.callback.bind(this);
     }
 
 
+
+    initMap(lat, lng, food='pizza'){
+        if(!lat || !lng) {
+            return
+        }
+        let pyrmont = {lat: lat, lng: lng};
+
+        this.map = new google.maps.Map(document.getElementById('map'), {
+            center: pyrmont,
+            zoom: 15
+        });
+
+        this.infowindow = new google.maps.InfoWindow();
+        let service = new google.maps.places.PlacesService(this.map);
+            service.nearbySearch({
+                location: pyrmont,
+                rankBy: google.maps.places.RankBy.DISTANCE,
+                types: ['restaurant'],
+                keyword:food
+            }, this.callback);
+    }
+
+    callback(results, status) {
+        let detail_list = [];
+        let kik = [];
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                if(i < 5){ 
+                    detail_list.push(results[i]);
+                }
+                else {
+                    break;
+                }
+                // this.createMarker(results[i]);
+            }
+        }
+        console.log(detail_list)
+        this.setState({ 'details': detail_list});
+    }
+
+    // createMarker(place) {
+    //     var placeLoc = place.geometry.location;
+    //     var marker = new google.maps.Marker({
+    //         map: map,
+    //         position: place.geometry.location
+    //     });
+
+    //     google.maps.event.addListener(marker, 'click', function() {
+    //         infowindow.setContent(place.name);
+    //         infowindow.open(this.map, this);
+    //     });
+    // }
+
+
     current_location(){
-        console.log('Palms')
         const url = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU';
         fetch(url, {method: 'post'})
             .then(response => response.json())
             .then(data => {
-                gLocation = data.location;
-                initMap(gLocation.lat, gLocation.lng);
+                this.gLocation = data.location;
+                console.log(621)
+                // initMap(gLocation.lat, gLocation.lng);
             })
-
-        // fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.1445,-106.6447&rankby=distance&type=restaurant&keyword=food&key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU')
-        //     .then(response => response.json())
-        //     .then(data => console.log(data))
-        //first ajax call to get longitude and latitude from current location
-        // $.ajax({
-        //     url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCJClzDDzSQKXcCAw9UlCm2C8L4ypBj-tg',
-        //     dataType: 'json',
-        //     method: 'post',
-        //     success: locationSuccessCurrent,
-        //     error: locationErrorCurrent
-        // })
     }
 
-    get_the_food (food_array) {     
-        var value = food_array[Math.floor(Math.random() * food_array.length)];
+    get_the_food (food_array) {
+        console.log('get_the_food()');
+        let value = food_array[Math.floor(Math.random() * food_array.length)];
         this.setState({chosen_food: value});
-        initMap(gLocation.lat, gLocation.lng, value);
+        this.initMap(this.gLocation.lat, this.gLocation.lng, value)
     }
 
     details(){
-        if(currentList){
+        console.log('details() ', this.currentList)
+        if(this.currentList){
             return (
-                <Details details = { currentList } />
+                <Details details = { this.currentList } />
             )
         }
 
@@ -84,11 +127,11 @@ class Main extends React.Component {
                         <FoodChoice food = { this.state.chosen_food } />
                     </Segment>
                     <Segment style = {{ background: 'transparent', height: '25%' }}>
-                        <FoodChooser food_chooser = { this.get_the_food }/>
+                        <FoodChooser all_foods={ this.food_types } food_chooser = { this.get_the_food }/>
                     </Segment>
                     <Segment style = {{ background: 'transparent', height: '65%', 'overflow':'auto' }}>
-                        {/* <Details details = { currentList } /> */}
-                        { this.details() }
+                        <Details details={ this.state.details } />
+                        {/* { this.details() } */}
                     </Segment>
                 </Segment.Group>
             )

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Popup, Icon, Button, Header, Image, Modal } from 'semantic-ui-react';
+import { Segment, Popup, Icon, Button, Header, Image, Modal, Checkbox } from 'semantic-ui-react';
 
 const footer_style = {
     height: '10%',
@@ -36,11 +36,8 @@ const settings_modal = <Modal trigger={<Icon name='setting'></Icon>}>
                         <Modal.Header>Select a Photo</Modal.Header>
                         <Modal.Content>
                             <Modal.Description>
-                                <Header>Welcome to EverHungry?</Header>
-                                <p>Here it is: it's time to eat, and you just can't agree on what kind of food to have. EverHungry? takes the pressure off of you and leaves it up to our state-of-the-art randomizer.</p>
-                                <p>EverHungry? defaults to finding food near your current location, but just open the Location dialog to enter the zip code of your choice, and you can find food anywhere.</p>
-                                <p>EverHungry? will find foods in a wide range of categories, but you can open the Settings dialog and opt in or out of any of them. EverHungry? will remember your preferences, and use them until you decide to change them.</p>
-                                <p>Once you spin the wheel, EverHungry? will select a random food category, and then find and display restaurants of that type nearest to your specified location. You can then click on the Photos button to see pictures that people have posted about that restaurant, or the Directions button to get directions on how to get there.</p>
+                                <Header>Preference?</Header>
+                                <p><Checkbox label='sandwich' /></p>
                             </Modal.Description>
                         </Modal.Content>
                     </Modal>

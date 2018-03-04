@@ -61014,17 +61014,7 @@ var main_style = {
     height: '80%',
     margin: '0',
     backgroundImage: 'linear-gradient(rgba(255,255,255,.75), \n                        rgba(255,255,255,.75)), \n                        url(\'./assets/images/background3.jpg\')'
-
-    /**
-     *  locationSuccess - Handle success callback for getting geolocation information.
-     *    Data returned from API.
-     */
-    // function locationSuccessCurrent(data){
-    //     console.log('locationSuccessCurrent');
-    //     console.log(data.location);
-    //     gLocation = data.location;
-    // }
-};var gLocation = null;
+};
 
 var Main = function (_React$Component) {
     _inherits(Main, _React$Component);
@@ -61037,50 +61027,105 @@ var Main = function (_React$Component) {
         _this.state = {
             chosen_food: '',
             food_chooser: 'food_types',
-            details: currentList
+            details: []
         };
-        console.log('currentList ', currentList);
+
+        _this.map;
+        _this.infowindow;
+        _this.gLocation;
+        _this.food_types = ['american', 'barbecue', 'buffet', 'burgers', 'chinese', 'fast casual', 'fast food', 'indian', 'italian', 'mediterranean', 'mexican', 'pizza', 'pub', 'sandwiches', 'seafood', 'sushi', 'tapas', 'teppanyaki', 'thai', 'vegetarian'];
+
         _this.current_location();
         _this.get_the_food = _this.get_the_food.bind(_this);
+        _this.callback = _this.callback.bind(_this);
         return _this;
     }
 
     _createClass(Main, [{
+        key: 'initMap',
+        value: function initMap(lat, lng) {
+            var food = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'pizza';
+
+            if (!lat || !lng) {
+                return;
+            }
+            var pyrmont = { lat: lat, lng: lng };
+
+            this.map = new google.maps.Map(document.getElementById('map'), {
+                center: pyrmont,
+                zoom: 15
+            });
+
+            this.infowindow = new google.maps.InfoWindow();
+            var service = new google.maps.places.PlacesService(this.map);
+            service.nearbySearch({
+                location: pyrmont,
+                rankBy: google.maps.places.RankBy.DISTANCE,
+                types: ['restaurant'],
+                keyword: food
+            }, this.callback);
+        }
+    }, {
+        key: 'callback',
+        value: function callback(results, status) {
+            var detail_list = [];
+            var kik = [];
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    if (i < 5) {
+                        detail_list.push(results[i]);
+                    } else {
+                        break;
+                    }
+                    // this.createMarker(results[i]);
+                }
+            }
+            console.log(detail_list);
+            this.setState({ 'details': detail_list });
+        }
+
+        // createMarker(place) {
+        //     var placeLoc = place.geometry.location;
+        //     var marker = new google.maps.Marker({
+        //         map: map,
+        //         position: place.geometry.location
+        //     });
+
+        //     google.maps.event.addListener(marker, 'click', function() {
+        //         infowindow.setContent(place.name);
+        //         infowindow.open(this.map, this);
+        //     });
+        // }
+
+
+    }, {
         key: 'current_location',
         value: function current_location() {
-            console.log('Palms');
+            var _this2 = this;
+
             var url = 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU';
             fetch(url, { method: 'post' }).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                gLocation = data.location;
-                initMap(gLocation.lat, gLocation.lng);
+                _this2.gLocation = data.location;
+                console.log(621);
+                // initMap(gLocation.lat, gLocation.lng);
             });
-
-            // fetch('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=35.1445,-106.6447&rankby=distance&type=restaurant&keyword=food&key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU')
-            //     .then(response => response.json())
-            //     .then(data => console.log(data))
-            //first ajax call to get longitude and latitude from current location
-            // $.ajax({
-            //     url: 'https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyCJClzDDzSQKXcCAw9UlCm2C8L4ypBj-tg',
-            //     dataType: 'json',
-            //     method: 'post',
-            //     success: locationSuccessCurrent,
-            //     error: locationErrorCurrent
-            // })
         }
     }, {
         key: 'get_the_food',
         value: function get_the_food(food_array) {
+            console.log('get_the_food()');
             var value = food_array[Math.floor(Math.random() * food_array.length)];
             this.setState({ chosen_food: value });
-            initMap(gLocation.lat, gLocation.lng, value);
+            this.initMap(this.gLocation.lat, this.gLocation.lng, value);
         }
     }, {
         key: 'details',
         value: function details() {
-            if (currentList) {
-                return _react2.default.createElement(_Details2.default, { details: currentList });
+            console.log('details() ', this.currentList);
+            if (this.currentList) {
+                return _react2.default.createElement(_Details2.default, { details: this.currentList });
             }
         }
     }, {
@@ -61097,12 +61142,12 @@ var Main = function (_React$Component) {
                 _react2.default.createElement(
                     _semanticUiReact.Segment,
                     { style: { background: 'transparent', height: '25%' } },
-                    _react2.default.createElement(_FoodChooser2.default, { food_chooser: this.get_the_food })
+                    _react2.default.createElement(_FoodChooser2.default, { all_foods: this.food_types, food_chooser: this.get_the_food })
                 ),
                 _react2.default.createElement(
                     _semanticUiReact.Segment,
                     { style: { background: 'transparent', height: '65%', 'overflow': 'auto' } },
-                    this.details()
+                    _react2.default.createElement(_Details2.default, { details: this.state.details })
                 )
             );
         }
@@ -61150,7 +61195,7 @@ exports.default = FoodChoice;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+        value: true
 });
 
 var _react = __webpack_require__(1);
@@ -61161,25 +61206,14 @@ var _semanticUiReact = __webpack_require__(81);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- *   Valid food types (categories).
- */
-var food_types = ['american', 'barbecue', 'buffet', 'burgers', 'chinese', 'fast casual', 'fast food', 'indian', 'italian', 'mediterranean', 'mexican', 'pizza', 'pub', 'sandwiches', 'seafood', 'sushi', 'tapas', 'teppanyaki', 'thai', 'vegetarian'];
-
-var random_chooser = function random_chooser() {
-  return food_types[Math.floor(Math.random() * food_types.length)];
-};
-
 var FoodChooser = function FoodChooser(props) {
-  //console.log(props)
-  // console.log(props.food_chooser(food_types[Math.floor(Math.random() * food_types.length)]))
-  return _react2.default.createElement(
-    _semanticUiReact.Button,
-    { color: 'red', onClick: function onClick() {
-        return props.food_chooser(food_types);
-      } },
-    'Search'
-  );
+        return _react2.default.createElement(
+                _semanticUiReact.Button,
+                { color: 'red', onClick: function onClick() {
+                                return props.food_chooser(props.all_foods);
+                        } },
+                'Search'
+        );
 };
 
 exports.default = FoodChooser;
@@ -61204,10 +61238,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Details = function Details(props) {
 
     var lists = [];
-    if (!props) {
-        return;
+    if (!props.details.length) {
+        return _react2.default.createElement('div', null);
     }
-    // console.log('props--> ', props.details[0].name)
+    console.log('props in details--> ', !!props.details);
     for (var i = 0; i < 5; i++) {
         lists.push(_react2.default.createElement(
             'div',
@@ -61215,12 +61249,12 @@ var Details = function Details(props) {
             _react2.default.createElement(
                 'p',
                 { style: { 'margin': '0' }, className: 'restaurant-name' },
-                i
+                props.details[i].name
             ),
             _react2.default.createElement(
                 'p',
                 { style: { 'margin': '0' }, className: 'restaurant-address' },
-                '201 N Los Angeles St #22a, Los Angeles'
+                props.details[i].vicinity
             ),
             _react2.default.createElement(
                 'button',
@@ -61375,27 +61409,12 @@ var settings_modal = _react2.default.createElement(
             _react2.default.createElement(
                 _semanticUiReact.Header,
                 null,
-                'Welcome to EverHungry?'
+                'Preference?'
             ),
             _react2.default.createElement(
                 'p',
                 null,
-                'Here it is: it\'s time to eat, and you just can\'t agree on what kind of food to have. EverHungry? takes the pressure off of you and leaves it up to our state-of-the-art randomizer.'
-            ),
-            _react2.default.createElement(
-                'p',
-                null,
-                'EverHungry? defaults to finding food near your current location, but just open the Location dialog to enter the zip code of your choice, and you can find food anywhere.'
-            ),
-            _react2.default.createElement(
-                'p',
-                null,
-                'EverHungry? will find foods in a wide range of categories, but you can open the Settings dialog and opt in or out of any of them. EverHungry? will remember your preferences, and use them until you decide to change them.'
-            ),
-            _react2.default.createElement(
-                'p',
-                null,
-                'Once you spin the wheel, EverHungry? will select a random food category, and then find and display restaurants of that type nearest to your specified location. You can then click on the Photos button to see pictures that people have posted about that restaurant, or the Directions button to get directions on how to get there.'
+                _react2.default.createElement(_semanticUiReact.Checkbox, { label: 'sandwich' })
             )
         )
     )
