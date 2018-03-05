@@ -40904,7 +40904,7 @@ var App = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this.state = {
-            map: '<div></div>'
+            map: document.getElementById('map').outerHTML
         };
         _this.google_map = _this.google_map.bind(_this);
         return _this;
@@ -40915,11 +40915,12 @@ var App = function (_React$Component) {
         value: function google_map(map) {
             console.log(map);
             console.log('mapzzz');
-            this.setState({ 'map': map });
+            this.setState({ 'map': map.outerHTML });
         }
     }, {
         key: 'render',
         value: function render() {
+            console.log('main.js map ', this.state.map);
             return _react2.default.createElement(
                 'div',
                 { style: div_style },
@@ -61423,15 +61424,16 @@ var Footer = function (_React$Component) {
 
         _this.state = {
             modal: false,
-            kik: props.map
+            kik: _this.props.map
         };
+        console.log('props ', _this.props);
         return _this;
     }
 
     _createClass(Footer, [{
         key: 'map_modal',
         value: function map_modal() {
-            console.log('map modal', this.props.map.outerHTML);
+            //console.log('map kik', this.state.kik)
             return _react2.default.createElement(
                 'div',
                 null,
@@ -61454,7 +61456,7 @@ var Footer = function (_React$Component) {
                                 null,
                                 'MAP'
                             ),
-                            this.props.map.outerHTML
+                            this.state.kik.outerHTML
                         )
                     )
                 )

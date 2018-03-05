@@ -46,12 +46,13 @@ class Footer extends React.Component {
         super(props);
         this.state = { 
             modal: false,
-            kik: props.map
+            kik: this.props.map
         }
+        console.log('props ', this.props)
     }
 
     map_modal(){
-        console.log('map modal', this.props.map.outerHTML)
+        //console.log('map kik', this.state.kik)
         return (
             <div>
                 <Modal trigger={<Icon name='marker'></Icon>}>
@@ -59,7 +60,7 @@ class Footer extends React.Component {
                         <Modal.Content>
                             <Modal.Description>
                                 <Header>MAP</Header>
-                                { this.props.map.outerHTML }
+                                { this.state.kik.outerHTML }
                             </Modal.Description>
                         </Modal.Content>
                     </Modal>
