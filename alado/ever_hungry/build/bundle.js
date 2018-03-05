@@ -40898,13 +40898,26 @@ var div_style = {
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
 
-    function App() {
+    function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this.state = {
+            map: '<div></div>'
+        };
+        _this.google_map = _this.google_map.bind(_this);
+        return _this;
     }
 
     _createClass(App, [{
+        key: 'google_map',
+        value: function google_map(map) {
+            console.log(map);
+            console.log('mapzzz');
+            this.setState({ 'map': map });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -40914,8 +40927,8 @@ var App = function (_React$Component) {
                     _semanticUiReact.Segment.Group,
                     { style: div_style },
                     _react2.default.createElement(_Header3.default, null),
-                    _react2.default.createElement(_Main2.default, null),
-                    _react2.default.createElement(_Footer2.default, null)
+                    _react2.default.createElement(_Main2.default, { map: this.google_map }),
+                    _react2.default.createElement(_Footer2.default, { map: this.state.map })
                 )
             );
         }
@@ -61073,31 +61086,30 @@ var Main = function (_React$Component) {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
                 for (var i = 0; i < results.length; i++) {
                     if (i < 5) {
+                        this.createMarker(results[i]);
                         detail_list.push(results[i]);
                     } else {
                         break;
                     }
-                    // this.createMarker(results[i]);
                 }
             }
-            console.log(detail_list);
             this.setState({ 'details': detail_list });
         }
-
-        // createMarker(place) {
-        //     var placeLoc = place.geometry.location;
-        //     var marker = new google.maps.Marker({
-        //         map: map,
-        //         position: place.geometry.location
-        //     });
-
-        //     google.maps.event.addListener(marker, 'click', function() {
-        //         infowindow.setContent(place.name);
-        //         infowindow.open(this.map, this);
-        //     });
-        // }
-
-
+    }, {
+        key: 'createMarker',
+        value: function createMarker(place) {
+            var placeLoc = place.geometry.location;
+            var marker = new google.maps.Marker({
+                map: this.map,
+                position: place.geometry.location
+            });
+            var infowindow = this.infowindow;
+            var map = this.map;
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(place.name);
+                infowindow.open(map, this);
+            });
+        }
     }, {
         key: 'current_location',
         value: function current_location() {
@@ -61108,7 +61120,6 @@ var Main = function (_React$Component) {
                 return response.json();
             }).then(function (data) {
                 _this2.gLocation = data.location;
-                console.log(621);
                 // initMap(gLocation.lat, gLocation.lng);
             });
         }
@@ -61119,6 +61130,7 @@ var Main = function (_React$Component) {
             var value = food_array[Math.floor(Math.random() * food_array.length)];
             this.setState({ chosen_food: value });
             this.initMap(this.gLocation.lat, this.gLocation.lng, value);
+            this.props.map(document.getElementById('map'));
         }
     }, {
         key: 'details',
@@ -61366,28 +61378,9 @@ var map_modal = _react2.default.createElement(
             _react2.default.createElement(
                 _semanticUiReact.Header,
                 null,
-                'Welcome to EverHungry?'
+                'MAP'
             ),
-            _react2.default.createElement(
-                'p',
-                null,
-                'Here it is: it\'s time to eat, and you just can\'t agree on what kind of food to have. EverHungry? takes the pressure off of you and leaves it up to our state-of-the-art randomizer.'
-            ),
-            _react2.default.createElement(
-                'p',
-                null,
-                'EverHungry? defaults to finding food near your current location, but just open the Location dialog to enter the zip code of your choice, and you can find food anywhere.'
-            ),
-            _react2.default.createElement(
-                'p',
-                null,
-                'EverHungry? will find foods in a wide range of categories, but you can open the Settings dialog and opt in or out of any of them. EverHungry? will remember your preferences, and use them until you decide to change them.'
-            ),
-            _react2.default.createElement(
-                'p',
-                null,
-                'Once you spin the wheel, EverHungry? will select a random food category, and then find and display restaurants of that type nearest to your specified location. You can then click on the Photos button to see pictures that people have posted about that restaurant, or the Directions button to get directions on how to get there.'
-            )
+            '621'
         )
     )
 );
@@ -61429,12 +61422,45 @@ var Footer = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 
         _this.state = {
-            modal: false
+            modal: false,
+            kik: props.map
         };
         return _this;
     }
 
     _createClass(Footer, [{
+        key: 'map_modal',
+        value: function map_modal() {
+            console.log('map modal', this.props.map.outerHTML);
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    _semanticUiReact.Modal,
+                    { trigger: _react2.default.createElement(_semanticUiReact.Icon, { name: 'marker' }) },
+                    _react2.default.createElement(
+                        _semanticUiReact.Modal.Header,
+                        null,
+                        'Select a Photo'
+                    ),
+                    _react2.default.createElement(
+                        _semanticUiReact.Modal.Content,
+                        null,
+                        _react2.default.createElement(
+                            _semanticUiReact.Modal.Description,
+                            null,
+                            _react2.default.createElement(
+                                _semanticUiReact.Header,
+                                null,
+                                'MAP'
+                            ),
+                            this.props.map.outerHTML
+                        )
+                    )
+                )
+            );
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -61458,7 +61484,7 @@ var Footer = function (_React$Component) {
                         _react2.default.createElement(
                             _semanticUiReact.Icon.Group,
                             { size: 'big' },
-                            map_modal
+                            this.map_modal()
                         )
                     ),
                     _react2.default.createElement(

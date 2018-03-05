@@ -41,7 +41,7 @@ class Main extends React.Component {
 
     initMap(lat, lng, food='pizza'){
         if(!lat || !lng) {
-            return
+            return;
         }
         let pyrmont = {lat: lat, lng: lng};
 
@@ -66,30 +66,31 @@ class Main extends React.Component {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (let i = 0; i < results.length; i++) {
                 if(i < 5){ 
+                    this.createMarker(results[i]);
                     detail_list.push(results[i]);
                 }
                 else {
                     break;
                 }
-                // this.createMarker(results[i]);
+                
             }
         }
-        console.log(detail_list)
         this.setState({ 'details': detail_list});
     }
 
-    // createMarker(place) {
-    //     var placeLoc = place.geometry.location;
-    //     var marker = new google.maps.Marker({
-    //         map: map,
-    //         position: place.geometry.location
-    //     });
-
-    //     google.maps.event.addListener(marker, 'click', function() {
-    //         infowindow.setContent(place.name);
-    //         infowindow.open(this.map, this);
-    //     });
-    // }
+    createMarker(place) {
+        let placeLoc = place.geometry.location;
+        let marker = new google.maps.Marker({
+            map: this.map,
+            position: place.geometry.location
+        });
+        let infowindow = this.infowindow
+        let map = this.map
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
 
 
     current_location(){
@@ -98,7 +99,6 @@ class Main extends React.Component {
             .then(response => response.json())
             .then(data => {
                 this.gLocation = data.location;
-                console.log(621)
                 // initMap(gLocation.lat, gLocation.lng);
             })
     }
@@ -108,6 +108,7 @@ class Main extends React.Component {
         let value = food_array[Math.floor(Math.random() * food_array.length)];
         this.setState({chosen_food: value});
         this.initMap(this.gLocation.lat, this.gLocation.lng, value)
+        this.props.map(document.getElementById('map'))
     }
 
     details(){
@@ -117,7 +118,6 @@ class Main extends React.Component {
                 <Details details = { this.currentList } />
             )
         }
-
     }
 
     render(){

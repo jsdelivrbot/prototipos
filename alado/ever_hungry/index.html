@@ -9,15 +9,14 @@
     </head>
     <body>
         <div id='app'></div>
-        <div id='map' hidden></div>
-
+        <div id='map' style="height:100%"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU&libraries=places"></script>
             <script>
             // This example requires the Places library. Include the libraries=places
             // parameter when you first load the API. For example:
-            // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+           
     
                 // PUT MARKERS ON THE MAP WHEN USER CLICKS TH LOCATION TAB !!!!!!!!!!!!!!!!!!!!!!!!  ALMOST THERE
-    
             /**function createMarker(place) {
                 var placeLoc = place.geometry.location;
                 var marker = new google.maps.Marker({
@@ -31,7 +30,7 @@
                 });
             } */
         </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU&libraries=places" async defer></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU&libraries=places" async defer></script> -->
         <script type="text/javascript" src="build/bundle.js"></script>
     </body>
 </html>

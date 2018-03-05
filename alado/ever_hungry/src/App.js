@@ -8,13 +8,25 @@ const div_style = {
     textAlign: 'center'
 }
 class App extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = { 
+            map: '<div></div>'
+        }
+        this.google_map = this.google_map.bind(this)
+    }
+    google_map(map){
+        console.log(map)
+        console.log('mapzzz')
+        this.setState({ 'map': map })
+    }
     render(){
         return (
             <div style = { div_style }>
                 <Segment.Group style = { div_style }>
                     <_Header />
-                    <Main />
-                    <Footer />
+                    <Main map={ this.google_map } />
+                    <Footer map={ this.state.map } />
                 </Segment.Group>
             </div>
         )
