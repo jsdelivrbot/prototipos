@@ -1,2 +1,123 @@
-{{ property.property_name }} <br/>
-{{ property.area }}
+{% extends 'homesapp/base.html' %}
+{% block body %}
+
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+
+            <div id="house" class="col-md-3" lat="{{ property.lat_field }}" long="{{ property.long_field }}">
+                <div class="thumbnail">
+                    <img src="{{ property.image_url }}" height="420" width="420"/>
+                    <div class="caption">
+                        <p>{{ property.property_name }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div>
+                    <div class="panel-group">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Property Details</div>
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                           <td>
+                                               <label><b>Area SQFT</b></label>
+                                           </td>
+                                           <td>
+                                                {{ property.area }}
+                                            </td> 
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label><b>Price</b></label>
+                                            </td>
+                                            <td>
+                                                {{ property.price }}
+                                            </td> 
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label><b>Age</b></label>
+                                            </td>
+                                            <td>
+                                                {{ property.age }}
+                                            </td> 
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label><b>Direction</b></label>
+                                            </td>
+                                            <td>
+                                                {{ property.direction }}
+                                            </td> 
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label><b>Floors</b></label>
+                                            </td>
+                                            <td>
+                                                {{ property.floor }}
+                                            </td> 
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label><b>Address</b></label>
+                                            </td>
+                                            <td>
+                                                {{ property.postadd }}
+                                            </td> 
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="thumbnail"  style="text-align:center">
+                            <h3>Location</h3>
+                            <div id="map" style="height:150px;"></div>
+                            <script>
+                                function initMap(){
+                                    var lat = parseInt(document.getElementById('house').getAttribute('lat'));
+                                    var long = parseInt(document.getElementById('house').getAttribute('long'));
+
+                                    var myLatLng = {lat: lat, lng: long};
+                                    var map = new google.maps.Map(document.getElementById('map'), {
+                                        zoom: 11,
+                                        center: myLatLng
+                                      });
+
+                                    var marker = new google.maps.Marker({
+                                        position: myLatLng,
+                                        map: map
+                                    })
+                                }
+                            </script>
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1-xIGGFLGXREQFO5L07MXUX_LJ59TmmU&callback=initMap"
+                            async defer></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
+
+{% endblock %}
