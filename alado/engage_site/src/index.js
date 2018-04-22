@@ -4,6 +4,8 @@ import './index.css';
 import './semantic/dist/semantic.min.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-
+import jQuery from 'jquery';
+window.jQuery = jQuery;
+require('./semantic/dist/semantic.min.js');
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
