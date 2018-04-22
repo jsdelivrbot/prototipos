@@ -15,6 +15,12 @@ class App extends Component {
           <button className="ui active button"><i className="user icon"></i>Follow</button>
           and save to reload.
         </p>
+        <div className="ui segment">
+  <p></p>
+  <div className="ui active dimmer">
+    <div className="ui loader"></div>
+  </div>
+</div>
       </div>
     );
   }
