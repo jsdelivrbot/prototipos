@@ -10,14 +10,14 @@ import Resources from './components/MainComponents/Resources';
 
 const Routes = () => (
     <Router>
-      <div>
+      <div style={{ 'position':'relative' }}>
         <Header />
-        <main>
+        <main style={{ 'position':'' }}>
           <Route exact path="/" component={ Home } />
           <Route path="/about" component={ About } />
           <Route path="/resources" component={ Resources } />
-          <Footer />  
-        </main>        
+        </main>
+        <Footer />           
       </div>
     </Router>
 );

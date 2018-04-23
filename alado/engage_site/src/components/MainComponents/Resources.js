@@ -1,9 +1,7 @@
 import React from "react";
 
 const Resources = () => (
-    <div>
-      <h2>Resources</h2>
-    </div>
+    <div>Resources</div>
 );
 
 export default Resources;
