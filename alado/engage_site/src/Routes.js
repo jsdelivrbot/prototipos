@@ -8,11 +8,12 @@ import About from './components/MainComponents/About';
 import Resources from './components/MainComponents/Resources';
 
 
-const Routes = () => (
+const Routes = () => {
+  return (
     <Router>
-      <div style={{ 'position':'relative' }}>
+      <div>
         <Header />
-        <main style={{ 'position':'' }}>
+        <main>
           <Route exact path="/" component={ Home } />
           <Route path="/about" component={ About } />
           <Route path="/resources" component={ Resources } />
@@ -20,6 +21,7 @@ const Routes = () => (
         <Footer />           
       </div>
     </Router>
-);
+  )
+};
 
 export default Routes;
