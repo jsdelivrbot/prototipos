@@ -62,8 +62,10 @@ const style_span_input = {
 }
 
 let input_font = '1.7em';
+let style_search_icon_width = '10%';
 if (/Mobi/.test(navigator.userAgent)) {
     input_font = '1.3em';
+    style_search_icon_width = '20%';    
 }
 
 const style_input = {
@@ -86,29 +88,45 @@ const style_search_icon = {
     'borderTopRightRadius': '10px',
     'borderBottomRightRadius': '10px',
     'cursor':'pointer',
-    'width':'10%',
+    'width':style_search_icon_width,
 }
 
 const style_paragraph = {
     'fontSize':'1.3em'
 }
 
-
-
 class _Main extends React.Component {
     static propTypes = {
         match: PropTypes.object.isRequired,
         location: PropTypes.object.isRequired,
         history: PropTypes.object.isRequired
-      }
-    componentDidMount(){
-        document.querySelector('header').style.backgroundColor = "transparent";
-        document.querySelector('main').style.paddingTop = "";    
-        document.querySelector('#logo-img').style.display = "none";
     }
+
+    componentDidMount(){
+        this.scroll_event();
+        let self = this;
+        window.addEventListener('scroll', function(){
+            self.scroll_event();
+        })
+    }
+
+    scroll_event(){
+        if(window.location.pathname === '/' && window.pageYOffset < 275){
+            document.querySelector('header').style.backgroundColor = "transparent";
+            document.querySelector('main').style.paddingTop = "";    
+            document.querySelector('#logo-img').style.display = "none";
+            document.querySelector('#header-title').style.display = "none";
+            document.querySelector('#navigation').style.backgroundColor = "rgb(144, 194, 70)";
+            
+        }
+        else if(window.location.pathname === '/') {
+            document.querySelector('header').style.backgroundColor = "rgb(241, 241, 241)";
+            document.querySelector('#logo-img').style.display = "block";
+            document.querySelector('#header-title').style.display = "block";
+        }
+    }
+    
     render(){
-        const { match, location, history } = this.props;
-        console.log(`You are now at ${location.pathname}`)
         return (
             <div style={ style_container }>
                 <div style={ style_innerdiv }>

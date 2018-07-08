@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router'
-
-
 const header_style = { 
-  'position':'fixed', 
-  'backgroundColor': 'transparent',
-  'height': '60px',
+  	'position':'fixed', 
+  	'backgroundColor': 'transparent',
+  	'height': '60px',
 	'width': '100%',
 	"zIndex":"1000",
 }
@@ -35,21 +31,28 @@ const style_logo = {
 	"height":"100%",
 };
 
-class _Header extends React.Component {
-	static propTypes = {
-		match: PropTypes.object.isRequired,
-		location: PropTypes.object.isRequired,
-		history: PropTypes.object.isRequired
-	}
+const style_logo_img = {
+	"marginTop": "10px",
+    "height": "35px",
+}
 
-	componentDidMount(){
-		console.log(this)
-	}
+let span_font = '18px';
+if (/Mobi/.test(navigator.userAgent)) {
+    span_font = '14px';
+}
 
+const style_span_header = {
+	"color": "#949495",
+    "fontStyle": "italic",
+    "position": "absolute",
+    "top": "20px",
+    "right": "20px",
+	"fontSize": span_font,
+    "opacity": "0.5",
+}
+
+class Header extends React.Component {
 	render(){
-		const { match, location, history } = this.props;
-		console.log(`You are now at ${location.pathname}`)
-
 		return(
 			<header style={ header_style }>
 				<div style={ style_menu_icon }>
@@ -69,12 +72,12 @@ class _Header extends React.Component {
 					</a>
 				</div>
 				<div style={ style_logo }>
-					<Link to="/"><img id="logo-img" src="https://foodoasis.la/assets/images/fola.svg" width="100" alt="FOLA" /></Link>
+					<Link to="/engage_landing"><img style={ style_logo_img } id="logo-img" src="https://foodoasis.la/assets/images/fola.svg" width="100" alt="FOLA" /></Link>
+					<span id="header-title" style={ style_span_header }>Healthy Food for All Angelenos</span>
 				</div>
 			</header>
 		)
 	}
 };
 
-const Header = withRouter(_Header)
 export default Header;
