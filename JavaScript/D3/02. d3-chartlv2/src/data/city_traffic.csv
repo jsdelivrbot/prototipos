@@ -1,11 +1,11 @@
-city,hours
-Los Angeles,102
-New York City,91
-San Francisco,79
-Atlanta,70
-Miami,64
-Washington DC,63
-Boston,60
-Chicago,57
-Seattle,55
-Dallas,54
+name,hours_2016,hours_2017
+Los Angeles,104,102
+New York City,89,91
+San Francisco,83,79
+Atlanta,71,70
+Miami,65,64
+Washington DC,61,63
+Boston,58,60
+Chicago,57,57
+Seattle,55,55
+Dallas,59,54
