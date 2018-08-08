@@ -19,6 +19,6 @@ var newTodo = new Todo({
     text: 'cook dinner'
 })
 
-newTodo.save().then((doc => {
-    
-}))
+// newTodo.save().then((doc => {
+
+// }))
