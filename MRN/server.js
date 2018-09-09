@@ -20,4 +20,4 @@ app.get('/info', (request, response) => {
 
 app.listen(3000, () => {
     console.log('Server is up on 3000');
-})
+});
